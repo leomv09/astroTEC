@@ -1,6 +1,3 @@
-<?php
-ini_set('display_errors', 'On');
-error_reporting(E_ALL); ?>
 <?php require( "php/funfacts.php"); ?>
 
 <!DOCTYPE html>

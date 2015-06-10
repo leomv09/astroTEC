@@ -1,5 +1,4 @@
-<!--<?php require( "php/events.php"); ?> -->
-
+<?php require( "php/gallery.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -52,50 +51,9 @@
 			<!-- <h1 class="tittle">FAQs</h1> -->
 			
 			<div class="row">
-
-			<div class="">
-
-				<div class="panel panel-default">
-					<div class="media">
-
-		        <a href="#" class="pull-left">
-
-		            <img src="img/Galerias/1/stars.jpg" class="media-object img-thumbnail" width="260" height="180" alt="A album">
-
-		        </a>
-
-		        <div class="media-body">
-
-		            <h4 class="media-heading"><strong>El Sistema Solar</strong> <small><i>Modificado el 10 de enero, 2014</i></small></h4>
-
-		            <p>Este es el sistema solar. Incluye a Plutón.</p>
-		        </div>
-
-		    </div>
-				</div>
+			<?php getGalleries(); ?>
 			</div>
-			<div class="">
-				<div class="panel panel-default">
-					<div class="media">
 
-		        <a href="#" class="pull-left">
-
-		            <img src="img/Galerias/1/telescope.jpg" class="media-object img-thumbnail" width="260" height="180" alt="A album">
-
-		        </a>
-
-		        <div class="media-body">
-
-		            <h4 class="media-heading"><strong>Telescopios</strong> <small><i>Modificado el 28 de febrero, 2014</i></small></h4>
-
-		            <p>Excellent feature! I love it. One day I'm definitely going to put this Bootstrap component into use and I'll let you know once I do.</p>
-
-		        </div>
-
-		    </div>
-				</div>
-			</div>
-		</div>
 		<div class="row">
 			<div class="col-sm-1 col-sm-offset-5">
 				<a href="https://www.facebook.com/AstroTEC.ITCR" class="thumbnail">
