@@ -10,6 +10,7 @@
 <head>
 	<title>AstroTEC - Blog</title>
 	<?php require('./php/head.php'); ?>
+	<link rel="stylesheet" type="text/css" href="css/blog.css">
 </head>
 
 <body>
@@ -19,7 +20,13 @@
 	<![endif]-->
 	<div class="container">
 		<?php require('./php/navbar.php'); ?>
-		
+		<div class="row">
+			<div class="col-md-3 post">
+				<a href="./post?id=n" class="thumbnail ">
+					<h2>Blab balbalas assas</h2>
+				</a>
+			</div>
+		</div>
 	</div>
 
 

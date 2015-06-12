@@ -1,0 +1,7 @@
+
+.post {
+	text-align: center;
+}
+.post a:hover {
+	background-color: rgba(255,255,255,0.45);
+}
