@@ -29,6 +29,7 @@ function checkSession()
 	<meta name="keywords" content="" />
 	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/admin.css">
+	<script type="text/javascript" src="js/admin.js"></script>	
 	<script type="text/javascript" src="js/events.js"></script>	
 </head>
 
@@ -103,6 +104,7 @@ function checkSession()
   		<div class="col-md-10 content">
   			  <div class="panel panel-default">
 	<div class="panel-heading" id="heading">
+		Panel
 	</div>
 	<div class="hidden" id="hidden1">
 			<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Evento </h2>
