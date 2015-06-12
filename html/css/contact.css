@@ -1,0 +1,23 @@
+
+.submit {
+	text-align: center;
+}
+.submit input{
+	width: 25%;
+	border-radius: 15px;
+	font-size: 25px;
+		
+}
+
+legend {
+	text-align: right;
+	color: whitesmoke;
+}
+
+label {
+	color: white;
+}
+
+textarea {
+	height: 30%;
+}
