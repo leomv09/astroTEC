@@ -9,6 +9,10 @@ function checkSession()
 				</script>
 			";
 	}
+	else
+	{
+		redirect_if_not_logged('index.php');
+	}
 }
 ?>
 
