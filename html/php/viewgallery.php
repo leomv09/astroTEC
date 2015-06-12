@@ -8,7 +8,7 @@ function getPictures()
 	}
 	global $conn;
 	$idGaleria = (int)$_GET["galeria"];
-	$sql = $conn->prepare("SELECT F.titulo as titulo, F.descripcion as descripcion,
+	$sql = $conn->prepare("SELECT F.titulo as titulo, F.descripcion as descripcion, F.idFoto as idFoto,
 							   AA.url as urlImagen
 								FROM galerias G
 									INNER JOIN fotosxgaleria FG
@@ -30,7 +30,7 @@ function getPictures()
 			while($row = $result->fetch_assoc())
 			{
 				echo 
-				"<div class='ultraduper'>
+				"<a name='f$row[idFoto]'>
 					<div class='panel panel-default'>
 						<div class='media'>
 				        	<a class='pull-left' href='$row[urlImagen]'>
@@ -40,10 +40,12 @@ function getPictures()
 					            <h4 class='media-heading'><strong>$row[titulo]</strong></h4>
 					            <p>$row[descripcion]</p>
 					        </div>
-
 			    		</div>
+				        <div class='fb-like' 
+						        data-href='$_SERVER[SERVER_NAME]/viewgallery.php?galeria=$idGaleria#f$row[idFoto]'
+						        data-layout='button_count' data-action='like' data-show-faces='false' data-share='true'></div>
 					</div>
-				</div>";
+				</a>";
 			}
 
 			$result->close();
