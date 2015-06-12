@@ -94,6 +94,9 @@ function checkSession()
 					<li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
 					<li><a href="#" onclick="show(1, 'Modificar Eventos')"><span </span> Modificar Eventos </a></li>
 					<li><a href="#" onclick="show(4, 'Crear eventos')"><span ></span> Crear eventos </a></li>
+					<li><a href="#" onclick="show(0, 'Modificar fun facts')"><span ></span> Modificar fun facts </a></li>
+					<li><a href="#" onclick="show(0, 'Modificar faqs')"><span ></span> Modificar faqs </a></li>
+					<li><a href="#" onclick="show(0, 'Modificar galería')"><span ></span> Modificar galería </a></li>
 
 				</ul>
 			</div>

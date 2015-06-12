@@ -1,7 +1,10 @@
 function show(id, panelName)
 {
 	hide();
-	document.getElementById('hidden' + id).className = "active";
+	if(id > 0)
+	{
+		document.getElementById('hidden' + id).className = "active";
+	}
 	setHeading(panelName)
 }
 
