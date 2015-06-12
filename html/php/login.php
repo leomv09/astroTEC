@@ -34,7 +34,7 @@
 			$result->close();
 			unset($_SESSION['LOGIN_ERRMSG']);
 			session_write_close();
-			header("location: ../index.php");
+			header("location: ../adminPage.php");
 			exit();
 		}
 		else {
