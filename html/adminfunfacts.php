@@ -24,11 +24,11 @@ error_reporting(E_ALL); ?>
 	<div class="container">
 		<?php require('./php/navbar.php'); ?>
 		<div class="row">
-			<?php getSimplifiedList('SELECT faq as Pregunta, respuesta as Respuesta, idFaq FROM faqs;',
-									array('Pregunta','Respuesta'),
-									'idFaq',
+			<?php getSimplifiedList('SELECT fecha as Fecha, contenido as Dato, idDatoCurioso FROM datoscuriosos;',
+									array('Fecha','Dato'),
+									'idDatoCurioso',
 									'Eliminar',
-									'removefaq.php') ?>
+									'removefunfact.php') ?>
 		</div>
 	</div>
 
