@@ -61,3 +61,7 @@ INSERT INTO FotosXGaleria (fk_idGaleria, fk_idFoto) VALUES
 INSERT INTO Eventos (idEvento, titulo, fecha, descripcion, fk_idGaleria, fk_idEstado) VALUES
 (1, 'Jueves Astronómico 12', '2015-05-21 18:00:00', 'HOME, un filme dirigido por Yann Arthus Bertrand. Lugar: Salón Multiusos de la Escuela de Física', 1, 1);
 
+INSERT INTO Faqs (faq,respuesta) VALUES 
+('¿Qué son los Jueves Astronómicos?','Todos los Jueves tenemos reuniones donde exploramos la complejidad del cosmos. Estos son los Jueves Astronómicos.'),
+('¿Necesito inscribirme?','No necesitas ser un miembro formal para participar en nuestra actividades.'),
+('¿De qué temas hablan?','Hablamos de temas relacionados con la física de los cuerpos celestes, los recientes descubrimientos en el cosmos, y mucho más.');
