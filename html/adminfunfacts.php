@@ -28,7 +28,7 @@ error_reporting(E_ALL); ?>
 									array('Fecha','Dato'),
 									'idDatoCurioso',
 									'Eliminar',
-									'removefunfact.php') ?>
+									'php/removefunfact.php') ?>
 		</div>
 	</div>
 
