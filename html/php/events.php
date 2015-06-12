@@ -7,7 +7,7 @@ $events = array();
 function getEventsInfo()
 {
 	global $gallery, $conn;
-	$sql = "SELECT titulo, DATE_FORMAT(fecha, '%Y') AS year, DATE_FORMAT(fecha, '%M') AS month, DATE_FORMAT(fecha, '%d') AS day, DATE_FORMAT(fecha, '%W') AS dayName, DATE_FORMAT(fecha, '%%h:%i %p') AS hour, descripcion, fk_idGaleria FROM Eventos WHERE fk_idEstado = 1 limit 7";
+	$sql = "SELECT titulo, DATE_FORMAT(fecha, '%Y') AS year, DATE_FORMAT(fecha, '%M') AS month, DATE_FORMAT(fecha, '%d') AS day, DATE_FORMAT(fecha, '%W') AS dayName, DATE_FORMAT(fecha, '%h:%i %p') AS hour, descripcion, fk_idGaleria FROM Eventos WHERE fk_idEstado = 1 limit 7";
 
 	$result = $conn->query($sql);
 

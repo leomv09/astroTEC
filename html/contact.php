@@ -22,30 +22,31 @@
 		<?php require('./php/navbar.php'); ?>
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
-				<form action="#" method="post">
+				<form action="./php/contact-sub.php" method="post">
 					<fieldset>
 						<legend> Información del emisor</legend>
 						<div class="form-group">
 							<label for="iname">Nombre</label> 
-							<input type="text" id="iname" class="form-control" required> 
+							<input type="text" id="iname" name="iname" class="form-control" required> 
 						</div>
 						<div class="form-group">
 							<label for="iemail">Correo</label> 
-							<input type="email" id="iemail" class="form-control" required> 
+							<input type="email" id="iemail" name="iemail" class="form-control" required> 
 						</div>
 					</fieldset>
 					<fieldset>
 						<legend> Mensaje</legend>
 						<div class="form-group">
 							<label for="ititle">Titulo</label> 
-							<input type="text" id="ititle" class="form-control" required> 
+							<input type="text" id="ititle" name="ititle" class="form-control" required> 
 						</div>
 						<div class="form-group">
 							<label for="itext">Mensaje</label> 
-							<textarea id="itext" class="form-control" required></textarea>
+							<textarea id="itext" name="itext" class="form-control" required></textarea>
 						</div>
 					</fieldset>
 					<div class="form-group submit">
+						<input type="hidden" name="save" value="contact">
 						<input type="submit"  name="scontact" value="Enviar">
 					</div>
 				</form>

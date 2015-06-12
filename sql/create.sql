@@ -4,6 +4,10 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+
+
+
+DROP SCHEMA IF EXISTS `astroDB` ;
 -- -----------------------------------------------------
 -- Schema astroDB
 -- -----------------------------------------------------
@@ -20,6 +24,17 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`EstadoUsuario` (
 ENGINE = InnoDB;
 
 
+-- Tipo de Usuarios
+
+
+CREATE TABLE IF NOT EXISTS `astroDB`.`TipoUsuario` (
+  `idTipoUsuario` INT NOT NULL,
+  `tipo` VARCHAR(45) NULL,
+  PRIMARY KEY (`idTipoUsuario`),
+  UNIQUE INDEX `tipo_UNIQUE` (`tipo` ASC))
+ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
 -- Table `astroDB`.`Usuarios`
 -- -----------------------------------------------------
@@ -32,11 +47,17 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`Usuarios` (
   `password` VARCHAR(64) NOT NULL,
   `genero` CHAR(1) NULL,
   `fk_idEstado` INT NOT NULL,
+  `fk_idTipoUsuario` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`idUsuario`),
   INDEX `fk_Usuarios_EstadoUsuario_idx` (`fk_idEstado` ASC),
   CONSTRAINT `fk_Usuarios_EstadoUsuario`
     FOREIGN KEY (`fk_idEstado`)
     REFERENCES `astroDB`.`EstadoUsuario` (`idEstado`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    CONSTRAINT `FK_idTipoUsuarioXTipoUsuario`
+    FOREIGN KEY (`fk_idTipoUsuario`)
+    REFERENCES `astroDB`.`TipoUsuario` (`idTipoUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -399,6 +420,15 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`Faqs` (
   `faq` VARCHAR(100) NOT NULL,
   `respuesta` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`idFaq`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `astrodb`.`Messages` (
+  `idMessages` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(90) NOT NULL,
+  `Email` VARCHAR(100) NOT NULL,
+  `Title` VARCHAR(120) NOT NULL,
+  `Message` TEXT NOT NULL,
+  PRIMARY KEY (`idMessages`))
 ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
