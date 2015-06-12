@@ -246,32 +246,13 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`Tags` (
   PRIMARY KEY (`idTag`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `astroDB`.`EstadoDatoCurioso`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `astroDB`.`EstadoDatoCurioso` (
-  `idEstado` INT NOT NULL AUTO_INCREMENT,
-  `estado` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idEstado`))
-ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `astroDB`.`DatosCuriosos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `astroDB`.`DatosCuriosos` (
   `idDatoCurioso` INT NOT NULL AUTO_INCREMENT,
   `contenido` MEDIUMTEXT NOT NULL,
-  `fecha` DATETIME(3) NOT NULL,
-  `fk_idEstado` INT NOT NULL,
-  PRIMARY KEY (`idDatoCurioso`),
-  INDEX `fk_DatosCuriosos_EstadoDatoCurioso1_idx` (`fk_idEstado` ASC),
-  CONSTRAINT `fk_DatosCuriosos_EstadoDatoCurioso1`
-    FOREIGN KEY (`fk_idEstado`)
-    REFERENCES `astroDB`.`EstadoDatoCurioso` (`idEstado`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `fecha` DATETIME(3) NOT NULL)
 ENGINE = InnoDB;
 
 
