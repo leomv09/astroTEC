@@ -7,7 +7,7 @@
 <!--<![endif]-->
 
 <head>
-	<title>AstroTEC</title>
+	<title>AstroTEC - Acerca de</title>
 	<?php require('./php/head.php'); ?>
 </head>
 
