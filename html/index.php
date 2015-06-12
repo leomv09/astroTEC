@@ -9,14 +9,8 @@
 
 <head>
 	<title>AstroTEC</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<?php require('./php/head.php'); ?>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 
 <body>
@@ -25,38 +19,10 @@
 		Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 	<div class="container">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.php">AstroTEC</a>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="./events.php">Eventos</a>
-						</li>
-						<li><a href="#">Galería</a>
-						</li>
-						<li><a href="#">Datos Curiosos</a>
-						</li>
-						<li><a href="#">Blog</a>
-						</li>
-						<li><a href="#">Contacto</a>
-						</li>
-						<li><a href="#">FAQs</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+		<?php require('./php/navbar.php'); ?>
 		<div class="row">
 			<div class="col-md-4">
-				<div class="panel panel-default">
+				<div class="panel panel-default panel-head">
 					<div class="panel-heading">
 						<h1 class="panel-title">Dato Curioso</h1>
 					</div>
@@ -66,7 +32,7 @@
 						</p>
 					</div>
 					<div class="panel-footer">
-						<a href="#">Ver más datos</a>
+						<a href="./funfacts.php">Ver más datos</a>
 					</div>
 				</div>
 			</div>
@@ -81,7 +47,7 @@
 						</p>
 					</div>
 					<div class="panel-footer">
-						<a href="equipment.html">Ver equipo</a>
+						<a href="equipment.php">Ver equipo</a>
 					</div>
 				</div>
 			</div>
@@ -96,7 +62,7 @@
 						</p>
 					</div>
 					<div class="panel-footer">
-						<a href="./aboutUs.html">Ver más</a>
+						<a href="./aboutUs.php">Ver más</a>
 					</div>
 				</div>
 			</div>

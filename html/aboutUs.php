@@ -8,14 +8,7 @@
 
 <head>
 	<title>AstroTEC</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<?php require('./php/head.php'); ?>
 </head>
 
 <body>
@@ -24,35 +17,7 @@
 		Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 	<div class="container">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.php">AstroTEC</a>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="./events.php">Eventos</a>
-						</li>
-						<li><a href="#">Galería</a>
-						</li>
-						<li><a href="#">Datos Curiosos</a>
-						</li>
-						<li><a href="#">Blog</a>
-						</li>
-						<li><a href="#">Contacto</a>
-						</li>
-						<li><a href="#">FAQs</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+		<?php require('./php/navbar.php'); ?>
 		<div class="row">
 			<div class="col-md-4">
 				<div class="panel panel-default">
@@ -93,13 +58,13 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-4 col-sm-offset-1" >
-				<a href="./team.html" class="thumbnail">
+				<a href="./team.php" class="thumbnail">
 					<h3>Miembros</h3>
 					<img src="./img/Galerias/1/grupo.jpg" alt="team">
 				</a>
 			</div>
 			<div class="col-sm-4 col-sm-offset-2">
-				<a href="./equipment.html" class="thumbnail">
+				<a href="./equipment.php" class="thumbnail">
 					<h3>Equipo</h3>
 					<img src="./img/Galerias/1/telescope.jpg" alt="equipment">
 				</a>

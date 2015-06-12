@@ -10,13 +10,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
 	<title>AstroTEC - Login</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<?php require('./php/head.php'); ?>
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
@@ -25,29 +19,7 @@
 		Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 	<div class="container">
-		<nav class="navbar navbar-default">
-	  		<div class="container-fluid">
-				<div class="navbar-header">
-		  			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-			  		</button>
-			  	<a class="navbar-brand" href="index.php">AstroTEC</a>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			  		<ul class="nav navbar-nav">
-						<li><a href="#">Eventos</a></li>
-						<li><a href="#">Galería</a></li>
-						<li><a href="#">Datos Curiosos</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Contacto</a></li>
-						<li><a href="#">FAQs</a></li>
-			  		</ul>
-				</div>
-	  		</div>
-		</nav>
+		<?php require('./php/navbar.php'); ?>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">
