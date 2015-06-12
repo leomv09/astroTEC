@@ -24,6 +24,7 @@
 			<div class="col-md-3 post">
 				<a href="./post?id=n" class="thumbnail ">
 					<h2>Blab balbalas assas</h2>
+                    aaa
 				</a>
 			</div>
 		</div>
