@@ -20,9 +20,10 @@
 		exit();
 	}
 
-	// Check if the email isn't already in use.
-	$sql = "SELECT COUNT(*) AS cnt FROM Usuarios WHERE correo='$email'";
-	$result = $conn->query($sql);
+	$sql = $conn->prepare("SELECT COUNT(*) AS cnt FROM Usuarios WHERE correo= ?");
+	$sql->bind_param("s",$email);
+	$sql->execute();
+	$result=$sql->get_result();
 
 	if ($result) {
 		if ($result->num_rows > 0) {
@@ -64,8 +65,13 @@
 	}
 
 	// Create the user.
-	$sql = "INSERT INTO Usuarios (fk_idEstado, nombre, correo, password) VALUES ($state, '$name', '$email', '$hashed_password')";
-	$result = $conn->query($sql);
+
+	$sql = $conn->prepare(
+		"INSERT INTO Usuarios (fk_idEstado, nombre, correo, password) 
+		VALUES ($state, ?, ?, '$hashed_password')");
+	$sql->bind_param("ss",$name,$email);
+	$sql->execute();
+	$result=$sql->get_result();
 	
 	if ($result) {
 		session_regenerate_id();

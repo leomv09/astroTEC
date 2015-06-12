@@ -11,9 +11,12 @@
 	$remember = $_POST['remember'];
 	$hashed_password = hash("sha256", $password);
 
-	// Get the user.
-	$sql = "SELECT idUsuario, correo, nombre FROM Usuarios WHERE correo='$email' AND password='$hashed_password'";
-	$result = $conn->query($sql);
+	$sql = $conn->prepare("SELECT idUsuario, correo, nombre 
+			FROM Usuarios WHERE correo= ? 
+			AND password= ?");
+	$sql->bind_param("ss",$email,$hashed_password);
+	$sql->execute();
+	$result=$sql->get_result();
 	
 	if ($result) {
 		if ($result->num_rows > 0) {
