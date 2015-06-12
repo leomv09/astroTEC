@@ -22,7 +22,7 @@
 		<?php require('./php/navbar.php'); ?>
 		<div class="row">
 			<div class="col-md-4">
-				<div class="panel panel-default panel-head">
+				<div class="panel panel-default semitransparent">
 					<div class="panel-heading">
 						<h1 class="panel-title">Dato Curioso</h1>
 					</div>
@@ -31,13 +31,13 @@
 							<?php require( "./php/index-add.php"); ?>
 						</p>
 					</div>
-					<div class="panel-footer">
+					<div class="panel-footer rigth-alig">
 						<a href="./funfacts.php">Ver más datos</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="panel panel-default">
+				<div class="panel panel-default semitransparent">
 					<div class="panel-heading">
 						<h1 class="panel-title">Equipo Astronómico</h1>
 					</div>
@@ -46,13 +46,13 @@
 							aaaaaaaaaaaaaaaaaaaaaaaa
 						</p>
 					</div>
-					<div class="panel-footer">
+					<div class="panel-footer rigth-alig">
 						<a href="equipment.php">Ver equipo</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="panel panel-default">
+				<div class="panel panel-default semitransparent">
 					<div class="panel-heading">
 						<h1 class="panel-title">Grupo astroTEC</h1>
 					</div>
@@ -61,7 +61,7 @@
 							<?php $test="Núñez" ; echo $test; ?>
 						</p>
 					</div>
-					<div class="panel-footer">
+					<div class="panel-footer rigth-alig">
 						<a href="./aboutUs.php">Ver más</a>
 					</div>
 				</div>
