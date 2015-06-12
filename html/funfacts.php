@@ -1,3 +1,4 @@
+<?php require( "php/functions.php");?>
 <?php require( "php/funfacts.php"); ?>
 
 <!DOCTYPE html>
