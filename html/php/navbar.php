@@ -17,7 +17,7 @@
 				</li>
 				<li><a href="./funfacts.php">Datos Curiosos</a>
 				</li>
-				<li><a href="#">Blog</a>
+				<li><a href="./blog.php">Blog</a>
 				</li>
 				<li><a href="./contact.php">Contacto</a>
 				</li>

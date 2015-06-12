@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-	<title>AstroTEC - Acerca de</title>
+	<title>AstroTEC - Contacto</title>
 	<?php require('./php/head.php'); ?>
 	<link rel="stylesheet" type="text/css" href="css/contact.css">
 </head>
