@@ -28,7 +28,7 @@ error_reporting(E_ALL); ?>
 									array('Pregunta','Respuesta'),
 									'idFaq',
 									'Eliminar',
-									'removefaq.php') ?>
+									'php/removefaq.php') ?>
 		</div>
 	</div>
 
