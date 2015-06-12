@@ -2,6 +2,7 @@
 require_once('db.php');
 
 $gallery = array();
+$events = array();
 
 function getEventsInfo()
 {
@@ -41,6 +42,40 @@ function getEventsInfo()
 		{
 
 		}
+	}
+}
+
+function getEvents()
+{
+	global $events, $conn;
+	$sql = "SELECT idEvento, titulo, fecha, descripcion FROM Eventos WHERE fk_idEstado = 1";
+
+	$result = $conn->query($sql);
+
+	if($result)
+	{
+		if($result->num_rows > 0)
+		{
+			$i = 0;
+			while($row = $result->fetch_assoc())
+			{
+				array_push($events, $row);
+			}
+
+		}
+	}
+}
+
+function loadEvents()
+{
+	global $events;
+
+	$arrlength = count($events);
+
+	for($x = 0; $x < $arrlength; $x++) 
+	{
+    	$currentRes = $events[$x];
+    	echo "<option value=$currentRes[idEvento]> $currentRes[titulo] </option>";
 	}
 }
 
