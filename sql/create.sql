@@ -4,9 +4,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-
-
-
 DROP SCHEMA IF EXISTS `astroDB` ;
 -- -----------------------------------------------------
 -- Schema astroDB
@@ -68,7 +65,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `astroDB`.`Galerias` (
   `idGaleria` INT NOT NULL AUTO_INCREMENT,
-  `fecha` DATETIME(3) NOT NULL,
+  `fecha` DATETIME NOT NULL,
   `titulo` VARCHAR(100) NULL,
   `descripcion` VARCHAR(300) NULL,
   PRIMARY KEY (`idGaleria`))
@@ -91,7 +88,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `astroDB`.`Eventos` (
   `idEvento` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(100) NOT NULL,
-  `fecha` DATETIME(3) NOT NULL,
+  `fecha` DATETIME NOT NULL,
   `descripcion` VARCHAR(200) NOT NULL,
   `fk_idGaleria` INT NULL,
   `fk_idEstado` INT NOT NULL,
@@ -175,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`Publicaciones` (
   `idPublicacion` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(45) NOT NULL,
   `contenido` LONGTEXT NOT NULL,
-  `fecha` DATETIME(3) NOT NULL,
+  `fecha` DATETIME NOT NULL,
   `fk_idEstado` INT NOT NULL,
   `fk_idArchivo` INT NOT NULL,
   PRIMARY KEY (`idPublicacion`),
@@ -217,7 +214,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `astroDB`.`Rankings` (
   `idRanking` INT NOT NULL AUTO_INCREMENT,
-  `fecha` DATETIME(3) NOT NULL,
+  `fecha` DATETIME NOT NULL,
   `calificacion` DECIMAL NOT NULL,
   `fk_idUsuario` INT NOT NULL,
   `fk_idFoto` INT NOT NULL,
@@ -252,7 +249,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `astroDB`.`DatosCuriosos` (
   `idDatoCurioso` INT NOT NULL AUTO_INCREMENT,
   `contenido` MEDIUMTEXT NOT NULL,
-  `fecha` DATETIME(3) NOT NULL)
+  `fecha` DATETIME NOT NULL,
+  PRIMARY KEY (`idDatoCurioso`))
 ENGINE = InnoDB;
 
 
@@ -315,7 +313,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `astroDB`.`Comentarios` (
   `idComentario` INT NOT NULL AUTO_INCREMENT,
   `contenido` MEDIUMTEXT NOT NULL,
-  `fecha` DATETIME(3) NOT NULL,
+  `fecha` DATETIME NOT NULL,
   `fk_idEstado` INT NOT NULL,
   `fk_idUsuario` INT NOT NULL,
   PRIMARY KEY (`idComentario`),
