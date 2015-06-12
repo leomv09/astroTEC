@@ -41,12 +41,12 @@ INSERT INTO ArchivosAdjunto (idArchivo, url, nombre, descripcion, fk_idTipoArchi
 (4, 'img/Galerias/1/stars.jpg', 'Estrellas', NULL, 4, 1),
 (5, 'img/Galerias/1/telescope.jpg', 'Telescopio', NULL, 4, 1);
 
-INSERT INTO Fotos (idFoto, descripcion, titulo, fk_idArchivo) VALUES
-(1, NULL, NULL, 1),
-(2, NULL, NULL, 2),
-(3, NULL, NULL, 3),
-(4, NULL, NULL, 4),
-(5, NULL, NULL, 5);
+INSERT INTO Fotos (idFoto, titulo, descripcion, fk_idArchivo) VALUES
+(1, 'Participantes AstroTEC', 'Esta foto fue tomada en las primeros Jueves Astronómicos.', 1),
+(2, 'Nuestro Logo', 'El logo oficial de AstroTEC fue propuesto por un estudiante de Diseño Industrial.', 2),
+(3, 'Nebulosa XT215', 'Conocida entre los astrónomos, fue una de las primeras en ser descubiertas.', 3),
+(4, 'Noche estrellada', 'Logramos capturar estas constelaciones en Guanacaste.', 4),
+(5, 'Telescopio', 'Uno de los mejores telescopios en todo el país nos permite tener una mejor visión del cosmos.', 5);
 
 INSERT INTO Galerias (idGaleria, fecha, titulo, descripcion) VALUES
 (1, '2015-05-24 12:45:34', 'Galería de prueba', NULL);

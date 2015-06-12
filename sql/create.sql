@@ -48,8 +48,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `astroDB`.`Galerias` (
   `idGaleria` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATETIME(3) NOT NULL,
-  `titulo` VARCHAR(45) NULL,
-  `descripcion` VARCHAR(45) NULL,
+  `titulo` VARCHAR(100) NULL,
+  `descripcion` VARCHAR(300) NULL,
   PRIMARY KEY (`idGaleria`))
 ENGINE = InnoDB;
 
@@ -69,7 +69,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `astroDB`.`Eventos` (
   `idEvento` INT NOT NULL AUTO_INCREMENT,
-  `titulo` VARCHAR(45) NOT NULL,
+  `titulo` VARCHAR(100) NOT NULL,
   `fecha` DATETIME(3) NOT NULL,
   `descripcion` VARCHAR(200) NOT NULL,
   `fk_idGaleria` INT NOT NULL,
@@ -178,8 +178,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `astroDB`.`Fotos` (
   `idFoto` INT NOT NULL AUTO_INCREMENT,
-  `descripcion` VARCHAR(100) NULL,
-  `titulo` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(300) NULL,
+  `titulo` VARCHAR(100) NULL,
   `fk_idArchivo` INT NOT NULL,
   PRIMARY KEY (`idFoto`),
   INDEX `fk_Fotos_ArchivosAdjunto1_idx` (`fk_idArchivo` ASC),
@@ -399,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`Faqs` (
   `faq` VARCHAR(100) NOT NULL,
   `respuesta` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`idFaq`))
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
