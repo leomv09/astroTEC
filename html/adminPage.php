@@ -92,8 +92,8 @@ function checkSession()
 			<div class="side-menu-container">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-					<li><a href="#" onclick="show(1)"><span </span> Modificar Eventos </a></li>
-					<li><a href="#" onclick="show(4)"><span ></span> Crear eventos </a></li>
+					<li><a href="#" onclick="show(1, 'Modificar Eventos')"><span </span> Modificar Eventos </a></li>
+					<li><a href="#" onclick="show(4, 'Crear eventos')"><span ></span> Crear eventos </a></li>
 
 				</ul>
 			</div>
@@ -103,7 +103,7 @@ function checkSession()
 </div>  		</div>
   		<div class="col-md-10 content">
   			  <div class="panel panel-default">
-	<div class="panel-heading" id="heading">
+	<div class="panel-heading" id="panelheading">
 		Panel
 	</div>
 	<div class="hidden" id="hidden1">

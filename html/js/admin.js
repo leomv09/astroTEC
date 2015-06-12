@@ -1,7 +1,13 @@
-function show(id)
+function show(id, panelName)
 {
 	hide();
 	document.getElementById('hidden' + id).className = "active";
+	setHeading(panelName)
+}
+
+function setHeading(panel)
+{
+	document.getElementById('panelheading').innerHTML = panel;
 }
 
 function hide()
