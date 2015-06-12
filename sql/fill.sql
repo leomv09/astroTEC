@@ -5,6 +5,10 @@ INSERT INTO EstadoUsuario (idEstado, estado) VALUES
 (2, 'inactivo'),
 (3, 'bloqueado');
 
+INSERT INTO TipoUsuario (idTipoUsuario, tipo) VALUES
+(1, 'normal'),
+(2, 'admininistrador');
+
 INSERT INTO EstadoEvento (idEstado, estado) VALUES
 (1, 'por iniciar'),
 (2, 'finalizado'),
@@ -23,9 +27,9 @@ INSERT INTO EstadoArchivo (idEstado, estado) VALUES
 (2, 'eliminado'),
 (3, 'bloqueado');
 
-INSERT INTO Usuarios (nombre, apellido1, apellido2, genero, correo, password, fk_idEstado) VALUES
-('Administrador', NULL, NULL, 'M', 'admin@example.com', SHA2('123', 256), 1),
-('Jhon', 'Doe', NULL, 'M', 'jhondoe@example.com', SHA2('abc', 256), 1);
+INSERT INTO Usuarios (nombre, apellido1, apellido2, genero, correo, password, fk_idEstado, fk_idTipoUsuario) VALUES
+('Administrador', NULL, NULL, 'M', 'admin@example.com', SHA2('123', 256), 1, 2),
+('Jhon', 'Doe', NULL, 'M', 'jhondoe@example.com', SHA2('abc', 256), 1, 1);
 
 INSERT INTO estadodatocurioso (estado) VALUES
 ('Valido'),
