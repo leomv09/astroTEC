@@ -19,7 +19,7 @@
 				</li>
 				<li><a href="#">Blog</a>
 				</li>
-				<li><a href="#">Contacto</a>
+				<li><a href="./contact.php">Contacto</a>
 				</li>
 				<li><a href="./faqs.php">FAQs</a>
 				</li>
