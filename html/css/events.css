@@ -16,6 +16,22 @@ th
 	text-align: center;
 }
 
+#editEvents
+{
+  color: black;
+}
+
+label
+{
+  color: white;
+}
+
+h2, h3, h4
+{
+  color: white;
+  text-align: center;
+}
+
 .agenda {  }
 
 /* Dates */

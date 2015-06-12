@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`Eventos` (
   `titulo` VARCHAR(100) NOT NULL,
   `fecha` DATETIME(3) NOT NULL,
   `descripcion` VARCHAR(200) NOT NULL,
-  `fk_idGaleria` INT NOT NULL,
+  `fk_idGaleria` INT NULL,
   `fk_idEstado` INT NOT NULL,
   PRIMARY KEY (`idEvento`),
   INDEX `fk_Eventos_Galerias1_idx` (`fk_idGaleria` ASC),

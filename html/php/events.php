@@ -29,6 +29,7 @@ function getEventsInfo()
 			        </td>
 			        <td class='agenda-events'>
 			            <div class='agenda-event'>
+			            <h4> $row[titulo] </h4>
 			                $row[descripcion]
 			            </div>
 			        </td>
@@ -49,7 +50,7 @@ function getEvents()
 {
 	global $events, $conn;
 	$sql = "SELECT idEvento, titulo, fecha, descripcion FROM Eventos WHERE fk_idEstado = 1";
-
+	$events = array();
 	$result = $conn->query($sql);
 
 	if($result)
