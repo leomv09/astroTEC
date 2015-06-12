@@ -89,7 +89,6 @@ function checkSession()
 					<li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
 					<li><a href="#" onclick="show(1)"><span </span> Modificar Eventos </a></li>
 					<li><a href="#" onclick="show(4)"><span ></span> Crear eventos </a></li>
-					<li><a href="#"><span></span> Link </a></li>
 
 				</ul>
 			</div>
