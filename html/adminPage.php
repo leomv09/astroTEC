@@ -1,12 +1,11 @@
 <?php require( "php/functions.php");?>
 <?php require( "php/events.php"); 
-
 function checkSession()
 {
 	if(isset($_SESSION['USER_NAME']))
 	{
 		echo " <script type='text/javascript'>
-				showAdminName($_SESSION[USER_NAME]);
+				showAdminName('$_SESSION[USER_NAME]');
 				</script>
 			";
 	}
@@ -27,7 +26,6 @@ function checkSession()
 	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/admin.css">
 	<script type="text/javascript" src="js/events.js"></script>	
-	<?php checkSession();?>
 </head>
 
 <body>
@@ -46,6 +44,7 @@ function checkSession()
 			<a id="adminName" class="navbar-brand" href="#">
 				Administrator
 			</a>
+			<?php checkSession();?>
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
@@ -57,8 +56,22 @@ function checkSession()
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown ">
-					<a href="#" role="button" aria-expanded="false">
-						Logout</a>
+				<?php
+					if (!isset($_SESSION['USER_ID'])) 
+					{
+						?>
+							<a href="./login.php" role="button" aria-expanded="false">
+								Login</a>
+						<?php	
+							}
+							else
+							{
+						?>
+							<a href="./php/logout.php" role="button" aria-expanded="false">
+								Logout</a>
+						<?php
+							}
+						?>
 					</li>
 				</ul>
 			</div>
