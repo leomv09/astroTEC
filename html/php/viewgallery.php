@@ -26,8 +26,6 @@ function getPictures()
 	{
 		if($result->num_rows > 0)
 		{
-
-		echo "Yolo";
 			$i = 0;
 			while($row = $result->fetch_assoc())
 			{
