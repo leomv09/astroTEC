@@ -5,4 +5,5 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/vendor/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">

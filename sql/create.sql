@@ -170,22 +170,15 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `astroDB`.`Publicaciones` (
   `idPublicacion` INT NOT NULL AUTO_INCREMENT,
-  `titulo` VARCHAR(45) NOT NULL,
+  `titulo` VARCHAR(300) NOT NULL,
   `contenido` LONGTEXT NOT NULL,
   `fecha` DATETIME NOT NULL,
-  `fk_idEstado` INT NOT NULL,
-  `fk_idArchivo` INT NOT NULL,
+  `fk_idCreador` INT NOT NULL,
   PRIMARY KEY (`idPublicacion`),
-  INDEX `fk_Publicaciones_EstadoPublicacion1_idx` (`fk_idEstado` ASC),
-  INDEX `fk_Publicaciones_ArchivosAdjunto1_idx` (`fk_idArchivo` ASC),
-  CONSTRAINT `fk_Publicaciones_EstadoPublicacion1`
-    FOREIGN KEY (`fk_idEstado`)
-    REFERENCES `astroDB`.`EstadoPublicacion` (`idEstado`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Publicaciones_ArchivosAdjunto1`
-    FOREIGN KEY (`fk_idArchivo`)
-    REFERENCES `astroDB`.`ArchivosAdjunto` (`idArchivo`)
+  INDEX `fk_idCreador_idx` (`fk_idCreador` ASC),
+  CONSTRAINT `fk_idCreador1`
+    FOREIGN KEY (`fk_idCreador`)
+    REFERENCES `astroDB`.`Usuarios` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

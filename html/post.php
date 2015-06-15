@@ -1,4 +1,23 @@
-<?php require( "php/functions.php");?>
+<?php
+	require( "php/functions.php");
+	require("php/db.php");
+
+	$id = $_GET["id"];
+
+	if ($id) {
+		$sql = "SELECT P.idPublicacion AS id, P.titulo, P.contenido, 
+						P.fecha, CONCAT(U.nombre, ' ', U.apellido1) AS autor
+						FROM Publicaciones AS P
+						INNER JOIN Usuarios AS U ON U.idUsuario = P.fk_idCreador
+						WHERE P.idPublicacion = $id";
+		$result = $conn->query($sql);
+
+		if ($result->num_rows > 0) {
+			$post = $result->fetch_assoc();
+		}
+	}
+
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -22,13 +41,14 @@
 		<?php require('./php/navbar.php'); ?>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 post">
-				<h2>Blab balbalas assas</h2>
-                <p>Cont.........aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-				</a>
+				<h2><?php echo $post["titulo"] ?></h2>
+				<p><?php echo $post["contenido"] ?></p>
+				<span><i class='fa fa-user'></i> <?php echo $post["autor"]; ?></span>
+				<br>
+				<span><i class='fa fa-calendar'></i> <?php echo $post["fecha"]; ?></span>
 			</div>
 		</div>
 	</div>
-
 
 	<script type="text/javascript" src="js/vendor/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
