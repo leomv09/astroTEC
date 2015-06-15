@@ -401,7 +401,7 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`Faqs` (
   PRIMARY KEY (`idFaq`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `astrodb`.`Messages` (
+CREATE TABLE IF NOT EXISTS `astroDB`.`Messages` (
   `idMessages` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(90) NOT NULL,
   `Email` VARCHAR(100) NOT NULL,
