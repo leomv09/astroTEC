@@ -18,6 +18,6 @@ label {
 	color: white;
 }
 
-textarea {
-	height: 30%;
+textarea.form-control {
+	height: 200px;
 }

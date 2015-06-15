@@ -50,7 +50,7 @@
 				echo "			<i class='fa fa-calendar'></i> <time>$post[fecha]</time>";
 				echo "			<i class='fa fa-user'></i> <span>$post[autor]</span>";
 				echo "		</div>";
-				echo "		<a href='post.php?id=$post[id]' class='btn btn-primary pull-right'>Leer más</a>";
+				echo "		<a href='post.php?id=$post[id]' class='btn btn-success pull-right'>Leer más</a>";
 				echo "	</div>";
 				echo "</div>";
 			}
