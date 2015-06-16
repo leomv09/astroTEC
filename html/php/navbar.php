@@ -23,22 +23,6 @@
 				</li>
 				<li><a href="./faqs.php">FAQs</a>
 				</li>
-		<?php
-			if (!isset($_SESSION['USER_ID'])) 
-			{
-		?>
-				<li><a href="./login.php">Login</a>
-				</li>
-		<?php	
-			}
-			else
-			{
-		?>
-				<li><a href="./php/logout.php">Logout</a>
-				</li>
-		<?php
-			}
-		?>
 			</ul>
 		</div>
 	</div>
