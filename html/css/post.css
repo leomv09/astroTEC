@@ -22,3 +22,20 @@
 	color: white;
 	font-weight: bold;
 }
+
+form {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+textarea.form-control {
+	height: 150px;
+}
+
+.comment {
+	color: black;
+}
+
+.panel-title {
+	font-size: small;
+}

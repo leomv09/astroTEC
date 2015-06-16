@@ -26,6 +26,11 @@ INSERT INTO EstadoArchivo (idEstado, estado) VALUES
 (2, 'eliminado'),
 (3, 'bloqueado');
 
+INSERT INTO EstadoComentario (idEstado, estado) VALUES
+(1, 'activo'),
+(2, 'eliminado'),
+(3, 'bloqueado');
+
 INSERT INTO Usuarios (idUsuario, nombre, apellido1, apellido2, genero, correo, password, fk_idEstado, fk_idTipoUsuario) VALUES
 (1, 'Administrador', NULL, NULL, 'M', 'admin@example.com', SHA2('123', 256), 1, 2),
 (2, 'Jhon', 'Doe', NULL, 'M', 'jhondoe@example.com', SHA2('abc', 256), 1, 1);
@@ -73,3 +78,19 @@ INSERT INTO Publicaciones (idPublicacion, fk_idCreador, titulo, contenido, fecha
 (1, 2, 'LightSail Test Mission Ends with Fiery Reentry', 'The last time LightSail checked in was Wednesday, June 10 at 11:29 p.m. EDT. The corresponding beacon packet, which turned out to be the missions last, displayed a real-time clock value of 1,837,416 seconds—21 days since launch on May 20. The gyroscopes, which were able to capture snapshots of the spacecraft’s tumble rate after every reboot, showed LightSail tumbling at 6.7, 2.4, and 0.3 degrees per second about its X, Y and Z axes. The Z-axis runs lengthwise through the oblong CubeSat; if LightSail were a gigantic top with its sails parallel to the floor, it was hardly spinning at all.', NOW()),
 (2, 2, 'In Pictures: LightSails Final Days in Space', 'The engineering team has been sending the spacecraft reboot commands, with no success thus far. Tyvak Nano-Satellite Systems, the radio manufacturer, reports they have never seen this behavior. Neither has Cal Poly San Luis Obispo, despite their lengthy experience with CubeSats over the years. Troubleshooting and ground testing to recreate the problem continues. Radio and astronomy observers around the world have been following LightSail closely. With just a couple days left before the mission ends, now seems like a good time to showcase a few photos and videos we’ve received of LightSail in Earth orbit. Most of these have been verified by an additional source to ensure accuracy.', NOW()),
 (3, 2, 'Tonight I Glimpsed LightSail', 'Tonight was the first time it was high enough above horizon (41ᵒ) and clear enough. It came out about 20 seconds later than I expected. But there it was. I know that by the time most of you read this, LightSail-A will probably have been incinerated in the atmosphere. That is and was the plan for this test flight. My few moments alone on the roof tonight with our LightSail spacecraft silently crossing the sky were very gratifying.', NOW());
+
+INSERT INTO Comentarios (idComentario, contenido, fecha, fk_idEstado, fk_idUsuario) VALUES
+(1, 'Interesante', NOW(), 1, 2),
+(2, 'Wow', NOW(), 1, 2),
+(3, 'Awesome', NOW(), 1, 2),
+(4, 'wow wow wow', NOW(), 1, 2),
+(5, ':D', NOW(), 1, 2),
+(6, 'D:', NOW(), 1, 2);
+
+INSERT INTO ComentariosXPublicacion (fk_idComentario, fk_idPublicacion) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 2),
+(5, 3),
+(6, 3);
