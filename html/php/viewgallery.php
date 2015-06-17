@@ -30,7 +30,7 @@ function getPictures()
 			while($row = $result->fetch_assoc())
 			{
 				echo 
-				"<a name='f$row[idFoto]'>
+				"<a name='f$row[idFoto]'></a>
 					<div class='panel panel-default'>
 						<div class='media'>
 				        	<a class='pull-left' href='$row[urlImagen]'>
@@ -45,7 +45,7 @@ function getPictures()
 						        data-href='$_SERVER[SERVER_NAME]/viewgallery.php?galeria=$idGaleria#f$row[idFoto]'
 						        data-layout='button_count' data-action='like' data-show-faces='false' data-share='true'></div>
 					</div>
-				</a>";
+				";
 			}
 
 			$result->close();
