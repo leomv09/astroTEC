@@ -1,5 +1,23 @@
 USE `astroDB` ;
 
+DELETE FROM ComentariosXPublicacion;
+DELETE FROM Comentarios;
+DELETE FROM Publicaciones;
+DELETE FROM Faqs;
+DELETE FROM Eventos;
+DELETE FROM FotosXGaleria;
+DELETE FROM Galerias;
+DELETE FROM Fotos;
+DELETE FROM Usuarios;
+DELETE FROM ArchivosAdjunto;
+DELETE FROM DatosCuriosos;
+DELETE FROM EstadoComentario;
+DELETE FROM EstadoArchivo;
+DELETE FROM TiposArchivo;
+DELETE FROM EstadoEvento;
+DELETE FROM TipoUsuario;
+DELETE FROM EstadoUsuario;
+
 INSERT INTO EstadoUsuario (idEstado, estado) VALUES
 (1, 'activo'),
 (2, 'inactivo'),
@@ -67,7 +85,11 @@ INSERT INTO FotosXGaleria (fk_idGaleria, fk_idFoto) VALUES
 (1, 5);
 
 INSERT INTO Eventos (idEvento, titulo, fecha, descripcion, fk_idGaleria, fk_idEstado) VALUES
-(1, 'Jueves Astronómico 12', '2015-05-21 18:00:00', 'HOME, un filme dirigido por Yann Arthus Bertrand. Lugar: Salón Multiusos de la Escuela de Física', 1, 1);
+(1, 'Jueves Astronómico 12', '2015-07-21 18:00:00', 'HOME, un filme dirigido por Yann Arthus Bertrand. Lugar: Salón Multiusos de la Escuela de Física', 1, 1),
+(2, 'Observando la lluvia de meteoros', '2015-08-01 22:30:00', "", NULL, 1),
+(3, 'Charla: Agujeros Negros', '2015-06-27 11:30:00', "", NULL, 1),
+(4, 'Conversatorio: Polvo estelar', '2015-07-03 2:00:00', "", NULL, 1),
+(5, 'Película: Interstellar', '2015-07-10 18:00:00', "", NULL, 1);
 
 INSERT INTO Faqs (faq,respuesta) VALUES
 ('¿Qué son los Jueves Astronómicos?','Todos los Jueves tenemos reuniones donde exploramos la complejidad del cosmos. Estos son los Jueves Astronómicos.'),
