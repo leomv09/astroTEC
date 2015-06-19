@@ -11,23 +11,22 @@
 	*/
  
 	require_once('db.php');
+	global $conn;
+	$content = $_REQUEST['fact'];
 
-	if (!isset($_POST['fact'])){
-		header("location: ../index.php");
-		exit();
+
+
+	$sql = "INSERT INTO datoscuriosos (contenido,fecha) VALUES ($content, localtimestamp());";
+	$result = $conn->query($sql);
+
+	if($result)
+	{
+		echo 1;
+	}
+	else
+	{
+		echo -1;
 	}
 
-	$content = $_POST['fact'];
-
-	if (trim($content) == false){
-		header("location: ../index.php");
-		exit();
-	}
-
-	$sql = $conn->prepare("INSERT INTO datoscuriosos (contenido,fecha) VALUES (?,localtimestamp());");
-	$sql->bind_param("s",$content);
-	$sql->execute();
-
-	header("location: ../adminfunfacts.php");
 
 ?>
