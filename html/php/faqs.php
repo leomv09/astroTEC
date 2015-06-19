@@ -4,7 +4,7 @@ require_once('db.php');
 function getFaqs()
 {
 	global $conn;
-	$sql = "SELECT faq, respuesta FROM faqs";
+	$sql = "SELECT faq, respuesta FROM Faqs";
 
 	$result = $conn->query($sql);
 
@@ -16,15 +16,17 @@ function getFaqs()
 			while($row = $result->fetch_assoc())
 			{
 				echo 
-				"<div class='col-md-4'>
-					<div class='panel panel-default'>
-						<div class='panel-heading'>
-							<h1 class='panel-title'>$row[faq]</h1>
-						</div>
-						<div class='panel-body'>
-							<p>
-								$row[respuesta]
-							</p>
+				"<div class='row'>
+					<div class='col-md-12'>
+						<div class='panel panel-default'>
+							<div class='panel-heading'>
+								<h1 class='panel-title'>$row[faq]</h1>
+							</div>
+							<div class='panel-body'>
+								<p>
+									$row[respuesta]
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>";

@@ -15,12 +15,11 @@
 		<?php require('./php/navbar.php'); ?>
 
 		<div class="container">
-
-			<h1 class="tittle">FAQs</h1>
-			
-			<div class="row">
+			<h1 class="tittle">Preguntas frecuentes</h1>
 				<?php getFaqs(); ?>
-			</div>
+		</div>
+	</div>
+	<footer class="footer">
 		<div class="row">
 			<div class="col-sm-1 col-sm-offset-5">
 				<a href="https://www.facebook.com/AstroTEC.ITCR" class="thumbnail">
@@ -33,11 +32,6 @@
 				</a>
 			</div>
 		</div>
-
-		</div>
-
-	</div>
-	<footer class="footer">
 		<div class="container">
 			<p class="text-muted">Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under
 				<a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>

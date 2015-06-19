@@ -18,6 +18,13 @@ label {
 	color: white;
 }
 
-textarea {
-	height: 30%;
+textarea.form-control {
+	height: 200px;
+}
+
+.title {
+	text-align: center;
+	color: white;
+	font-weight: bolder;
+	margin-bottom: 3%;
 }

@@ -18,7 +18,7 @@ require( "php/events.php");?>
 		<div class="container">
 
 			<h1 class="tittle">Calendario</h1>
-			<hr />
+			<br/>
 			<div class="agenda">
 				<div class="table-responsive">
 					<table class="table table-condensed table-bordered">

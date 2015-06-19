@@ -1,8 +1,15 @@
-
 .semitransparent {
 	background-color: rgba(255,255,255,0.75);
 }
 
 .rigth-alig {
 	text-align: right;
+}
+
+.footer {
+	margin-top: 5%;
+}
+
+.navbar {
+	margin-bottom: 5%;
 }

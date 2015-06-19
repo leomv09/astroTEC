@@ -1,9 +1,22 @@
 .panel {
-	background-color:transparent;
+	background-color: rgba(255, 255, 255, 0.25);
 	border: none;
 	color: white;
 }
 
 .media-heading{
+	color: white;
+}
+
+.panel-body > a {
+	text-align: center;
+	align-content: center;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
 	color: white;
 }

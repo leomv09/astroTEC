@@ -1,0 +1,41 @@
+.post {
+    text-align: justify;
+}
+
+.post h2 {
+	color: white;
+	margin-bottom: 4%;
+	text-align: center;
+}
+
+.post p {
+	background-color: rgba(255, 255, 255, 0.50);
+	color: black;
+	font-size: medium;
+	padding: 2%;
+	border-radius: 5px;
+	word-spacing: 2pt;
+	line-height: 170%;
+}
+
+.post span {
+	color: white;
+	font-weight: bold;
+}
+
+form {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+textarea.form-control {
+	height: 150px;
+}
+
+.comment {
+	color: black;
+}
+
+.panel-title {
+	font-size: small;
+}

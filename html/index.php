@@ -1,4 +1,7 @@
-<?php require( "php/functions.php"); check_login(); ?>
+<?php
+	require( "php/functions.php"); 
+	check_login(); 
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -67,6 +70,8 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<footer class="footer">
 		<div class="row">
 			<div class="col-sm-1 col-sm-offset-5">
 				<a href="https://www.facebook.com/AstroTEC.ITCR" class="thumbnail">
@@ -79,11 +84,15 @@
 				</a>
 			</div>
 		</div>
-	</div>
-	<footer class="footer">
 		<div class="container">
 			<p class="text-muted">Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under
-				<a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+			<a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+			<?php
+				if (isset($_SESSION['USER_TYPE'])	&& $_SESSION['USER_TYPE'] == "administrador") {
+					echo "<a href='adminPage.php' class='pull-right'>Admin Site</a>";
+				}
+			?>
+			</p>
 		</div>
 	</footer>
 	<script type="text/javascript" src="js/vendor/jquery-2.1.4.min.js"></script>

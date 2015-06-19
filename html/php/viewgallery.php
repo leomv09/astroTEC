@@ -7,18 +7,18 @@ function getPictures()
 		return;
 	}
 	global $conn;
-	$idGaleria = (int)$_GET["galeria"];
+	$idGaleria = $_GET["galeria"];
 	$sql = $conn->prepare("SELECT F.titulo as titulo, F.descripcion as descripcion, F.idFoto as idFoto,
 							   AA.url as urlImagen
-								FROM galerias G
-									INNER JOIN fotosxgaleria FG
+								FROM Galerias G
+									INNER JOIN FotosXGaleria FG
 										ON FG.fk_idGaleria = G.idGaleria
-									INNER JOIN fotos F
+									INNER JOIN Fotos F
 										ON F.idFoto = FG.fk_idFoto
-									INNER JOIN archivosadjunto AA
+									INNER JOIN ArchivosAdjunto AA
 										ON AA.idArchivo = F.fk_idArchivo
 								WHERE G.idGaleria = ?;");
-	$sql->bind_param("i",$idGaleria);
+	$sql->bind_param("i", $idGaleria);
 	$sql->execute();
 	$result=$sql->get_result();
 
@@ -30,7 +30,7 @@ function getPictures()
 			while($row = $result->fetch_assoc())
 			{
 				echo 
-				"<a name='f$row[idFoto]'>
+				"<a name='f$row[idFoto]'></a>
 					<div class='panel panel-default'>
 						<div class='media'>
 				        	<a class='pull-left' href='$row[urlImagen]'>
@@ -45,7 +45,7 @@ function getPictures()
 						        data-href='$_SERVER[SERVER_NAME]/viewgallery.php?galeria=$idGaleria#f$row[idFoto]'
 						        data-layout='button_count' data-action='like' data-show-faces='false' data-share='true'></div>
 					</div>
-				</a>";
+				";
 			}
 
 			$result->close();
@@ -64,9 +64,9 @@ function showGalleryName()
 		$idGaleria = $_GET["galeria"];
 		global $conn;
 		$sql = $conn->prepare("SELECT G.titulo AS titulo 
-					FROM galerias G
+					FROM Galerias G
 					WHERE G.idGaleria = ?;");
-		$sql->bind_param("i",$idGaleria);
+		$sql->bind_param("i", $idGaleria);
 		$sql->execute();
 		$result=$sql->get_result();
 		if ($result) {

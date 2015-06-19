@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', True);
+
 	// Start session.
 	session_start();
  
@@ -11,9 +14,10 @@
 	$remember = $_POST['remember'];
 	$hashed_password = hash("sha256", $password);
 
-	$sql = $conn->prepare("SELECT idUsuario, correo, nombre 
-			FROM Usuarios WHERE correo= ? 
-			AND password= ?");
+	$sql = $conn->prepare("SELECT U.idUsuario AS id, U.correo, U.nombre, TU.tipo
+			FROM Usuarios AS U
+			INNER JOIN TipoUsuario AS TU ON U.fk_idTipoUsuario = TU.idTipoUsuario
+			WHERE correo=? AND password=?");
 	$sql->bind_param("ss",$email,$hashed_password);
 	$sql->execute();
 	$result=$sql->get_result();
@@ -22,11 +26,12 @@
 		if ($result->num_rows > 0) {
 			session_regenerate_id();
 			$user = $result->fetch_assoc();
-			$_SESSION['USER_ID'] = $user['idUsuario'];
+			$_SESSION['USER_ID'] = $user['id'];
 			$_SESSION['USER_EMAIL'] = $user['correo'];
 			$_SESSION['USER_NAME'] = $user['nombre'];
+			$_SESSION['USER_TYPE'] = $user['tipo'];
 			if ($remember) {
-				setcookie('USER_ID', $user['idUsuario'], time() + (3600*24*365), "/");
+				setcookie('USER_ID', $user['id'], time() + (3600*24*365), "/");
 			}
 			else {
 				setcookie('USER_ID', "", time() - 1, "/");
@@ -34,7 +39,7 @@
 			$result->close();
 			unset($_SESSION['LOGIN_ERRMSG']);
 			session_write_close();
-			header("location: ../adminPage.php");
+			header("location: ../index.php");
 			exit();
 		}
 		else {

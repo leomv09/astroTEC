@@ -1,4 +1,6 @@
-<?php require( "php/viewgallery.php"); ?>
+<?php
+	require( "php/viewgallery.php");
+?>
 
 <!DOCTYPE html>
 <html>
@@ -39,8 +41,6 @@
 					<img src="./img/social-32-twitter.png" alt="Twitter">
 				</a>
 			</div>
-		</div>
-
 		</div>
 
 	</div>

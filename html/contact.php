@@ -22,32 +22,31 @@
 		<?php require('./php/navbar.php'); ?>
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
+				<h1 class="title">Contáctenos</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
 				<form action="./php/contact-sub.php" method="post">
 					<fieldset>
-						<legend> Información del emisor</legend>
 						<div class="form-group">
-							<label for="iname">Nombre</label> 
-							<input type="text" id="iname" name="iname" class="form-control" required> 
+							<input type="text" id="iname" name="iname" class="form-control" placeholder="Nombre" required> 
 						</div>
 						<div class="form-group">
-							<label for="iemail">Correo</label> 
-							<input type="email" id="iemail" name="iemail" class="form-control" required> 
+							<input type="email" id="iemail" name="iemail" class="form-control" placeholder="Email" required> 
 						</div>
 					</fieldset>
 					<fieldset>
-						<legend> Mensaje</legend>
 						<div class="form-group">
-							<label for="ititle">Titulo</label> 
-							<input type="text" id="ititle" name="ititle" class="form-control" required> 
+							<input type="text" id="ititle" name="ititle" class="form-control" placeholder="Asunto" required> 
 						</div>
 						<div class="form-group">
-							<label for="itext">Mensaje</label> 
-							<textarea id="itext" name="itext" class="form-control" required></textarea>
+							<textarea id="itext" name="itext" class="form-control" placeholder="Mensaje" required></textarea>
 						</div>
 					</fieldset>
-					<div class="form-group submit">
+					<div class="form-group" style="text-align:center">
 						<input type="hidden" name="save" value="contact">
-						<input type="submit"  name="scontact" value="Enviar">
+						<input class="btn btn-success" type="submit"  name="scontact" value="Enviar">
 					</div>
 				</form>
 			</div>

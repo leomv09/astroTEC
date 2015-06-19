@@ -16,9 +16,7 @@
 
 			<!-- <h1 class="tittle">FAQs</h1> -->
 			
-			<div class="row">
-			<?php getGalleries(); ?>
-			</div>
+		<?php getGalleries(); ?>
 
 		<div class="row">
 			<div class="col-sm-1 col-sm-offset-5">

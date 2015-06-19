@@ -5,6 +5,7 @@ function checkSession()
 {
 	if(isset($_SESSION['USER_NAME']))
 	{
+		redirect_if_not_admin("index.php");
 		echo " <script type='text/javascript'>
 				showAdminName('$_SESSION[USER_NAME]');
 				</script>
@@ -12,7 +13,7 @@ function checkSession()
 	}
 	else
 	{
-		redirect_if_not_logged('index.php');
+		redirect_if_not_admin("index.php");
 	}
 }
 ?>
@@ -94,12 +95,23 @@ function checkSession()
 			<div class="side-menu-container">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-					<li><a href="#" onclick="show(1, 'Modificar Eventos')"><span </span> Modificar Eventos </a></li>
-					<li><a href="#" onclick="show(4, 'Crear eventos')"><span ></span> Crear eventos </a></li>
-					<li><a href="#" onclick="show(5, 'Modificar datos curiosos')"><span ></span> Modificar datos curiosos </a></li>
-					<li><a href="#" onclick="show(0, 'Modificar faqs')"><span ></span> Modificar faqs </a></li>
-					<li><a href="#" onclick="show(0, 'Modificar galería')"><span ></span> Modificar galería </a></li>
 
+					<li><a href="#" onclick="show(0, 'Modificar portada')"><span ></span> Modificar portada </a><hr></li>
+
+					<li><a href="#" onclick="show(4, 'Crear evento')"><span ></span> Crear eventos </a></li>
+					<li><a href="#" onclick="show(1, 'Modificar eventos')"><span> </span> Modificar eventos </a><hr></li>
+
+					<li><a href="#" onclick="show(0, 'Crear galería')"><span ></span> Crear galería </a></li>
+					<li><a href="#" onclick="show(0, 'Modificar galerías')"><span ></span> Modificar galería </a><hr></li>
+
+					<li><a href="#" onclick="show(0, 'Crear blog')"><span ></span> Crear blog </a></li>
+					<li><a href="#" onclick="show(0, 'Modificar blogs')"><span ></span> Modificar blogs </a><hr></li>
+
+					<li><a href="#" onclick="show(0, 'Crear dato curioso')"><span ></span> Crear dato curioso</a></li>
+					<li><a href="#" onclick="show(0, 'Modificar datos curiosos')"><span ></span> Modificar datos curiosos</a><hr></li>
+
+					<li><a href="#" onclick="show(0, 'Crear pregunta frecuente')"><span ></span> Crear pregunta frecuente </a></li>
+					<li><a href="#" onclick="show(0, 'Modificar preguntas frecuentes')"><span ></span> Modificar pregunta frecuente </a><hr></li>
 				</ul>
 			</div>
 		</nav>
