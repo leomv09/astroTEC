@@ -11,7 +11,7 @@ function checkSession()
 	}
 	else
 	{
-		redirect_if_not_logged('index.php');
+		redirect_if_not_admin("index.php");
 	}
 }
 ?>
