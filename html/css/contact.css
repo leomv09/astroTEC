@@ -21,3 +21,10 @@ label {
 textarea.form-control {
 	height: 200px;
 }
+
+.title {
+	text-align: center;
+	color: aquamarine;
+	font-weight: bolder;
+	margin-bottom: 3%;
+}

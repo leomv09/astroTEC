@@ -22,6 +22,11 @@
 		<?php require('./php/navbar.php'); ?>
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
+				<h1 class="title">Contáctenos</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
 				<form action="./php/contact-sub.php" method="post">
 					<fieldset>
 						<div class="form-group">
@@ -39,7 +44,7 @@
 							<textarea id="itext" name="itext" class="form-control" placeholder="Mensaje" required></textarea>
 						</div>
 					</fieldset>
-					<div class="form-group submit">
+					<div class="form-group" style="text-align:center">
 						<input type="hidden" name="save" value="contact">
 						<input class="btn btn-success" type="submit"  name="scontact" value="Enviar">
 					</div>
