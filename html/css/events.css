@@ -51,7 +51,8 @@ h2, h3, h4
   margin-right: 10px; 
 }
 .agenda .agenda-date .shortdate {
-  font-size: 0.75em; 
+  font-size: 0.75em;
+	color: black;
 }
 
 
