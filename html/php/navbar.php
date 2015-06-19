@@ -24,6 +24,23 @@
 				<li><a href="./faqs.php">FAQs</a>
 				</li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<?php
+					if (!isset($_SESSION['USER_ID']))  {
+						echo "<li class='pull-right'>";
+						echo "	<a href='./login.php'>Log In</a>";
+						echo "</li>";
+					}
+					else {
+						echo "<li class='dropdown'>";
+          	echo "	<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>$_SESSION[USER_NAME] <span class='caret'></span></a>";
+          	echo "	<ul class='dropdown-menu'>";
+            echo "		<li><a href='./php/logout.php'>Log Out</a></li>";
+          	echo "	</ul>";
+        		echo "</li>";
+					}
+				?>
+      </ul>
 		</div>
 	</div>
 </nav>

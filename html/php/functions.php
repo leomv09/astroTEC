@@ -21,4 +21,11 @@
 			exit();
 		}
 	}
+
+	function redirect_if_not_admin($url) {
+		if (!isset($_SESSION['USER_TYPE']) || $_SESSION['USER_TYPE'] != "administrador") {
+			header("location: $url");
+			exit();
+		}
+	}
 ?>

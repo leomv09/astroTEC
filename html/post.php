@@ -17,7 +17,7 @@
 			$post = $result->fetch_assoc();
 		}
 		
-		$sql = "SELECT C.contenido, C.fecha, CONCAT(U.nombre, ' ', U.apellido1) AS autor
+		$sql = "SELECT C.contenido, C.fecha, CONCAT(U.nombre, ' ', IFNULL(U.apellido1, '')) AS autor
 						FROM Comentarios AS C
 						INNER JOIN Usuarios AS U ON U.idUsuario = C.fk_idUsuario
 						INNER JOIN ComentariosXPublicacion AS CP ON C.idComentario = CP.fk_idComentario
@@ -65,22 +65,31 @@
 				<span><i class='fa fa-calendar'></i> <?php echo $post["fecha"]; ?></span>
 			</div>
 		</div>
+		<?php
+			if (isset($_SESSION["USER_ID"])) {
+		?>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 post">
 				<form class="comment-form" action="#">
-			<div class="form-group">
-				<textarea class="form-control" id="comment-content" name="comment-content" placeholder="Comment something here..."></textarea>
-			</div>
-			<div class="form-group">
-				<input type="number" id="post-id" name="post-id" value="<?php echo $id; ?>" style="visibility:hidden;display:none;">
-			</div>
-			<div class="form-group">
-				<input type="text" id="autor-name" name="autor-name" value="Jhon Doe" style="visibility:hidden;display:none;">
-			</div>
-			<button type="button" class="btn btn-success" onclick="create_comment()">Comment</button>
-		</form>
+					<div class="form-group">
+						<textarea class="form-control" id="comment-content" name="comment-content" placeholder="Comment something here..."></textarea>
+					</div>
+					<div class="form-group">
+						<input type="number" id="post-id" name="post-id" value="<?php echo $id; ?>" style="visibility:hidden;display:none;">
+					</div>
+					<div class="form-group">
+						<input type="text" id="autor-id" name="autor-id" value="<?php echo $_SESSION["USER_ID"]; ?>" style="visibility:hidden;display:none;">
+					</div>
+					<div class="form-group">
+						<input type="text" id="autor-name" name="autor-name" value="<?php echo $_SESSION["USER_NAME"]; ?>" style="visibility:hidden;display:none;">
+					</div>
+					<button type="button" class="btn btn-success" onclick="create_comment()">Comment</button>
+				</form>
 			</div>
 		</div>
+		<?php
+			}
+		?>
 		<div id="comment-list">
 			<?php
 				foreach ($comments as $comment) {

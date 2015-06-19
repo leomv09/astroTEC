@@ -42,7 +42,7 @@
 		}
 	}
 	else {
-		die("Query failed: " . $conn->error);
+		die("Query failed [Cannot get the numbers of users with email = $email]: " . $conn->error);
 	}
 
 	// Get the active user state id.
@@ -61,29 +61,45 @@
 		}
 	}
 	else {
-		die("Query failed: " . $conn->error);
+		die("Query failed [Cannot get the ACTIVE state ID]: " . $conn->error);
+	}
+
+	// Get the normal user type id.
+	$sql = "SELECT idTipoUsuario AS id FROM TipoUsuario WHERE tipo='normal'";
+	$result = $conn->query($sql);
+	$type = 0;
+	
+	if ($result) {
+		if ($result->num_rows > 0) {
+			$row = $result->fetch_assoc();
+			$type = $row['id'];
+			$result->close();
+		}
+		else {
+			die ("Cannot get the NORMAL type ID.");
+		}
+	}
+	else {
+		die("Query failed [Cannot get the NORMAL type ID]: " . $conn->error);
 	}
 
 	// Create the user.
-
-	$sql = $conn->prepare(
-		"INSERT INTO Usuarios (fk_idEstado, nombre, correo, password) 
-		VALUES ($state, ?, ?, '$hashed_password')");
-	$sql->bind_param("ss",$name,$email);
-	$sql->execute();
-	$result=$sql->get_result();
+	$sql = "INSERT INTO Usuarios (fk_idEstado, fk_idTipoUsuario, nombre, correo, password) 
+		VALUES ($state, $type, '$name', '$email', '$hashed_password')";
+	$result = $conn->query($sql);
 	
 	if ($result) {
 		session_regenerate_id();
 		$_SESSION['USER_ID'] =  $conn->insert_id;
 		$_SESSION['USER_EMAIL'] = $email;
 		$_SESSION['USER_NAME'] = $name;
+		$_SESSION['USER_TYPE'] = $type;
 		unset($_SESSION['SIGNUP_ERRMSG']);
 		session_write_close();
 		header("location: ../index.php");
 		exit();
 	}
 	else {
-		die("Query failed: " . $conn->error);
+		die("Query failed: [INSERT USER] [$result]" . $conn->errno);
 	}
 ?>

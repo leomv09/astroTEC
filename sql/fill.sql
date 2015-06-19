@@ -7,7 +7,7 @@ INSERT INTO EstadoUsuario (idEstado, estado) VALUES
 
 INSERT INTO TipoUsuario (idTipoUsuario, tipo) VALUES
 (1, 'normal'),
-(2, 'admininistrador');
+(2, 'administrador');
 
 INSERT INTO EstadoEvento (idEstado, estado) VALUES
 (1, 'por iniciar'),
