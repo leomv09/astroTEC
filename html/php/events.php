@@ -66,6 +66,7 @@ function getEvents()
 			}
 
 		}
+		$result->close();
 	}
 }
 

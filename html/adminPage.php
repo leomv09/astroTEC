@@ -2,6 +2,7 @@
 <?php require( "php/events.php"); 
 	require( "php/funfacts.php");
 	require( "php/blog.php");
+	require( "php/faqs.php");
 
 function checkSession()
 {
@@ -128,7 +129,8 @@ function checkSession()
 		</div>
 	<div class="hidden" id="hidden1">
 			<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Evento </h2>
-			<select class="form-control col-sm-5" id="optionSelect" onchange="changeVisibility()">
+			<select class="form-control col-sm-5" id="optionSelect" onchange="changeVisibility()" autocomplete="off">
+				<option value="0" selected disabled> Seleccione una opción... </option>
 				<option value="1"> Modificar </option>
 				<option value="2"> Eliminar </option>
               </select>
@@ -217,7 +219,8 @@ function checkSession()
 
            <div class="hidden" id="hidden5">
 				<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Datos Curiosos </h2>
-				<select class="form-control col-sm-5" id="optionFactsSelect" onchange="changeFactsVisibility()">
+				<select class="form-control col-sm-5" id="optionFactsSelect" onchange="changeFactsVisibility()" autocomplete="off">
+					<option value="0" selected disabled> Seleccione una opción... </option>
 					<option value="1"> Modificar </option>
 					<option value="2"> Eliminar </option>
               	</select>
@@ -323,7 +326,8 @@ function checkSession()
 			</div>
 			<div class="hidden" id="hidden11">
 				<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Blog </h2>
-				<select class="form-control col-sm-5" id="optionBlogSelect" onchange="changeBlogVisibility()">
+				<select class="form-control col-sm-5" id="optionBlogSelect" onchange="changeBlogVisibility()" autocomplete="off">
+					<option value="0" selected disabled> Seleccione una opción... </option>
 					<option value="1"> Modificar </option>
 					<option value="2"> Eliminar </option>
               	</select>
@@ -393,7 +397,8 @@ function checkSession()
 
 	      <div class="hidden" id="hidden15">
 				<h2 style="margin-bottom: 25px; text-align: center;"> Modificar FAQ </h2>
-				<select class="form-control col-sm-5" id="optionFaqSelect" onchange="changeFaqVisibility()">
+				<select class="form-control col-sm-5" id="optionFaqSelect" onchange="changeFaqVisibility()" autocomplete="off">
+					<option value="0" selected disabled> Seleccione una opción... </option>
 					<option value="1"> Modificar </option>
 					<option value="2"> Eliminar </option>
               	</select>
@@ -406,7 +411,7 @@ function checkSession()
 					    				<label> Seleccione la publicación:</label>
 								          	<select class="form-control col-sm-2" id="modifyFaqList"> 
 									          	<?php
-									          		//getFactsOptions(); 
+									          		getFaqsOptions(); 
 									          	?>
 								          	</select>
 										</div>

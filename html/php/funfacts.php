@@ -49,6 +49,7 @@ function getFactsOptions()
 				echo "<option value=$row[idDatoCurioso]> $row[titulo] </option>";
 			}
 		}
+		$result->close();
 	}
 }
 

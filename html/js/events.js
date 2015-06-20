@@ -176,7 +176,7 @@ function isValidHour(hour)
     {
         var hour = hourArray[0];
         var min = hourArray[1];
-        if(hour >= 0 && hour <= 24)
+        if(hour >= 0 && hour <= 23)
         {
             if(min >= 0 && min < 60)
             {
