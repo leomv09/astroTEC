@@ -42,3 +42,79 @@ function create_comment() {
 		http.send(params);
 	}
 }
+
+function modPost()
+{
+	var title = document.getElementById("modifyPostTitle").value;
+	var description = document.getElementById("modifyPostDescription").value;
+	var posts =  document.getElementById("modifyPostList");
+	var selectedPost = posts.options[posts.selectedIndex];
+
+	if(title.length > 0 && description.length > 0)
+	{
+		var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+            {
+            	if(xmlhttp.responseText >= 0)
+            	{
+            		alert("Datos modificados con éxito!");
+            		location.reload();
+				}
+				console.log(xmlhttp.responseText);
+            }
+        }
+        xmlhttp.open("POST", "php/modifyPost.php?title=" + title +"&description=" + description+"&id=" + selectedPost.value, true);
+        xmlhttp.send();
+	}
+}
+
+function getSelectedPost()
+{
+    var posts =  document.getElementById("modifyPostList");
+	var selectedPost = posts.options[posts.selectedIndex];
+    var xmlhttp = new XMLHttpRequest();
+    console.log("id: "+selectedPost.value);
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText != -1)
+            {
+                var data = xmlhttp.responseText.split(";");
+                if(data.length == 2)
+                {
+                    document.getElementById("modifyPostTitle").value = data[0];
+                    document.getElementById("modifyPostDescription").value = data[1];
+                }
+                else
+                {
+                    alert("Error al obtener datos.");
+                }
+            }
+            console.log(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("POST", "php/getPost.php?id="+ selectedPost.value, true);
+    xmlhttp.send();
+}
+
+function deletePost()
+{
+	var posts =  document.getElementById("deletePostList");
+	var selectedPost = posts.options[posts.selectedIndex];
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+        	if(xmlhttp.responseText >= 0)
+        	{
+        		alert("Publicación eliminada con éxito!");
+                location.reload();
+			}
+			console.log(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("POST", "php/deletePost.php?id=" + selectedPost.value, true);
+    xmlhttp.send();
+}

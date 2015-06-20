@@ -16,6 +16,7 @@ function modifyEvent()
             	if(xmlhttp.responseText >= 0)
             	{
             		alert("Datos modificados con éxito!");
+                    location.reload();
 				}
 				console.log(xmlhttp.responseText);
             }

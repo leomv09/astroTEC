@@ -7,7 +7,10 @@ $date = $_REQUEST["date"];
 $description = $_REQUEST["description"];
 $id = $_REQUEST["id"];
 
-$sql = "UPDATE Eventos SET titulo = '$title', fecha = NOW(), descripcion = '$description' WHERE idEvento = $id";
+$date2 = DateTime::createFromFormat('d/m/Y H:i:s', $date.' '.$hour);
+$finalDate = $date2->format('Y-m-d H:i:s');
+
+$sql = "UPDATE Eventos SET titulo = '$title', '$finalDate', descripcion = '$description' WHERE idEvento = $id";
 
 $result = $conn->query($sql);
 

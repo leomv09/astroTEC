@@ -1,6 +1,8 @@
 <?php require( "php/functions.php");?>
 <?php require( "php/events.php"); 
 	require( "php/funfacts.php");
+	require( "php/blog.php");
+
 function checkSession()
 {
 	if(isset($_SESSION['USER_NAME']))
@@ -32,7 +34,8 @@ function checkSession()
 	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/admin.css">
 	<script type="text/javascript" src="js/admin.js"></script>	
-	<script type="text/javascript" src="js/events.js"></script>	
+	<script type="text/javascript" src="js/events.js"></script>
+	<script type="text/javascript" src="js/post.js"></script>		
 	<script type="text/javascript" src="js/funfacts.js"></script>	
 </head>
 
@@ -224,7 +227,12 @@ function checkSession()
 							    <div class="form-area"> 
 					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 					    				<div class="form-group">
-										</div>
+						    				<select class="form-control col-sm-2" id="modifyFunFactsList">
+									          	<?php
+									          		getFactsOptions();
+									          	?>
+									        </select>
+											</div>
 					                    <div class="form-group">
 					                    	<label>Contenido:</label>
 					                    <textarea class="form-control" id="funFactDescription" placeholder="Descripción" maxlength="800" rows="7"></textarea>                   
@@ -322,15 +330,19 @@ function checkSession()
 					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 					    				<div class="form-group">
 					    				<label> Seleccione la publicación:</label>
-								          	<select class="form-control col-sm-2" id="deletePostList1"> 
+								          	<select class="form-control col-sm-2" id="modifyPostList" onchange="getSelectedPost()"> 
 								          	<?php
-								          		//getFactsOptions(); load posts titles
+								          		getPostsOptions(); 
 								          	?>
 								          	</select>
 										</div>
+										<div class="form-group">
+											<label>Título:</label>
+											<input class="form-control" type="text" id="modifyPostTitle" placeholder="Título">
+										</div>
 					                    <div class="form-group">
 					                    	<label>Contenido:</label>
-					                    <textarea class="form-control" id="funFactDescription" placeholder="Descripción" maxlength="800" rows="7"></textarea>                   
+					                    <textarea class="form-control" id="modifyPostDescription" placeholder="Descripción" rows="7"></textarea>                   
 					                    </div>
 							        <button type="button" class="btn btn-default" onclick="modPost()">Modificar</button>
 							    </div>
@@ -344,10 +356,10 @@ function checkSession()
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
 		                    <div class="form-group">
 			              		<label> Seleccione la publicación:</label>
-					          	<select class="form-control col-sm-2" id="deletePostList2">
-					          	<?php
-					          		//getFactsOptions(); load posts titles
-					          	?>
+					          	<select class="form-control col-sm-2" id="deletePostList">
+						          	<?php
+						          		getPostsOptions(); 
+						          	?>
 					          	</select>
 					        </div> 	
 				          <button type="button" class="btn btn-default" onclick="deletePost()">Eliminar</button>
@@ -389,9 +401,9 @@ function checkSession()
 					    				<div class="form-group">
 					    				<label> Seleccione la publicación:</label>
 								          	<select class="form-control col-sm-2" id="modifyFaqList"> 
-								          	<?php
-								          		//getFactsOptions(); load posts titles
-								          	?>
+									          	<?php
+									          		//getFactsOptions(); 
+									          	?>
 								          	</select>
 										</div>
 					                    <div class="form-group">
