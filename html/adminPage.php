@@ -160,7 +160,7 @@ function checkSession()
 									</div>
 				                    <div class="form-group">
 				                    	<label>Descripción:</label>
-				                    <textarea class="form-control" id="modifyDescription" placeholder="Descripción (Máximo 200 caracteres)" maxlength="200" rows="7"></textarea>                   
+				                    <textarea class="form-control" id="modifyDescription" placeholder="Descripción"  rows="7"></textarea>                   
 				                    </div>
 						        <button type="button" class="btn btn-default" onclick="modifyEvent()">Modificar</button>
 						    </div>

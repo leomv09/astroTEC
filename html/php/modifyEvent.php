@@ -4,13 +4,13 @@ require_once('db.php');
 global $conn;
 $title = $_REQUEST["title"];
 $date = $_REQUEST["date"];
+$hour = $_REQUEST["hour"];
 $description = $_REQUEST["description"];
 $id = $_REQUEST["id"];
 
-$date2 = DateTime::createFromFormat('d/m/Y H:i:s', $date.' '.$hour);
-$finalDate = $date2->format('Y-m-d H:i:s');
+$date2 = $date. ' '.$hour;
 
-$sql = "UPDATE Eventos SET titulo = '$title', '$finalDate', descripcion = '$description' WHERE idEvento = $id";
+$sql = "UPDATE Eventos SET titulo = '$title', fecha = STR_TO_DATE('$date2', '%d/%m/%Y %h%i%s'), descripcion = '$description' WHERE idEvento = $id";
 
 $result = $conn->query($sql);
 
@@ -20,7 +20,7 @@ if($result)
 }
 else
 {
-	echo -1;
+	echo $conn->error;
 }
 
 ?>

@@ -4,26 +4,45 @@ function modifyEvent()
 	var title = document.getElementById("modifyTitle").value;
 	var date = document.getElementById("modifyDate").value;
 	var description = document.getElementById("modifyDescription").value;
+    var hour = document.getElementById("modifyHour").value;
 	var events =  document.getElementById("eventsList");
 	var selectedEvent = events.options[events.selectedIndex];
-
-	if(title.length > 0 && date.length > 0 && description.length > 0)
-	{
-		var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+    console.log("Title "+title +", date "+date+", hour "+hour+", desc "+description);
+    if(isValidDate(date))
+    {
+        if(isValidHour(hour))
+        {
+            if(title.length > 0 && date.length > 0 && description.length > 0)
             {
-            	if(xmlhttp.responseText >= 0)
-            	{
-            		alert("Datos modificados con éxito!");
-                    location.reload();
-				}
-				console.log(xmlhttp.responseText);
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+                    {
+                        if(xmlhttp.responseText >= 0)
+                        {
+                            alert("Datos modificados con éxito!");
+                            location.reload();
+                        }
+                        console.log(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("POST", "php/modifyEvent.php?title=" + title +"&date=" + date + "&hour=" + hour + "&description=" + description+"&id=" + selectedEvent.value, true);
+                xmlhttp.send();
+            }
+            else
+            {
+                alert("Debe ingresar todos los datos");
             }
         }
-        xmlhttp.open("POST", "php/modifyEvent.php?title=" + title +"&date=" + date +"&description=" + description+"&id=" + selectedEvent.value, true);
-        xmlhttp.send();
-	}
+        else
+        {
+            alert("Formato de hora incorrecto");
+        }
+    }
+    else
+    {
+        alert("Formato de fecha incorrecto");
+    }
 }
 
 
@@ -43,6 +62,7 @@ function getSelectedEvent()
                 {
                     document.getElementById("modifyTitle").value = data[0];
                     document.getElementById("modifyDescription").value = data[1];
+                    console.log(data[1]);
                     var bits = data[2].split(/\D/);
                     var date = new Date(bits[0], --bits[1], bits[2], bits[3], bits[4]);
                     document.getElementById("modifyDate").value = (date.getDay() + 1 ) + "/" + (date.getMonth() + 1) + "/" +date.getFullYear();
