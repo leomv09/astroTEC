@@ -1,0 +1,17 @@
+DELETE FROM ComentariosXPublicacion;
+DELETE FROM Comentarios;
+DELETE FROM Publicaciones;
+DELETE FROM Faqs;
+DELETE FROM Eventos;
+DELETE FROM FotosXGaleria;
+DELETE FROM Galerias;
+DELETE FROM Fotos;
+DELETE FROM Usuarios;
+DELETE FROM ArchivosAdjunto;
+DELETE FROM DatosCuriosos;
+DELETE FROM EstadoComentario;
+DELETE FROM EstadoArchivo;
+DELETE FROM TiposArchivo;
+DELETE FROM EstadoEvento;
+DELETE FROM TipoUsuario;
+DELETE FROM EstadoUsuario;

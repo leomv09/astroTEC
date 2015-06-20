@@ -46,7 +46,7 @@
 					</div>
 					<div class="panel-body">
 						<p>
-							aaaaaaaaaaaaaaaaaaaaaaaa
+							Contamos con una gran variedad de equipos para la observación de distintos cuerpos celestes
 						</p>
 					</div>
 					<div class="panel-footer rigth-alig">
@@ -61,7 +61,7 @@
 					</div>
 					<div class="panel-body">
 						<p>
-							<?php $test="Núñez" ; echo $test; ?>
+							AstroTEC es un grupo formado por estudiantes y coordinado por el profesor Juan José Pineda Lizano que se dedica a promover el conocimiento en Astronomía tanto entre sus miembros como dentro de la comunidad del TEC como a nivel nacional.
 						</p>
 					</div>
 					<div class="panel-footer rigth-alig">
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 	</div>
-	<footer class="footer">
+	<div class="container footer-bottom">
 		<div class="row">
 			<div class="col-sm-1 col-sm-offset-5">
 				<a href="https://www.facebook.com/AstroTEC.ITCR" class="thumbnail">
@@ -84,7 +84,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="container">
+		<div class="row">
 			<p class="text-muted">Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under
 			<a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
 			<?php
@@ -94,7 +94,7 @@
 			?>
 			</p>
 		</div>
-	</footer>
+	</div>
 	<script type="text/javascript" src="js/vendor/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
