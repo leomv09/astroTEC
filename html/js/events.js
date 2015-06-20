@@ -26,34 +26,77 @@ function modifyEvent()
 }
 
 
+function getSelectedEvent()
+{
+    var events =  document.getElementById("eventsList");
+    var selectedEvent = events.options[events.selectedIndex];
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText != -1)
+            {
+                var data = xmlhttp.responseText.split(";");
+                if(data.length == 3)
+                {
+                    document.getElementById("modifyTitle").value = data[0];
+                    document.getElementById("modifyDescription").value = data[1];
+                    var bits = data[2].split(/\D/);
+                    var date = new Date(bits[0], --bits[1], bits[2], bits[3], bits[4]);
+                    document.getElementById("modifyDate").value = (date.getDay() + 1 ) + "/" + (date.getMonth() + 1) + "/" +date.getFullYear();
+                    document.getElementById("modifyHour").value = date.getHours() + ":"+date.getMinutes()+":"+date.getSeconds();
+                }
+                else
+                {
+                    alert("Error al obtener datos.");
+                }
+            }
+            console.log(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("POST", "php/getEvent.php?id="+ selectedEvent.value, true);
+    xmlhttp.send();
+}
+
 function createEvents()
 {
 	var title = document.getElementById("createTitle").value;
 	var date = document.getElementById("createDate").value;
+    var hour = document.getElementById("createHour").value;
 	var description = document.getElementById("createDescription").value;
 
     if(isValidDate(date))
     {
-        if(title.length > 0 && description.length > 0)
+        if(isValidHour(hour))
         {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
-                {
-                    if(xmlhttp.responseText >= 0)
+            if(title.length > 0 && description.length > 0)
+            {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
                     {
-                        alert("Evento creado con éxito!");
+                        if(xmlhttp.responseText >= 0)
+                        {
+                            alert("Evento creado con éxito!");
+                            location.reload();
+                        }
+                        console.log(xmlhttp.responseText);
                     }
-                    console.log(xmlhttp.responseText);
                 }
+                xmlhttp.open("POST", "php/createEvent.php?title=" + title +"&date=" + date + "&hour=" + hour +"&description=" + description, true);
+                xmlhttp.send();
             }
-            xmlhttp.open("POST", "php/createEvent.php?title=" + title +"&date=" + date +"&description=" + description, true);
-            xmlhttp.send();
+            else
+            {
+                alert("Debe ingresar todos los datos.");
+            }
         }
         else
         {
-            alert("Debe ingresar todos los datos.");
+            alert("Error en hora");
         }
+            
     }
     else
     {
@@ -73,6 +116,7 @@ function deleteEvent()
         	if(xmlhttp.responseText >= 0)
         	{
         		alert("Evento eliminado con éxito!");
+                location.reload();
 			}
 			console.log(xmlhttp.responseText);
         }
@@ -97,6 +141,25 @@ function isValidDate(date)
                 {
                     return true;
                 }
+            }
+        }
+    }
+
+    return false;
+}
+
+function isValidHour(hour)
+{
+    var hourArray = hour.split(":");
+    if(hourArray.length == 3)
+    {
+        var hour = hourArray[0];
+        var min = hourArray[1];
+        if(hour >= 0 && hour <= 24)
+        {
+            if(min >= 0 && min < 60)
+            {
+                return true;
             }
         }
     }

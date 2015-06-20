@@ -136,7 +136,7 @@ function checkSession()
 				                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 				    				<div class="form-group">
 				    					<label>Seleccione un evento:</label>
-										<select class="form-control col-sm-2" id="eventsList">
+										<select class="form-control col-sm-2" id="eventsList" onchange="getSelectedEvent()">
 								          	<?php
 								          		getEvents();
 								          		loadEvents();
@@ -150,6 +150,10 @@ function checkSession()
 									<div class="form-group">
 										<label>Fecha:</label>
 										<input class="form-control" type="text" id="modifyDate" placeholder="DD/MM/AAAA">
+									</div>
+									<div class="form-group">
+										<label>Hora:</label>
+										<input class="form-control" type="text" id="modifyHour" placeholder="HH:MM:SS">
 									</div>
 				                    <div class="form-group">
 				                    	<label>Descripción:</label>
@@ -192,7 +196,11 @@ function checkSession()
 									</div>
 									<div class="form-group">
 										<label>Fecha:</label>
-										<input class="form-control" type="text" id="createDate" placeholder="Fecha">
+										<input class="form-control" type="text" id="createDate" placeholder="DD/MM/AAAA">
+									</div>
+									<div class="form-group">
+										<label>Hora:</label>
+										<input class="form-control" type="text" id="createHour" placeholder="HH:MM:SS">
 									</div>
 				                    <div class="form-group">
 				                    	<label>Descripción:</label>
