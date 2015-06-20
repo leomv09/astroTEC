@@ -6,7 +6,9 @@ $title = $_REQUEST["title"];
 $date = $_REQUEST["date"];
 $description = $_REQUEST["description"];
 
-$sql = "INSERT INTO Eventos(titulo, descripcion, fecha, fk_idEstado) VALUES ('$title', '$description', NOW(), 1)";
+$time = strtotime($date);
+$newformat = date('Y-m-d',$time);
+$sql = "INSERT INTO Eventos(titulo, descripcion, fecha, fk_idEstado) VALUES ('$title', '$description', '$newformat', 1)";
 
 $result = $conn->query($sql);
 

@@ -32,22 +32,34 @@ function createEvents()
 	var date = document.getElementById("createDate").value;
 	var description = document.getElementById("createDescription").value;
 
-	if(title.length > 0 && date.length > 0 && description.length > 0)
-	{
-		var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
-            {
-            	if(xmlhttp.responseText >= 0)
-            	{
-            		alert("Evento creado con éxito!");
-				}
-				console.log(xmlhttp.responseText);
+    if(isValidDate(date))
+    {
+        if(title.length > 0 && description.length > 0)
+        {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+                {
+                    if(xmlhttp.responseText >= 0)
+                    {
+                        alert("Evento creado con éxito!");
+                    }
+                    console.log(xmlhttp.responseText);
+                }
             }
+            xmlhttp.open("POST", "php/createEvent.php?title=" + title +"&date=" + date +"&description=" + description, true);
+            xmlhttp.send();
         }
-        xmlhttp.open("POST", "php/createEvent.php?title=" + title +"&date=" + date +"&description=" + description, true);
-        xmlhttp.send();
-	}
+        else
+        {
+            alert("Debe ingresar todos los datos.");
+        }
+    }
+    else
+    {
+        alert("Error en fecha");
+    }
+    	
 }
 
 function deleteEvent()
@@ -67,5 +79,28 @@ function deleteEvent()
     }
     xmlhttp.open("POST", "php/deleteEvent.php?id=" + selectedEvent.value, true);
     xmlhttp.send();
+}
+
+function isValidDate(date)
+{
+    var dateArray = date.split("/");
+    if(dateArray.length == 3)
+    {
+        var day = dateArray[0];
+        var month = dateArray[1];
+        var year = dateArray[2];
+        if(day > 0 && month > 0 && year >0)
+        {
+            if(day >= 1 && day <= 31)
+            {
+                if(year >= new Date().getFullYear())
+                {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
 }
 
