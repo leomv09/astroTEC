@@ -433,7 +433,7 @@ function checkSession()
 			              		<label> Seleccione la publicación:</label>
 					          	<select class="form-control col-sm-2" id="deleteFaqList">
 					          	<?php
-					          		//getFactsOptions(); load posts titles
+					          		getFaqsOptions(); 
 					          	?>
 					          	</select>
 					        </div> 	
