@@ -12,11 +12,12 @@
  
 	require_once('db.php');
 	global $conn;
+	$title = $_REQUEST['title'];
 	$content = $_REQUEST['fact'];
 
 
 
-	$sql = "INSERT INTO datoscuriosos (contenido,fecha) VALUES ($content, localtimestamp());";
+	$sql = "INSERT INTO datoscuriosos (contenido, titulo, fecha) VALUES ('$content', '$title', localtimestamp())";
 	$result = $conn->query($sql);
 
 	if($result)
@@ -25,7 +26,7 @@
 	}
 	else
 	{
-		echo -1;
+		echo $conn->error;
 	}
 
 

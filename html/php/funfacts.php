@@ -37,8 +37,7 @@ function getFunFacts()
 function getFactsOptions()
 {
 	global $facts, $conn;
-	$sql = "SELECT idDatoCurioso, CONCAT (SUBSTRING(contenido, 1, 20), '...') AS contenido 
-	        FROM DatosCuriosos";
+	$sql = "SELECT idDatoCurioso, titulo FROM DatosCuriosos";
 
 	$result = $conn->query($sql);
 	if($result)
@@ -47,7 +46,7 @@ function getFactsOptions()
 		{
 			while($row = $result->fetch_assoc())
 			{
-				echo "<option value=$row[idDatoCurioso]> $row[contenido] </option>";
+				echo "<option value=$row[idDatoCurioso]> $row[titulo] </option>";
 			}
 		}
 	}

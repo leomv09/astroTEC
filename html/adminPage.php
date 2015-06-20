@@ -227,15 +227,19 @@ function checkSession()
 							    <div class="form-area"> 
 					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 					    				<div class="form-group">
-						    				<select class="form-control col-sm-2" id="modifyFunFactsList">
+						    				<select class="form-control col-sm-2" id="modifyFunFactsList" onchange="getSelectedFact()">
 									          	<?php
 									          		getFactsOptions();
 									          	?>
 									        </select>
 											</div>
+										<div class="form-group">
+											<label>Título:</label>
+											<input class="form-control" type="text" id="funFactModifyTitle" placeholder="Título">
+										</div>
 					                    <div class="form-group">
 					                    	<label>Contenido:</label>
-					                    <textarea class="form-control" id="funFactDescription" placeholder="Descripción" maxlength="800" rows="7"></textarea>                   
+					                    <textarea class="form-control" id="funFactModifyDescription" placeholder="Descripción" maxlength="800" rows="7"></textarea>                   
 					                    </div>
 							        <button type="button" class="btn btn-default" onclick="modFunFact()">Modificar</button>
 							    </div>
@@ -255,7 +259,7 @@ function checkSession()
 					          	?>
 					          	</select>
 					        </div> 	
-				          <button type="button" class="btn btn-default" onclick="deleteFunFact()">Eliminar</button>
+				          <button type="button" class="btn btn-default" onclick="deleteFact()">Eliminar</button>
 			            </div>
 				    </div>
 				</div>
