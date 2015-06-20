@@ -53,12 +53,12 @@ INSERT INTO Usuarios (idUsuario, nombre, apellido1, apellido2, genero, correo, p
 (1, 'Administrador', NULL, NULL, 'M', 'admin@example.com', SHA2('123', 256), 1, 2),
 (2, 'Jhon', 'Doe', NULL, 'M', 'jhondoe@example.com', SHA2('abc', 256), 1, 1);
 
-INSERT INTO DatosCuriosos (contenido,fecha) values
-('La Vía Láctea tiene un agujero negro con una masa equivalente a 40 000 soles', '2015-05-23'),
-('A diferencia de Mercurio y Venus que presentan fases, los demás planetas siempre se ven “llenos” desde la tierra. Ello se debe a que al estar más lejos del Sol que la tierra, siempre se ve todo el disco.', '2015-03-29'),
-('La gran mancha roja de Júpiter es un inmenso huracán que se ha mantenido por al menos 3 siglos y que podría englobar 2 veces a la tierra. Siguen siendo un misterio su origen, su color, su tamaño y su persistencia.', '2015-05-02'),
-('Marte tiene un cañón cerca del ecuador de 4,000 km de largo, hasta 600 km de ancho y 10 km de profundidad.� Esto es 30 veces mayor al Gran Cañón del Colorado.', '2015-04-12'),
-('Contrariamente a lo que podría pensarse, la tierra está más cerca del sol en invierno que en verano, en el hemisferio norte. En el hemisferio sur ocurre lo contrario, por lo que el verano debe ser ligeramente más caliente y el invierno ligeramente más frío.', '2015-06-24');
+INSERT INTO DatosCuriosos (titulo, contenido,fecha) values
+('La Vía Láctea','La Vía Láctea tiene un agujero negro con una masa equivalente a 40 000 soles', '2015-05-23'),
+('La distancia y percepción','A diferencia de Mercurio y Venus que presentan fases, los demás planetas siempre se ven “llenos” desde la tierra. Ello se debe a que al estar más lejos del Sol que la tierra, siempre se ve todo el disco.', '2015-03-29'),
+('Mancha roja de Júpiter','La gran mancha roja de Júpiter es un inmenso huracán que se ha mantenido por al menos 3 siglos y que podría englobar 2 veces a la tierra. Siguen siendo un misterio su origen, su color, su tamaño y su persistencia.', '2015-05-02'),
+('Cañón en Marte','Marte tiene un cañón cerca del ecuador de 4,000 km de largo, hasta 600 km de ancho y 10 km de profundidad.� Esto es 30 veces mayor al Gran Cañón del Colorado.', '2015-04-12'),
+('Invierno y Verano','Contrariamente a lo que podría pensarse, la tierra está más cerca del sol en invierno que en verano, en el hemisferio norte. En el hemisferio sur ocurre lo contrario, por lo que el verano debe ser ligeramente más caliente y el invierno ligeramente más frío.', '2015-06-24');
 
 INSERT INTO ArchivosAdjunto (idArchivo, url, nombre, descripcion, fk_idTipoArchivo, fk_idEstado) VALUES
 (1, 'img/Galerias/1/grupo.jpg', 'Grupo astroTEC', NULL, 4, 1),
