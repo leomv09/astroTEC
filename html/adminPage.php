@@ -52,7 +52,6 @@ function checkSession()
 			<a id="adminName" class="navbar-brand" href="#">
 				Administrator
 			</a>
-			<?php checkSession();?>
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
@@ -96,22 +95,22 @@ function checkSession()
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
 
-					<li><a href="#" onclick="show(0, 'Modificar portada')"><span ></span> Modificar portada </a><hr></li>
+					<li><a href="#Modify" onclick="show(0, 'Modificar portada')"> Modificar portada </a><hr></li>
 
-					<li><a href="#" onclick="show(4, 'Crear evento')"><span ></span> Crear eventos </a></li>
-					<li><a href="#" onclick="show(1, 'Modificar eventos')"><span> </span> Modificar eventos </a><hr></li>
+					<li><a href="#CreateEvents" onclick="show(4, 'Crear evento')"><span ></span> Crear eventos </a></li>
+					<li><a href="#ModifyEvents" onclick="show(1, 'Modificar eventos')"><span> </span> Modificar eventos </a><hr></li>
 
-					<li><a href="#" onclick="show(0, 'Crear galería')"><span ></span> Crear galería </a></li>
-					<li><a href="#" onclick="show(0, 'Modificar galerías')"><span ></span> Modificar galería </a><hr></li>
+					<li><a href="#CreateGallery" onclick="show(0, 'Crear galería')"><span ></span> Crear galería </a></li>
+					<li><a href="#ModifyGallery" onclick="show(0, 'Modificar galerías')"><span ></span> Modificar galería </a><hr></li>
 
-					<li><a href="#" onclick="show(0, 'Crear blog')"><span ></span> Crear blog </a></li>
-					<li><a href="#" onclick="show(0, 'Modificar blogs')"><span ></span> Modificar blogs </a><hr></li>
+					<li><a href="#CreatePost" onclick="show(0, 'Crear blog')"><span ></span> Crear publicación </a></li>
+					<li><a href="#ModifyPost" onclick="show(0, 'Modificar blogs')"><span ></span> Modificar publicación </a><hr></li>
 
-					<li><a href="#" onclick="show(0, 'Crear dato curioso')"><span ></span> Crear dato curioso</a></li>
-					<li><a href="#" onclick="show(0, 'Modificar datos curiosos')"><span ></span> Modificar datos curiosos</a><hr></li>
+					<li><a href="#CreateFunFact" onclick="show(8, 'Crear dato curioso')"><span ></span> Crear dato curioso</a></li>
+					<li><a href="#ModifyFunFact" onclick="show(5, 'Modificar datos curiosos')"><span ></span> Modificar datos curiosos</a><hr></li>
 
-					<li><a href="#" onclick="show(0, 'Crear pregunta frecuente')"><span ></span> Crear pregunta frecuente </a></li>
-					<li><a href="#" onclick="show(0, 'Modificar preguntas frecuentes')"><span ></span> Modificar pregunta frecuente </a><hr></li>
+					<li><a href="#CreateFaq" onclick="show(0, 'Crear pregunta frecuente')"><span ></span> Crear pregunta frecuente </a></li>
+					<li><a href="#ModifyFaq" onclick="show(0, 'Modificar preguntas frecuentes')"><span ></span> Modificar pregunta frecuente </a><hr></li>
 				</ul>
 			</div>
 		</nav>
@@ -205,27 +204,27 @@ function checkSession()
               </div>
 
            <div class="hidden" id="hidden5">
-			<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Datos Curiosos </h2>
-			<select class="form-control col-sm-5" id="optionFactsSelect" onchange="changeFactsVisibility()">
-				<option value="1"> Agreagar </option>
-				<option value="2"> Eliminar </option>
-              </select>
-              <div class="hidden" id="hidden6">
-	              <div class="container">
-						<div class="col-md-10">
-						    <div class="form-area"> 
-				                    <h3 style="margin-bottom: 25px; text-align: center;">Agregar</h3>
-				    				<div class="form-group">
-									</div>
-				                    <div class="form-group">
-				                    	<label>Contenido:</label>
-				                    <textarea class="form-control" id="funFactDescription" placeholder="Descripción" maxlength="800" rows="7"></textarea>                   
-				                    </div>
-						        <button type="button" class="btn btn-default" onclick="addFunFact()">Agregar</button>
-						    </div>
-						</div>			         
-	              </div>
-              </div>
+				<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Datos Curiosos </h2>
+				<select class="form-control col-sm-5" id="optionFactsSelect" onchange="changeFactsVisibility()">
+					<option value="1"> Modificar </option>
+					<option value="2"> Eliminar </option>
+              	</select>
+	            <div class="hidden" id="hidden6">
+		              <div class="container">
+							<div class="col-md-10">
+							    <div class="form-area"> 
+					                    <h3 style="margin-bottom: 25px; text-align: center;">Agregar</h3>
+					    				<div class="form-group">
+										</div>
+					                    <div class="form-group">
+					                    	<label>Contenido:</label>
+					                    <textarea class="form-control" id="funFactDescription" placeholder="Descripción" maxlength="800" rows="7"></textarea>                   
+					                    </div>
+							        <button type="button" class="btn btn-default" onclick="addFunFact()">Agregar</button>
+							    </div>
+							</div>			         
+		              </div>
+	            </div>
               <div class="hidden" id="hidden7">
               	<div class="container">
 					<div class="col-md-10">
@@ -235,8 +234,7 @@ function checkSession()
 			              		<label> Seleccione el dato curioso:</label>
 					          	<select class="form-control col-sm-2" id="deleteFunFactsList">
 					          	<?php
-					          		getFacts();
-								    loadFacts();
+					          		getFactsOptions();
 					          	?>
 					          	</select>
 					        </div> 	
@@ -247,6 +245,42 @@ function checkSession()
 			</div>
 		</div>
 
+		<div class="hidden" id="hidden8">
+				<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Datos Curiosos </h2>
+				<select class="form-control col-sm-5" id="optionFactsSelect" onchange="changeFactsVisibility()">
+					<option value="1"> Modificar </option>
+					<option value="2"> Eliminar </option>
+              	</select>
+	            <div class="hidden" id="hidden6">
+		              <div class="container">
+							<div class="col-md-10">
+							    <div class="form-area"> 
+					                    <h3 style="margin-bottom: 25px; text-align: center;">Agregar</h3>
+					    				<div class="form-group">
+										</div>
+					                    <div class="form-group">
+					                    	<label>Contenido:</label>
+					                    <textarea class="form-control" id="funFactDescription" placeholder="Descripción" maxlength="800" rows="7"></textarea>                   
+					                    </div>
+							        <button type="button" class="btn btn-default" onclick="addFunFact()">Agregar</button>
+							    </div>
+							</div>			         
+		              </div>
+	            </div>
+              <div class="hidden" id="hidden8">
+	              <div class="container">
+						<div class="col-md-10">
+						    <div class="form-area"> 
+				                    <h2 style="margin-bottom: 25px; text-align: center;">Crear</h2>
+				                    <div class="form-group">
+				                    	<label>Descripción:</label>
+				                    <textarea class="form-control" id="createDescription" placeholder="Descripción (Máximo 200 caracteres)" maxlength="200" rows="7"></textarea>                   
+				                    </div>
+						        <button type="button" class="btn btn-default" onclick="createEvents()">Crear</button>
+						    </div>
+						</div>			         
+	              </div>
+              </div>
               
 </div>
 </body>

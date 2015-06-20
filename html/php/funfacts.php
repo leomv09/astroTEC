@@ -33,6 +33,24 @@ function getFunFacts()
 		}
 
 	}
+
+function getFactsOptions()
+{
+	global $facts, $conn;
+	$sql = "SELECT idDatoCurioso, CONCAT (SUBSTRING(contenido, 1, 20), '...') AS contenido 
+	        FROM DatosCuriosos";
+
+	$result = $conn->query($sql);
+	if($result)
+	{
+		if($result->num_rows > 0)
+		{
+			while($row = $result->fetch_assoc())
+			{
+				echo "<option value=$row[idDatoCurioso]> $row[contenido] </option>";
+			}
+		}
+	}
 }
 
-}
+?>
