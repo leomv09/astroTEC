@@ -656,5 +656,58 @@
 
     	</div>    
 	</div>
+	<script type="text/javascript">
+	(function() {
+		var hash = window.location.hash.substring(1);
+		
+		switch (hash) {
+			case "Modify":
+				show(0, 'Modificar portada');
+				break;
+			case "CreateEvents":
+				show(4, 'Crear evento');
+				break;
+			case "ModifyEvents":
+				show(1, 'Modificar eventos');
+				break;
+			case "CreateGallery":
+				show(9, 'Crear galería');
+				break;
+			case "ModifyGallery":
+				show(10, 'Modificar galerías');
+				break;
+			case "CreatePost":
+				show(14, 'Crear blog');
+				break;
+			case "ModifyPost":
+				show(11, 'Modificar blogs');
+				break;
+			case "CreateFunFact":
+				show(8, 'Crear dato curioso');
+				break;
+			case "ModifyFunFact":
+				show(5, 'Modificar datos curiosos');
+				break;
+			case "CreateFaq":
+				show(18, 'Crear pregunta frecuente')
+				break;
+			case "ModifyFaq":
+				show(15, 'Modificar preguntas frecuentes');
+				break;
+			case "CreateMember":
+				show(19, 'Agregar miembro');
+				break;
+			case "ModifyFaq":
+				show(20, 'Modificar miembro');
+				break;
+			case "CreateEquipment":
+				show(23, 'Agregar equipo');
+				break;
+			case "ModifyEquipment":
+				show(24, 'Modificar equipo')
+				break;
+		}
+	})();
+</script>
 </body>
 </html>
