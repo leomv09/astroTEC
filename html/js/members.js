@@ -1,3 +1,5 @@
+var currentActiveId = -1;
+
 function createMember(photoId)
 {
     var name = document.getElementById("createMemberName").value;
@@ -8,7 +10,7 @@ function createMember(photoId)
     if(name.length > 0 && description.length > 0 && lastName2.length > 0)
     {
         var xmlhttp = new XMLHttpRequest();
-        var request = "php/createMember.php?name="+name + "&lastName1=" + lastName1 + "&description=" + description + "&photoId=" + photoId;;
+        var request = "php/createMember.php?name="+name + "&lastName1=" + lastName1 + "&description=" + description + "&photoId=" + photoId;
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
             {
@@ -148,5 +150,39 @@ function deleteMember()
         }
     }
     xmlhttp.open("POST", "php/deleteMember.php?id=" + selectedMember.value, true);
+    xmlhttp.send();
+}
+
+
+function changeMember(elementId)
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText != -1)
+            {
+                var data = xmlhttp.responseText.split(";");
+                if(data.length == 5)
+                {
+                    document.getElementById("memberName").innerHTML = data[0] + ' ' + data[1] + ' ' +data[2];
+                    document.getElementById("memberDescription").innerHTML = data[3];
+                    if(currentActiveId >= 0)
+                    {
+                        document.getElementById(currentActiveId).setAttribute("class", "");
+                    }
+                    currentActiveId = elementId;
+                    document.getElementById(elementId).setAttribute("class", "active");
+                }
+                else
+                {
+                    alert("Error al obtener datos.");
+                }
+            }
+            console.log(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("POST", "php/getMember.php?id="+ elementId, true);
     xmlhttp.send();
 }
