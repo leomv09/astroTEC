@@ -660,7 +660,7 @@ function checkSession()
 											<input class="form-control" type="file" id="modifyEquipmentPhoto" name="equipmentImage" placeholder="Requerido">
 											<input class="form-control" type="hidden" id="equipmentPhotoId">
 										</div>
-								        <button id="modifyEquipmentButton" type="button" class="btn btn-default" onclick="">Crear</button>
+								        <button id="modifyEquipmentButton" type="button" class="btn btn-default" onclick="">Modificar</button>
 							    </form>
 							</div>
 						</div>			         

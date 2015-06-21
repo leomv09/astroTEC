@@ -124,7 +124,7 @@ function deleteImageFromMember()
         {
             if(xmlhttp.responseText >= 0)
             {
-                alert("Imagen Eliminada");
+
             }
             console.log(xmlhttp.responseText);
         }
