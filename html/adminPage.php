@@ -567,12 +567,13 @@ function checkSession()
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
 		                    <div class="form-group">
 			              		<label> Seleccione un miembro:</label>
-					          	<select class="form-control col-sm-2" id="deleteMemberList">
+					          	<select class="form-control col-sm-2" id="deleteMemberList" onchange="getSelectedMember()">
 					          	<?php
 					          		getMembersOptions(); 
 					          	?>
 					          	</select>
-					        </div> 	
+					        </div> 
+					        <input class="form-control" type="hidden" id="memberPhotoId2">	
 				          <button type="button" class="btn btn-default" onclick="deleteMember()">Eliminar</button>
 			            </div>
 				    </div>
