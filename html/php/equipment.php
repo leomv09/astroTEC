@@ -88,14 +88,11 @@ function getEquipment()
 		}
 		else
 		{
-			echo "<p> No hay equipo para mostrar </p>";
+			echo "<div> <p> No hay equipo para mostrar </p> </div>";
 		}
 	}
 		
 }
-
-
-
 
 
 ?>
