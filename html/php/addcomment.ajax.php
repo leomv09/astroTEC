@@ -15,4 +15,6 @@
 		$sql = "INSERT INTO ComentariosXPublicacion (fk_idComentario, fk_idPublicacion) VALUES ($id, $post)";
 		$conn->query($sql);
 	}
+
+	echo $content;
 ?> 

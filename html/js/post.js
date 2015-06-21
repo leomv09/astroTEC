@@ -33,7 +33,7 @@ function create_comment() {
 		
 		http.onreadystatechange = function() {
 			if(http.readyState == 4 && http.status == 200) {
-				insert_comment(content, new Date(), autorName);
+				insert_comment(http.responseText, new Date(), autorName);
 				document.getElementById("comment-content").value = "";
 			}
 		}
