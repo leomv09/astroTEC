@@ -62,6 +62,9 @@ function modFunFact()
     var facts =  document.getElementById("modifyFunFactsList");
     var selectedFact = facts.options[facts.selectedIndex];
 
+    title = title.trim();
+    content = content.trim();
+
     if(title.length > 0 && content.length > 0)
     {
         var xmlhttp = new XMLHttpRequest();
