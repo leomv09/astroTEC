@@ -393,6 +393,44 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`Messages` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `astroDB`.`Colaboradores`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `astroDB`.`Colaboradores` (
+  `idColaborador` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(90) NOT NULL,
+  `apellido1` VARCHAR(90) NOT NULL,
+  `apellido2` VARCHAR(90) NULL,
+  `comentario` VARCHAR(200) NOT NULL,
+  `fk_idFoto` INT NOT NULL,
+  PRIMARY KEY (`idColaborador`),
+  INDEX `fk_Colaboradores_Fotos1_idx` (`fk_idFoto` ASC),
+  CONSTRAINT `fk_Colaboradores_Fotos1`
+    FOREIGN KEY (`fk_idFoto`)
+    REFERENCES `astroDB`.`Fotos` (`idFoto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `astroDB`.`Equipo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `astroDB`.`Equipo` (
+  `idEquipo` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(90) NOT NULL,
+  `detalle1` VARCHAR(200) NOT NULL,
+  `detalle2` VARCHAR(200) NULL,
+  `fk_idFoto` INT NOT NULL,
+  PRIMARY KEY (`idEquipo`),
+  INDEX `fk_Equipo_Fotos1_idx` (`fk_idFoto` ASC),
+  CONSTRAINT `fk_Equipo_Fotos1`
+    FOREIGN KEY (`fk_idFoto`)
+    REFERENCES `astroDB`.`Fotos` (`idFoto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
