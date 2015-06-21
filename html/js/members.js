@@ -56,7 +56,7 @@ function getSelectedMember()
                         document.getElementById("modifyMemberLastName1").value = data[1];
                         document.getElementById("modifyMemberLastName2").value = data[2];
                         document.getElementById("modifyMemberDescription").value = data[3];
-                        document.getElementById("memberPhotoId").value = data[5];
+                        document.getElementById("memberPhotoId").value = data[4];
                     }
                     else
                     {
@@ -94,7 +94,7 @@ function modifyMember(photoId)
                         deleteImageFromMember();
                         alert("Datos modificados con éxito!");
                     }
-                    //location.reload();
+                    location.reload();
                 }
                 console.log(xmlhttp.responseText);
             }
@@ -115,7 +115,7 @@ function modifyMember(photoId)
 function deleteImageFromMember()
 {
     var id = document.getElementById("memberPhotoId").value;
-    console.log(id);
+    console.log("Old photo id: "+id);
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
