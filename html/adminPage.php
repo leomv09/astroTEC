@@ -151,8 +151,9 @@ function checkSession()
 						    <div class="form-area"> 
 				                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 				    				<div class="form-group">
-				    					<label>Seleccione un evento:</label>
-										<select class="form-control col-sm-2" id="eventsList" onchange="getSelectedEvent()">
+				    					<label>Evento:</label>
+										<select class="form-control col-sm-2" id="eventsList" onchange="getSelectedEvent()" autocomplete="off">
+											<option value="-1" selected disabled>Seleccione un evento...</option>
 								          	<?php
 								          		getEvents();
 								          		loadEvents();
@@ -186,8 +187,9 @@ function checkSession()
 					    <div class="form-area"> 
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
 		                    <div class="form-group">
-			              		<label> Seleccione el evento:</label>
-					          	<select class="form-control col-sm-2" id="deleteList">
+			              		<label> Evento:</label>
+					          	<select class="form-control col-sm-2" id="deleteList" autocomplete="off">
+					          	<option value="-1" selected disabled>Seleccione un evento...</option>
 					          	<?php
 					          		getEvents();
 					          		loadEvents();
@@ -241,7 +243,9 @@ function checkSession()
 							    <div class="form-area"> 
 					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 					    				<div class="form-group">
-						    				<select class="form-control col-sm-2" id="modifyFunFactsList" onchange="getSelectedFact()">
+					    					<label>Dato curioso:</label>
+						    				<select class="form-control col-sm-2" id="modifyFunFactsList" onchange="getSelectedFact()" autocomplete="off">
+						    					<option value="-1" selected disabled>Seleccione un dato curioso...</option>
 									          	<?php
 									          		getFactsOptions();
 									          	?>
@@ -266,8 +270,9 @@ function checkSession()
 					    <div class="form-area"> 
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
 		                    <div class="form-group">
-			              		<label> Seleccione el dato curioso:</label>
-					          	<select class="form-control col-sm-2" id="deleteFunFactsList">
+			              		<label> Dato curioso:</label>
+					          	<select class="form-control col-sm-2" id="deleteFunFactsList" autocomplete="off">
+					          	<option value="-1" selected disabled>Seleccione un dato curioso...</option>
 					          	<?php
 					          		getFactsOptions();
 					          	?>
@@ -323,8 +328,9 @@ function checkSession()
 					    <div class="form-area"> 
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar Galería</h3>
 		                    <div class="form-group">
-			              		<label> Seleccione la galería a eliminar:</label>
-					          	<select class="form-control col-sm-2" id="deleteFunFactsList">
+			              		<label> Galería a eliminar:</label>
+					          	<select class="form-control col-sm-2" id="deleteFunFactsList" autocomplete="off">
+					          	<option value="-1" selected disabled>Seleccione una galería...</option>
 					          	<?php
 					          		//getFactsOptions(); load gallery names and id's
 					          	?>
@@ -348,8 +354,9 @@ function checkSession()
 							    <div class="form-area"> 
 					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 					    				<div class="form-group">
-					    				<label> Seleccione la publicación:</label>
-								          	<select class="form-control col-sm-2" id="modifyPostList" onchange="getSelectedPost()"> 
+					    				<label> Publicación:</label>
+								          	<select class="form-control col-sm-2" id="modifyPostList" onchange="getSelectedPost()" autocomplete = "off"> 
+								          	<option value="-1" selected disabled>Seleccione una publicación...</option>
 								          	<?php
 								          		getPostsOptions(); 
 								          	?>
@@ -374,8 +381,9 @@ function checkSession()
 					    <div class="form-area"> 
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
 		                    <div class="form-group">
-			              		<label> Seleccione la publicación:</label>
-					          	<select class="form-control col-sm-2" id="deletePostList">
+			              		<label> Publicación:</label>
+					          	<select class="form-control col-sm-2" id="deletePostList" autocomplete="off">
+					          	<option value="-1" selected disabled>Seleccione una publicación...</option>
 						          	<?php
 						          		getPostsOptions(); 
 						          	?>
@@ -419,7 +427,7 @@ function checkSession()
 							    <div class="form-area"> 
 					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 					    				<div class="form-group">
-					    				<label> Seleccione la pregunta:</label>
+					    				<label> Pregunta:</label>
 								          	<select class="form-control col-sm-2" id="modifyFaqList" onchange="getSelectedFaq()"> 
 								          	<option value="-1" selected disabled> Seleccione una pregunta... </option>
 									          	<?php
@@ -446,8 +454,9 @@ function checkSession()
 					    <div class="form-area"> 
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
 		                    <div class="form-group">
-			              		<label> Seleccione la pregunta:</label>
+			              		<label> Pregunta:</label>
 					          	<select class="form-control col-sm-2" id="deleteFaqList">
+					          	<option value="-1" selected disabled>Seleccione una pregunta...</option>
 					          	<?php
 					          		getFaqsOptions(); 
 					          	?>
@@ -525,8 +534,8 @@ function checkSession()
 							    	<form id="frmModifyUpload" method="post" action="" enctype="multipart/form-data">
 					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 					    				<div class="form-group">
-					    				<label> Seleccione Un miembro:</label>
-								          	<select class="form-control col-sm-2" id="modifyMemberList" onchange="getSelectedMember()"> 
+					    				<label> Miembro:</label>
+								          	<select class="form-control col-sm-2" id="modifyMemberList" onchange="getSelectedMember()" autocomplete="off"> 
 								          	<option value="-1" selected disabled> Seleccione un miembro... </option>
 									          	<?php
 									          		getMembersOptions(); 
@@ -566,8 +575,9 @@ function checkSession()
 					    <div class="form-area"> 
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
 		                    <div class="form-group">
-			              		<label> Seleccione un miembro:</label>
-					          	<select class="form-control col-sm-2" id="deleteMemberList">
+			              		<label> Miembro:</label>
+					          	<select class="form-control col-sm-2" id="deleteMemberList" autocomplete="off">
+					          	<option value="-1" selected disabled>Seleccione un miembro...</option>
 					          	<?php
 					          		getMembersOptions(); 
 					          	?>

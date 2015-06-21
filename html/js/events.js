@@ -187,10 +187,21 @@ function isValidHour(date,hour)
         {
             if(min >= 0 && min < 60)
             {
-                return true;
+                var today = (new Date());
+                var current = new Date(date.getTime());
+                today.setHours(0,0,0,0);
+                current.setHours(0,0,0,0);
+
+                var thisMoment = (new Date());
+                current.setHours(hour);
+                current.setMinutes(min);
+
+                return current != today || (current > thisMoment);
             }
         }
     }
+
+
 
     return false;
 }
