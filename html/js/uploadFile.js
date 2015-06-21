@@ -37,7 +37,7 @@ $(function() {
         console.log('Submitting');
         $.ajax({
             type: 'POST',
-            url: 'php/uploadImageEquipo.php',
+            url: 'php/uploadImageEquipment.php',
             data: data,
             cache: false,
             contentType: false,
@@ -69,6 +69,37 @@ $(function() {
         $.ajax({
             type: 'POST',
             url: 'php/uploadImage.php',
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function(data) 
+        {
+            if(!isNaN(data))
+            {
+                console.log('Submitted');
+                modifyMember(data);
+            }
+            else
+            {
+                console.log("NaN");
+            }
+            console.log(data);
+        }).fail(function(jqXHR,status, errorThrown) {
+            console.log(errorThrown);
+            console.log(jqXHR.responseText);
+            console.log(jqXHR.status);
+        });
+    });
+});
+$(function() {
+    $('#modifyEquipmentButton').click(function(e) {
+        e.preventDefault();
+        data = new FormData($('#frmModifyUploadEquipment')[0]);
+        console.log('Submitting');
+        $.ajax({
+            type: 'POST',
+            url: 'php/uploadImageEquipment.php',
             data: data,
             cache: false,
             contentType: false,

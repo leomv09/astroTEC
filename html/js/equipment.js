@@ -1,41 +1,10 @@
 /* jshint browser: true */
-/*
-function getSelectedFaq()
-{
-    var faq =  document.getElementById("modifyFaqList");
-    var selectedFaq = faq.options[faq.selectedIndex];
-    var xmlhttp = new XMLHttpRequest();
-    if(selectedFaq.value > 0)
-    {
-       xmlhttp.onreadystatechange = function() 
-        {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
-            {
-                if(xmlhttp.responseText != -1)
-                {
-                    var data = xmlhttp.responseText.split(";");
-                    if(data.length == 2)
-                    {
-                        document.getElementById("modifyFaqTitle").value = data[0];
-                        document.getElementById("modifyFaqDescription").value = data[1];
-                    }
-                    else
-                    {
-                        alert("Error al obtener datos.");
-                    }
-                }
-                console.log(xmlhttp.responseText);
-            }
-        }
-        xmlhttp.open("POST", "php/getFaq.php?id="+ selectedFaq.value, true);
-        xmlhttp.send(); 
-    }     
-}
-*/
+
+
 function createEquipment(idFoto) {
-	
+
 	var formD = new FormData();
-	
+
 	var Name = document.getElementById("createEquipmentName").value;
 	formD.append("name", Name);
 
@@ -51,12 +20,11 @@ function createEquipment(idFoto) {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function () {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				if(xmlhttp.responseText >= 0)
-                {
-                    alert("Miembro agregado con éxito!");
-                    location.reload();
-                }
-                console.log(xmlhttp.responseText);
+				if (xmlhttp.responseText >= 0) {
+					alert("Miembro agregado con éxito!");
+					location.reload();
+				}
+				console.log(xmlhttp.responseText);
 			}
 		};
 		xmlhttp.open("POST", "php/createEquipment.php", true);
@@ -67,54 +35,108 @@ function createEquipment(idFoto) {
 
 }
 
-/*
-function modFaq()
-{
-    var title = document.getElementById("modifyFaqTitle").value;
-    var description = document.getElementById("modifyFaqDescription").value;
-    var faq =  document.getElementById("modifyFaqList");
-    var selectedFaq = faq.options[faq.selectedIndex];
-    if(title.length > 0 && description.length > 0)
-    {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
-            {
-                if(xmlhttp.responseText >= 0)
-                {
-                    alert("Datos modificados con éxito!");
-                    location.reload();
-                }
-                console.log(xmlhttp.responseText);
-            }
-        }
-        xmlhttp.open("POST", "php/modifyFaq.php?title=" + title + "&description=" + description+"&id=" + selectedFaq.value, true);
-        xmlhttp.send();
-    }
-    else
-    {
-        alert("Debe ingresar todos los datos");
-    }
+function getSelectedEquipment() {
+	var Equipment = document.getElementById("modifyEquipmentList");
+	var selectedEquipment = Equipment.options[Equipment.selectedIndex];
+	if (selectedEquipment.value > 0) {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function () {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				if (xmlhttp.responseText != -1) {
+					var data = xmlhttp.responseText.split(";");
+					if (data.length == 4) {
+						document.getElementById("modifyEquipmentName").value = data[0];
+						document.getElementById("modifyEquipmentDetail1").value = data[1];
+						document.getElementById("modifyEquipmentDetail2").value = data[2];
+						document.getElementById("EquipmentPhotoId").value = data[4];
+					} else {
+						alert("Error al obtener datos.");
+					}
+				}
+				console.log(xmlhttp.responseText);
+			}
+		};
+		xmlhttp.open("POST", "php/getEquipment.php?id=" + selectedEquipment.value, true);
+		xmlhttp.send();
+	}
+}
+
+function modifyEquipment(idFoto) {
+
+	var formD = new FormData();
+
+	var Name = document.getElementById("modifyEquipmentName").value;
+	formD.append("name", Name);
+
+	var Detail1 = document.getElementById("modifyEquipmentDetail1").value;
+	formD.append("detail1", Detail1);
+
+	var Detail2 = document.getElementById("modifyEquipmentDetail2").value;
+	formD.append("detail2", Detail2);
+	
+	var Equipments = document.getElementById("modifyEquipmentList");
+    var selectedEquipment = Equipments.options[Equipments.selectedIndex];
+	formD.append("id",selectedEquipment);
+	
+	if (idFoto > 0) {
+		formD.append("idfoto", idFoto);
+	}
+
+	if (Name.length > 0 && Detail1.length > 0 && Detail2.length > 0) {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function () {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				if (xmlhttp.responseText >= 0) {
+					if (idFoto > 0) {
+						deleteImageFromEquipment();
+					}
+
+					alert("Miembro agregado con éxito!");
+					location.reload();
+				}
+				console.log(xmlhttp.responseText);
+			}
+		};
+		xmlhttp.open("POST", "php/modifyEquipment.php", true);
+		xmlhttp.send(formD);
+	} else {
+		alert("Debe ingresar todos los datos.");
+	}
 
 }
 
-function deleteFaq()
+function deleteImageFromEquipment() {
+	var id = document.getElementById("EquipmentPhotoId").value;
+	console.log("Old photo id: " + id);
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			if (xmlhttp.responseText >= 0) {
+				alert("Imagen Eliminada");
+			}
+			console.log(xmlhttp.responseText);
+		}
+	};
+	xmlhttp.open("POST", "php/deleteImage.php?id=" + id, true);
+	xmlhttp.send();
+}
+
+function deleteEquipment()
 {
-    var faq =  document.getElementById("deleteFaqList");
-    var selectedFaq = faq.options[faq.selectedIndex];
+    var Equipment =  document.getElementById("deleteEquipmentList");
+    var selectedEquipment = Equipment.options[Equipment.selectedIndex];
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
         {
             if(xmlhttp.responseText >= 0)
             {
-                alert("Faq eliminada con éxito!");
+                alert("Equipment eliminada con éxito!");
                 location.reload();
             }
             console.log(xmlhttp.responseText);
         }
-    }
-    xmlhttp.open("POST", "php/deleteFaq.php?id=" + selectedFaq.value, true);
+    };
+    xmlhttp.open("POST", "php/deleteEquipment.php?id=" + selectedEquipment.value, true);
     xmlhttp.send();
 }
-*/
