@@ -8,8 +8,8 @@ $hour = $_REQUEST["hour"];
 $description = $_REQUEST["description"];
   
 
-$date2 = DateTime::createFromFormat('d/m/Y H:i:s', $date.' '.$hour);
-$finalDate = $date2->format('Y-m-d H:i:s');
+$date2 = DateTime::createFromFormat('d/m/Y H:i', $date.' '.$hour);
+$finalDate = $date2->format('Y-m-d H:i');
 
 $sql = "INSERT INTO Eventos(titulo, descripcion, fecha, fk_idEstado) VALUES ('$title', '$description', '$finalDate', 1)";
 

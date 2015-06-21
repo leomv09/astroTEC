@@ -10,7 +10,7 @@ $id = $_REQUEST["id"];
 
 $date2 = $date. ' '.$hour;
 
-$sql = "UPDATE Eventos SET titulo = '$title', fecha = STR_TO_DATE('$date2', '%d/%m/%Y %h%i%s'), descripcion = '$description' WHERE idEvento = $id";
+$sql = "UPDATE Eventos SET titulo = '$title', fecha = STR_TO_DATE('$date2', '%d/%m/%Y %H:%i'), descripcion = '$description' WHERE idEvento = $id";
 
 $result = $conn->query($sql);
 

@@ -16,7 +16,7 @@ function modifyEvent()
 
     if(isValidDate(date))
     {
-        if(isValidHour(hour))
+        if(isValidHour(date,hour))
         {
             if(title.length > 0 && date.length > 0 && description.length > 0)
             {
@@ -42,12 +42,12 @@ function modifyEvent()
         }
         else
         {
-            alert("Formato de hora incorrecto");
+            alert("Hora incorrecta");
         }
     }
     else
     {
-        alert("Formato de fecha incorrecto");
+        alert("Fecha no válida");
     }
 }
 
@@ -68,11 +68,29 @@ function getSelectedEvent()
                 {
                     document.getElementById("modifyTitle").value = data[0];
                     document.getElementById("modifyDescription").value = data[1];
-                    console.log(data[1]);
                     var bits = data[2].split(/\D/);
                     var date = new Date(bits[0], --bits[1], bits[2], bits[3], bits[4]);
-                    document.getElementById("modifyDate").value = (date.getDay() + 1 ) + "/" + (date.getMonth() + 1) + "/" +date.getFullYear();
-                    document.getElementById("modifyHour").value = date.getHours() + ":"+date.getMinutes()+":"+date.getSeconds();
+
+                    var day =  (date.getDay() + 1 ).toString();
+                    if (day.length == 1){
+                        day = '0' + day;
+                    }
+                    var month = (date.getMonth() + 1).toString();
+                    if (month.length == 1){
+                        month = '0' + month;
+                    }
+                    var year = date.getFullYear().toString();
+                    var hours = date.getHours().toString();
+                    if (hours.length == 1){
+                        hours = '0' + hours;
+                    }
+                    var minutes = date.getMinutes().toString();
+                    if (minutes.length == 1){
+                        minutes = '0' + minutes;
+                    }
+
+                    document.getElementById("modifyDate").value = day + "/" + month + "/" + year;
+                    document.getElementById("modifyHour").value = hours + ":"+ minutes;
                 }
                 else
                 {
@@ -157,17 +175,35 @@ function deleteEvent()
     xmlhttp.send();
 }
 
+function getFormattedDateObject(date){
+    var dateElements = date.split('/');
+    if (dateElements.length != 3){
+        return null;
+    }
+    if (dateElements[1].length == 1){
+        dateElements[1]='0'+dateElements[1];
+    }
+    if (dateElements[0].length == 1){
+        dateElements[0]='0'+dateElements[0];
+    }
+    return new Date(dateElements[2]+"-"+dateElements[1]+"-"+dateElements[0]);
+}
+
 function isValidDate(date)
 {
+    var current = getFormattedDateObject(date);
+    if (!current){
+        return false;
+    }
     //http://stackoverflow.com/questions/1353684/detecting-an-invalid-date-date-instance-in-javascript
-    if ( Object.prototype.toString.call(date) === "[object Date]" ) {
-        if ( isNaN( date.getTime() ) ) { 
+    if ( Object.prototype.toString.call(current) === "[object Date]" ) {
+        if ( isNaN( current.getTime() ) ) {
             return false;
         }
         else {
             var today = (new Date());
             today.setHours(0,0,0,0);
-            return date >= today;
+            return current >= today;
         }
     }
     else {
@@ -179,7 +215,7 @@ function isValidDate(date)
 function isValidHour(date,hour)
 {
     var hourArray = hour.split(":");
-    if(hourArray.length == 3)
+    if(hourArray.length == 2)
     {
         var hour = hourArray[0];
         var min = hourArray[1];
@@ -188,7 +224,7 @@ function isValidHour(date,hour)
             if(min >= 0 && min < 60)
             {
                 var today = (new Date());
-                var current = new Date(date.getTime());
+                var current = new Date(getFormattedDateObject(date).getTime());
                 today.setHours(0,0,0,0);
                 current.setHours(0,0,0,0);
 
@@ -200,7 +236,6 @@ function isValidHour(date,hour)
             }
         }
     }
-
 
 
     return false;
