@@ -35,6 +35,9 @@ function createFaq()
     var title = document.getElementById("createFaqTitle").value;
     var description = document.getElementById("createFaqDescription").value;
 
+    title = title.trim();
+    description = description.trim();
+
     if(title.length > 0 && description.length > 0)
     {
         var xmlhttp = new XMLHttpRequest();
@@ -66,6 +69,10 @@ function modFaq()
     var description = document.getElementById("modifyFaqDescription").value;
     var faq =  document.getElementById("modifyFaqList");
     var selectedFaq = faq.options[faq.selectedIndex];
+
+    title = title.trim();
+    description = description.trim();
+
     if(title.length > 0 && description.length > 0)
     {
         var xmlhttp = new XMLHttpRequest();

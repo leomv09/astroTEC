@@ -8,6 +8,12 @@ function modifyEvent()
 	var events =  document.getElementById("eventsList");
 	var selectedEvent = events.options[events.selectedIndex];
     console.log("Title "+title +", date "+date+", hour "+hour+", desc "+description);
+
+    title = title.trim();
+    description = description.trim();
+    date = date.trim();
+    hour = hour.trim();
+
     if(isValidDate(date))
     {
         if(isValidHour(hour))
@@ -87,9 +93,14 @@ function createEvents()
     var hour = document.getElementById("createHour").value;
 	var description = document.getElementById("createDescription").value;
 
+    title = title.trim();
+    description = description.trim();
+    date = date.trim();
+    hour = hour.trim();
+
     if(isValidDate(date))
     {
-        if(isValidHour(hour))
+        if(isValidHour(date,hour))
         {
             if(title.length > 0 && description.length > 0)
             {
@@ -148,30 +159,24 @@ function deleteEvent()
 
 function isValidDate(date)
 {
-    var dateArray = date.split("/");
-    if(dateArray.length == 3)
-    {
-        var day = dateArray[0];
-        var month = dateArray[1];
-        var year = dateArray[2];
-        if(day > 0 && month > 0 && year >0)
-        {
-            if(day >= 1 && day <= 31)
-            {
-                if(month > 0 && month <= 12)
-                {
-                    if(year >= new Date().getFullYear())
-                    {
-                        return true;
-                    }
-                }
-            }
+    //http://stackoverflow.com/questions/1353684/detecting-an-invalid-date-date-instance-in-javascript
+    if ( Object.prototype.toString.call(date) === "[object Date]" ) {
+        if ( isNaN( date.getTime() ) ) { 
+            return false;
+        }
+        else {
+            var today = (new Date());
+            today.setHours(0,0,0,0);
+            return date >= today;
         }
     }
-    return false;
+    else {
+      return false;
+    }
+
 }
 
-function isValidHour(hour)
+function isValidHour(date,hour)
 {
     var hourArray = hour.split(":");
     if(hourArray.length == 3)
