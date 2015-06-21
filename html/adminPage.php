@@ -4,6 +4,7 @@
 	require( "php/blog.php");
 	require( "php/faqs.php");
 	require( "php/members.php");
+	require( "php/equipment.php");
 
 function checkSession()
 {
@@ -43,6 +44,7 @@ function checkSession()
 	<script type="text/javascript" src="js/faqs.js"></script>
 	<script type="text/javascript" src="js/uploadFile.js"></script>
 	<script type="text/javascript" src="js/members.js"></script>
+	<script type="text/javascript" src="js/equipment.js"></script>
 </head>
 
 <body>
@@ -125,8 +127,8 @@ function checkSession()
 						<li><a href="#CreateMember" onclick="show(19, 'Agregar miembro')"><span ></span> Agregar miembro a la organización </a></li>
 						<li><a href="#ModifyFaq" onclick="show(20, 'Modificar miembro')"><span ></span> Modificar miembro de la organización </a><hr></li>
 
-						<li><a href="#CreateEquipment" onclick="show(0, 'Agregar equipo')"><span ></span> Agregar nuevo equipo </a></li>
-						<li><a href="#ModifyEquipment" onclick="show(0, 'Modificar equipo')"><span ></span> Modificar equipo </a><hr></li>
+						<li><a href="#CreateEquipment" onclick="show(23, 'Agregar equipo')"><span ></span> Agregar nuevo equipo </a></li>
+						<li><a href="#ModifyEquipment" onclick="show(24, 'Modificar equipo')"><span ></span> Modificar equipo </a><hr></li>
 					</ul>
 				</div>
 			</nav>
@@ -590,7 +592,100 @@ function checkSession()
 			</div>
 		</div>
 
+		<div class="hidden" id="hidden23">
+	        <div class="container">
+				<div class="col-md-10">
+				    <div class="form-area"> 
+				    	<form id="frmUploadEquipment" action="" method="post" enctype="multipart/form-data">
+		                    <h2 style="margin-bottom: 25px; text-align: center;">Agregar Equipo</h2>
+		                    <div class="form-group">
+								<label>Nombre:</label>
+								<input class="form-control" type="text" id="createEquipmentName" placeholder="Requerido">
+							</div>
+							<div class="form-group">
+								<label>Detalle 1:</label>
+								<input class="form-control" type="text" id="createEquipmentDetail1" placeholder="Requerido">
+							</div>
+							<div class="form-group">
+								<label>Detalle 2:</label>
+								<input class="form-control" type="text" id="createEquipmentDetail2" placeholder="Requerido">
+							</div>
+							<div class="form-group">
+								<label>Fotografía:</label>
+								<input class="form-control" type="file" id="createEquipmentPhoto" name="equipmentImage" placeholder="Requerido">
+							</div>
+					        <button id="createEquipmentButton" type="button" class="btn btn-default" onclick="">Crear</button>
+					    </form>
+				    </div>
+				</div>			         
+	          </div>
+	      </div>
 
+	      <div class="hidden" id="hidden24">
+				<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Equipo </h2>
+				<select class="form-control col-sm-5" id="optionEquipmentSelect" onchange="changeEquipmentVisibility()" autocomplete="off">
+					<option value="0" selected disabled> Seleccione una opción... </option>
+					<option value="1"> Modificar </option>
+					<option value="2"> Eliminar </option>
+              	</select>
+	            <div class="hidden" id="hidden25">
+		              <div class="container">
+							<div class="col-md-10">
+							    <div class="form-area"> 
+							    	<form id="frmModifyUploadEquipment" method="post" action="" enctype="multipart/form-data">
+					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
+					    				<div class="form-group">
+					    				<label> Equipo:</label>
+								          	<select class="form-control col-sm-2" id="modifyEquipmentList" onchange="getSelectedEquipment()" autocomplete="off"> 
+								          	<option value="-1" selected disabled> Seleccione un equipo... </option>
+									          	<?php
+									          		getEquipmentsOptions(); 
+									          	?>
+								          	</select>
+										</div>
+										<div class="form-group">
+											<label>Nombre:</label>
+											<input class="form-control" type="text" id="modifyEquipmentName" placeholder="Requerido">
+										</div>
+										<div class="form-group">
+											<label>Detalle 1:</label>
+											<input class="form-control" type="text" id="modifyEquipmentDetail1" placeholder="Requerido">
+										</div>
+										<div class="form-group">
+											<label>Detalle 2:</label>
+											<input class="form-control" type="text" id="modifyEquipmentDetail2" placeholder="Requerido">
+										</div>
+										<div class="form-group">
+											<label>Fotografía:</label>
+											<input class="form-control" type="file" id="modifyEquipmentPhoto" name="equipmentImage" placeholder="Requerido">
+											<input class="form-control" type="hidden" id="equipmentPhotoId">
+										</div>
+								        <button id="modifyEquipmentButton" type="button" class="btn btn-default" onclick="">Crear</button>
+							    </form>
+							</div>
+						</div>			         
+		            </div>
+	            </div>
+              <div class="hidden" id="hidden26">
+              	<div class="container">
+					<div class="col-md-10">
+					    <div class="form-area"> 
+		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
+		                    <div class="form-group">
+			              		<label> Miembro:</label>
+					          	<select class="form-control col-sm-2" id="deleteEquipmentList" autocomplete="off">
+					          	<option value="-1" selected disabled>Seleccione un equipo...</option>
+					          	<?php
+					          		getEquipmentsOptions(); 
+					          	?>
+					          	</select>
+					        </div> 	
+				          <button type="button" class="btn btn-default" onclick="deleteEquipment()">Eliminar</button>
+			            </div>
+				    </div>
+				</div>
+			</div>
+		</div>
 
     	</div>    
 	</div>

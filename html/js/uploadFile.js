@@ -33,7 +33,7 @@ $(function() {
 $(function() {
     $('#createEquipmentButton').click(function(e) {
         e.preventDefault();
-        data = new FormData($('#frmUploadMember')[0]); // igual mas Member
+        data = new FormData($('#frmUploadEquipment')[0]); // igual mas Member
         console.log('Submitting');
         $.ajax({
             type: 'POST',
@@ -92,6 +92,7 @@ $(function() {
         });
     });
 });
+
 $(function() {
     $('#modifyEquipmentButton').click(function(e) {
         e.preventDefault();
@@ -109,7 +110,7 @@ $(function() {
             if(!isNaN(data))
             {
                 console.log('Submitted');
-                modifyMember(data);
+                modifyEquipment(data);
             }
             else
             {

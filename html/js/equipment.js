@@ -21,7 +21,7 @@ function createEquipment(idFoto) {
 		xmlhttp.onreadystatechange = function () {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				if (xmlhttp.responseText >= 0) {
-					alert("Miembro agregado con éxito!");
+					alert("Equipo agregado con éxito!");
 					location.reload();
 				}
 				console.log(xmlhttp.responseText);
@@ -48,7 +48,7 @@ function getSelectedEquipment() {
 						document.getElementById("modifyEquipmentName").value = data[0];
 						document.getElementById("modifyEquipmentDetail1").value = data[1];
 						document.getElementById("modifyEquipmentDetail2").value = data[2];
-						document.getElementById("EquipmentPhotoId").value = data[4];
+						document.getElementById("equipmentPhotoId").value = data[4];
 					} else {
 						alert("Error al obtener datos.");
 					}
@@ -76,7 +76,7 @@ function modifyEquipment(idFoto) {
 	
 	var Equipments = document.getElementById("modifyEquipmentList");
     var selectedEquipment = Equipments.options[Equipments.selectedIndex];
-	formD.append("id",selectedEquipment);
+	formD.append("id",selectedEquipment.value);
 	
 	if (idFoto > 0) {
 		formD.append("idfoto", idFoto);
@@ -91,7 +91,7 @@ function modifyEquipment(idFoto) {
 						deleteImageFromEquipment();
 					}
 
-					alert("Miembro agregado con éxito!");
+					alert("Equipo agregado con éxito!");
 					location.reload();
 				}
 				console.log(xmlhttp.responseText);
@@ -106,7 +106,7 @@ function modifyEquipment(idFoto) {
 }
 
 function deleteImageFromEquipment() {
-	var id = document.getElementById("EquipmentPhotoId").value;
+	var id = document.getElementById("equipmentPhotoId").value;
 	console.log("Old photo id: " + id);
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function () {
@@ -131,7 +131,7 @@ function deleteEquipment()
         {
             if(xmlhttp.responseText >= 0)
             {
-                alert("Equipment eliminada con éxito!");
+                alert("Equipment eliminado con éxito!");
                 location.reload();
             }
             console.log(xmlhttp.responseText);
