@@ -130,3 +130,23 @@ function deleteImageFromMember()
     xmlhttp.open("POST", "php/deleteImage.php?id=" + id, true);
     xmlhttp.send();
 }
+
+function deleteMember()
+{
+    var member = document.getElementById("deleteMemberList");
+    var selectedMember = member.options[member.selectedIndex];
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText >= 0)
+            {
+                alert("Miembro eliminado con éxito!");
+            }
+            console.log(xmlhttp.responseText);
+            location.reload();
+        }
+    }
+    xmlhttp.open("POST", "php/deleteMember.php?id=" + selectedMember.value, true);
+    xmlhttp.send();
+}
