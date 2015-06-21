@@ -1,7 +1,7 @@
 
 <?php 
 require_once('db.php');
-global $coon;
+global $conn;
 $timestamp = time();
 $currentTime = DateTime::createFromFormat( 'U', $timestamp );
 
