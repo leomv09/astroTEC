@@ -401,7 +401,7 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`Colaboradores` (
   `nombre` VARCHAR(90) NOT NULL,
   `apellido1` VARCHAR(90) NOT NULL,
   `apellido2` VARCHAR(90) NULL,
-  `comentario` VARCHAR(200) NOT NULL,
+  `comentario` VARCHAR(400) NOT NULL,
   `fk_idFoto` INT NOT NULL,
   PRIMARY KEY (`idColaborador`),
   INDEX `fk_Colaboradores_Fotos1_idx` (`fk_idFoto` ASC),

@@ -27,6 +27,7 @@ function hide()
 	document.getElementById('hidden14').className = "hidden";
 	document.getElementById('hidden15').className = "hidden";
 	document.getElementById('hidden18').className = "hidden";
+	document.getElementById('hidden19').className = "hidden";
 }
 
 function showAdminName(name)

@@ -28,10 +28,8 @@
 									<div class="space">
 										<ul class="list-group">
 											<li class="list-group-item">Nombre</li>
-											<li class="list-group-item">Fecha adquisición</li>
 											<li class="list-group-item">Detalle 1 </li>
-											<li class="list-group-item"><i class="fa fa-phone"></i> Detalle 2 </li>
-											<li class="list-group-item"><i class="fa fa-envelope"></i> Detalle 3</li>
+											<li class="list-group-item">Detalle 2 </li>
 										</ul>
 									</div>
 								</div>
@@ -58,10 +56,8 @@
 									<div class="space">
 										<ul class="list-group">
 											<li class="list-group-item">Nombre</li>
-											<li class="list-group-item">Fecha adquisición</li>
 											<li class="list-group-item">Detalle 1 </li>
-											<li class="list-group-item"><i class="fa fa-phone"></i> Detalle 2 </li>
-											<li class="list-group-item"><i class="fa fa-envelope"></i> Detalle 3</li>
+											<li class="list-group-item">Detalle 2 </li>
 										</ul>
 									</div>
 								</div>

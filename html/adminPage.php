@@ -33,12 +33,15 @@ function checkSession()
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
+	<script type="text/javascript" src="js/vendor/jquery-2.1.4.min.js"></script>	
 	<link rel="stylesheet" type="text/css" href="css/admin.css">
 	<script type="text/javascript" src="js/admin.js"></script>	
 	<script type="text/javascript" src="js/events.js"></script>
 	<script type="text/javascript" src="js/post.js"></script>		
 	<script type="text/javascript" src="js/funfacts.js"></script>
-	<script type="text/javascript" src="js/faqs.js"></script>		
+	<script type="text/javascript" src="js/faqs.js"></script>
+	<script type="text/javascript" src="js/uploadFile.js"></script>
+	<script type="text/javascript" src="js/members.js"></script>
 </head>
 
 <body>
@@ -117,6 +120,12 @@ function checkSession()
 
 						<li><a href="#CreateFaq" onclick="show(18, 'Crear pregunta frecuente')"><span ></span> Crear pregunta frecuente </a></li>
 						<li><a href="#ModifyFaq" onclick="show(15, 'Modificar preguntas frecuentes')"><span ></span> Modificar pregunta frecuente </a><hr></li>
+
+						<li><a href="#CreateMember" onclick="show(19, 'Agregar miembro')"><span ></span> Agregar miembro a la organización </a></li>
+						<li><a href="#ModifyFaq" onclick="show(0, 'Modificar miembro')"><span ></span> Modificar miembro de la organización </a><hr></li>
+
+						<li><a href="#CreateEquipment" onclick="show(0, 'Agregar equipo')"><span ></span> Agregar nuevo equipo </a></li>
+						<li><a href="#ModifyEquipment" onclick="show(0, 'Modificar equipo')"><span ></span> Modificar equipo </a><hr></li>
 					</ul>
 				</div>
 			</nav>
@@ -453,21 +462,54 @@ function checkSession()
 	        <div class="container">
 				<div class="col-md-10">
 				    <div class="form-area"> 
-		                    <h2 style="margin-bottom: 25px; text-align: center;">Crear FAQ</h2>
-		                    <div class="form-group">
-								<label>Pregunta:</label>
-								<input class="form-control" type="text" id="createFaqTitle" placeholder="Título">
-							</div>
-		                    <div class="form-group">
-		                    	<label>Respuesta:</label>
-		                    <textarea class="form-control" id="createFaqDescription" placeholder="Descripción" maxlength="300" rows="7"></textarea>                   
-		                    </div>
+	                    <h2 style="margin-bottom: 25px; text-align: center;">Crear FAQ</h2>
+	                    <div class="form-group">
+							<label>Pregunta:</label>
+							<input class="form-control" type="text" id="createFaqTitle" placeholder="Título">
+						</div>
+	                    <div class="form-group">
+	                    	<label>Respuesta:</label>
+	                    <textarea class="form-control" id="createFaqDescription" placeholder="Descripción" maxlength="300" rows="7"></textarea>                   
+	                    </div>
 				        <button type="button" class="btn btn-default" onclick="createFaq()">Crear</button>
 				    </div>
 				</div>			         
 	          </div>
 	      </div>
 
+
+	      <div class="hidden" id="hidden19">
+	        <div class="container">
+				<div class="col-md-10">
+				    <div class="form-area"> 
+				    	<form id="frmUpload" action="" method="post" enctype="multipart/form-data">
+		                    <h2 style="margin-bottom: 25px; text-align: center;">Agregar miembro</h2>
+		                    <div class="form-group">
+								<label>Nombre:</label>
+								<input class="form-control" type="text" id="createMemberName" placeholder="Requerido">
+							</div>
+							<div class="form-group">
+								<label>Apellido 1:</label>
+								<input class="form-control" type="text" id="createMemberLastName1" placeholder="Requerido">
+							</div>
+							<div class="form-group">
+								<label>Apellido 2:</label>
+								<input class="form-control" type="text" id="createMemberLastName2" placeholder="Opcional">
+							</div>
+							<div class="form-group">
+								<label>Fotografía:</label>
+								<input class="form-control" type="file" id="createMemberPhoto2" name="userImage" placeholder="Requerido">
+							</div>
+		                    <div class="form-group">
+		                    	<label>Comentario:</label>
+		                    <textarea class="form-control" id="createMemmberDescription" placeholder="Requerido (Máximo 400 caracteres)" maxlength="400" rows="7"></textarea>                   
+		                    </div>
+					        <button id="createMemberButton" type="button" class="btn btn-default" onclick="">Crear</button>
+					    </form>
+				    </div>
+				</div>			         
+	          </div>
+	      </div>
 
     	</div>    
 	</div>
