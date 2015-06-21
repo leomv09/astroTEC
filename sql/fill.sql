@@ -47,14 +47,16 @@ INSERT INTO ArchivosAdjunto (idArchivo, url, nombre, descripcion, fk_idTipoArchi
 (2, 'img/Galerias/1/logoAT.jpg', 'Logo astroTEC', NULL, 4, 1),
 (3, 'img/Galerias/1/space.jpg', 'Imagen de nebulosa', NULL, 4, 1),
 (4, 'img/Galerias/1/stars.jpg', 'Estrellas', NULL, 4, 1),
-(5, 'img/Galerias/1/telescope.jpg', 'Telescopio', NULL, 4, 1);
+(5, 'img/Galerias/1/telescope.jpg', 'Telescopio', NULL, 4, 1),
+(6, 'img/members/teamMemberDefault.png', 'Telescopio', NULL, 4, 1);
 
 INSERT INTO Fotos (idFoto, titulo, descripcion, fk_idArchivo) VALUES
 (1, 'Participantes AstroTEC', 'Esta foto fue tomada en las primeros Jueves Astronómicos.', 1),
 (2, 'Nuestro Logo', 'El logo oficial de AstroTEC fue propuesto por un estudiante de Diseño Industrial.', 2),
 (3, 'Nebulosa XT215', 'Conocida entre los astrónomos, fue una de las primeras en ser descubiertas.', 3),
 (4, 'Noche estrellada', 'Logramos capturar estas constelaciones en Guanacaste.', 4),
-(5, 'Telescopio', 'Uno de los mejores telescopios en todo el país nos permite tener una mejor visión del cosmos.', 5);
+(5, 'Telescopio', 'Uno de los mejores telescopios en todo el país nos permite tener una mejor visión del cosmos.', 5),
+(6, ' ', ' ', 6);
 
 INSERT INTO Galerias (idGaleria, fecha, titulo, descripcion) VALUES
 (1, '2015-05-24 12:45:34', 'Galería de prueba', NULL);
@@ -98,3 +100,6 @@ INSERT INTO ComentariosXPublicacion (fk_idComentario, fk_idPublicacion) VALUES
 (4, 2),
 (5, 3),
 (6, 3);
+
+INSERT INTO Colaboradores(idColaborador, nombre, apellido1, apellido2, comentario, fk_idFoto) VALUES
+(1, 'Leonardo', 'Madrigal', 'Valverde', 'Me gusta la astronomía. Estudio Ingeniería en Computación.', 6);
