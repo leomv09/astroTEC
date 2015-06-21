@@ -7,7 +7,12 @@ function createMember(photoId)
     var lastName2 = document.getElementById("createMemberLastName2").value;
     var description = document.getElementById("createMemmberDescription").value;
 
-    if(name.length > 0 && description.length > 0 && lastName2.length > 0)
+    name=name.trim();
+    lastName1=lastName1.trim();
+    lastName2=lastName2.trim();
+    description=description.trim();
+
+    if(name.length > 0 && description.length > 0 && lastName1.length > 0)
     {
         var xmlhttp = new XMLHttpRequest();
         var request = "php/createMember.php?name="+name + "&lastName1=" + lastName1 + "&description=" + description + "&photoId=" + photoId;
@@ -82,7 +87,13 @@ function modifyMember(photoId)
     var description = document.getElementById("modifyMemberDescription").value;
     var members = document.getElementById("modifyMemberList");
     var selectedMember = members.options[members.selectedIndex];
-    if(name.length > 0 && lastName1.length > 0 && lastName2.length > 0 && description.length > 0)
+
+    name = name.trim();
+    lastName1 = lastName1.trim();
+    lastName2 = lastName2.trim();
+    description = description.trim();
+
+    if(name.length > 0 && lastName1.length > 0 && description.length > 0)
     {
         var request = "php/modifyMember.php?name=" + name +"&lastName1=" + lastName1 + "&lastName2=" + lastName2 + "&description=" + description+ "&id=" + selectedMember.value;
         var xmlhttp = new XMLHttpRequest();

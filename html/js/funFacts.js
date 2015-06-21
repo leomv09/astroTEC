@@ -3,6 +3,9 @@ function createFunFact()
 	var description = document.getElementById("createFunFactDescription").value;
     var title = document.getElementById("funFactCreateTitle").value;
 
+    description = description.trim();
+    title = title.trim();
+
 	if(description.length > 0 && title.length > 0)
 	{
 		var xmlhttp = new XMLHttpRequest();

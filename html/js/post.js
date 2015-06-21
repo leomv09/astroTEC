@@ -23,10 +23,12 @@ function create_comment() {
 	var post = document.getElementById("post-id").value;
 	var autor = document.getElementById("autor-id").value;
 	var autorName = document.getElementById("autor-name").value;
+
+	content = content.trim();
 	
 	if (content && post) {
-		var url = "./../php/addcomment.ajax.php";
-		var params = "post=" + post + "&user=" + autor + "&content=" + content;//encodeURIComponent(content);
+		var url = "./php/addcomment.ajax.php";
+		var params = "post=" + post + "&user=" + autor + "&content=" + encodeURIComponent(content);
 		var http = new XMLHttpRequest();
 		
 		http.onreadystatechange = function() {
@@ -49,6 +51,9 @@ function modPost()
 	var description = document.getElementById("modifyPostDescription").value;
 	var posts =  document.getElementById("modifyPostList");
 	var selectedPost = posts.options[posts.selectedIndex];
+
+	title=title.trim();
+	description=description.trim();
 
 	if(title.length > 0 && description.length > 0)
 	{

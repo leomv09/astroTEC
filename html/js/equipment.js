@@ -6,12 +6,16 @@ function createEquipment(idFoto) {
 	var formD = new FormData();
 
 	var Name = document.getElementById("createEquipmentName").value;
+	Name = Name.trim();
 	formD.append("name", Name);
 
 	var Detail1 = document.getElementById("createEquipmentDetail1").value;
+	Detail1=Detail1.trim();
 	formD.append("detail1", Detail1);
 
 	var Detail2 = document.getElementById("createEquipmentDetail2").value;
+	Detail2 = Detail2.trim();
+
 	formD.append("detail2", Detail2);
 
 	formD.append("idfoto", idFoto);
@@ -66,12 +70,15 @@ function modifyEquipment(idFoto) {
 	var formD = new FormData();
 
 	var Name = document.getElementById("modifyEquipmentName").value;
+	Name = Name.trim();
 	formD.append("name", Name);
 
 	var Detail1 = document.getElementById("modifyEquipmentDetail1").value;
+	Detail1=Detail1.trim();
 	formD.append("detail1", Detail1);
 
 	var Detail2 = document.getElementById("modifyEquipmentDetail2").value;
+	Detail2=Detail2.trim();
 	formD.append("detail2", Detail2);
 	
 	var Equipments = document.getElementById("modifyEquipmentList");
