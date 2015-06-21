@@ -48,7 +48,9 @@ INSERT INTO ArchivosAdjunto (idArchivo, url, nombre, descripcion, fk_idTipoArchi
 (3, 'img/Galerias/1/space.jpg', 'Imagen de nebulosa', NULL, 4, 1),
 (4, 'img/Galerias/1/stars.jpg', 'Estrellas', NULL, 4, 1),
 (5, 'img/Galerias/1/telescope.jpg', 'Telescopio', NULL, 4, 1),
-(6, 'img/members/teamMemberDefault.png', 'Telescopio', NULL, 4, 1);
+(6, 'img/members/teamMemberDefault.png', 'Telescopio', NULL, 4, 1),
+(7, 'img/Equipment/1.jpeg', '', NULL, 4, 1),
+(8, 'img/Equipment/2.jpeg', '', NULL, 4, 1);
 
 INSERT INTO Fotos (idFoto, titulo, descripcion, fk_idArchivo) VALUES
 (1, 'Participantes AstroTEC', 'Esta foto fue tomada en las primeros Jueves Astronómicos.', 1),
@@ -56,7 +58,9 @@ INSERT INTO Fotos (idFoto, titulo, descripcion, fk_idArchivo) VALUES
 (3, 'Nebulosa XT215', 'Conocida entre los astrónomos, fue una de las primeras en ser descubiertas.', 3),
 (4, 'Noche estrellada', 'Logramos capturar estas constelaciones en Guanacaste.', 4),
 (5, 'Telescopio', 'Uno de los mejores telescopios en todo el país nos permite tener una mejor visión del cosmos.', 5),
-(6, ' ', ' ', 6);
+(6, ' ', ' ', 6),
+(7, ' ', ' ', 7),
+(8, ' ', ' ', 8);
 
 INSERT INTO Galerias (idGaleria, fecha, titulo, descripcion) VALUES
 (1, '2015-05-24 12:45:34', 'Galería de prueba', NULL);
@@ -102,4 +106,9 @@ INSERT INTO ComentariosXPublicacion (fk_idComentario, fk_idPublicacion) VALUES
 (6, 3);
 
 INSERT INTO Colaboradores(idColaborador, nombre, apellido1, apellido2, comentario, fk_idFoto) VALUES
-(1, 'Leonardo', 'Madrigal', 'Valverde', 'Me gusta la astronomía. Estudio Ingeniería en Computación.', 6);
+(1, 'Leonardo', 'Madrigal', 'Valverde', 'Me gusta la astronomía. Estudio Ingeniería en Computación.', 6),
+(2, 'Jose', 'Garcia', 'Saenz', 'Apasionado por la astronomía', 6);
+
+INSERT INTO Equipo (nombre, detalle1, detalle2, fk_idFoto) VALUES
+('Telescopio RM-297FK', 'Marca: Ad Astra Rocket', 'Precio: $1500000', 7),
+('Brujula 76Bn', 'Marca: Brujulas USA', 'Precio: $170', 8);
