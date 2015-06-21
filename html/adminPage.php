@@ -6,6 +6,7 @@
 	require( "php/faqs.php");
 	require( "php/members.php");
 	require( "php/equipment.php");
+	require( "php/gallery.php");
 
 	function checkSession() {
 		redirect_if_not_admin("index.php");
@@ -35,6 +36,7 @@
 	<script type="text/javascript" src="js/uploadFile.js"></script>
 	<script type="text/javascript" src="js/members.js"></script>
 	<script type="text/javascript" src="js/equipment.js"></script>
+	<script type="text/javascript" src="js/gallery.js"></script>
 </head>
 
 <body>
@@ -292,21 +294,22 @@
               	<div class="container">
 					<div class="col-md-10">
 					    <div class="form-area"> 
-		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar Galería</h3>
+		                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar Galería</h3>
 		                    <div class="form-group">
-			              		<label> Galería a eliminar:</label>
-					          	<select class="form-control col-sm-2" id="deleteFunFactsList" autocomplete="off">
+			              		<label> Galería:</label>
+					          	<select class="form-control col-sm-2" id="modifyGalleryList" autocomplete="off">
 					          	<option value="-1" selected disabled>Seleccione una galería...</option>
 					          	<?php
-					          		//getFactsOptions(); load gallery names and id's
+					          		loadGalleries();
 					          	?>
 					          	</select>
 					        </div> 	
-				          <button type="button" class="btn btn-default" onclick="deleteGallery()">Eliminar</button>
+				          <button style="margin-top:2%;" type="button" class="btn btn-default" onclick="deleteGallery()">Eliminar</button>
 			            </div>
 				    </div>
 				</div>
 			</div>
+			
 			<div class="hidden" id="hidden11">
 				<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Blog </h2>
 				<select class="form-control col-sm-5" id="optionBlogSelect" onchange="changeBlogVisibility()" autocomplete="off">

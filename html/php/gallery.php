@@ -3,6 +3,20 @@ require_once('db.php');
 
 $galleries = array();
 
+function loadGalleries() {
+	global $conn;
+	$sql = "SELECT G.idGaleria AS id, G.titulo FROM Galerias AS G";
+	$result = $conn->query($sql);
+	
+	if ($result) {
+		if ($result->num_rows > 0) {
+			while ($row = $result->fetch_assoc()) {
+				echo "<option value='$row[id]'>$row[titulo]</option>";
+			}
+		}
+	}
+}
+
 function getGalleries()
 {
 	global $galleries, $conn;
