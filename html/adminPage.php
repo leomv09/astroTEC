@@ -172,7 +172,7 @@ function checkSession()
 									</div>
 									<div class="form-group">
 										<label>Hora:</label>
-										<input class="form-control" type="text" id="modifyHour" placeholder="HH:MM:SS">
+										<input class="form-control" type="text" id="modifyHour" placeholder="HH:MM">
 									</div>
 				                    <div class="form-group">
 				                    	<label>Descripción:</label>
@@ -220,7 +220,7 @@ function checkSession()
 									</div>
 									<div class="form-group">
 										<label>Hora:</label>
-										<input class="form-control" type="text" id="createHour" placeholder="HH:MM:SS">
+										<input class="form-control" type="text" id="createHour" placeholder="HH:MM">
 									</div>
 				                    <div class="form-group">
 				                    	<label>Descripción:</label>
