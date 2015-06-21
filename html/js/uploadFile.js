@@ -12,9 +12,14 @@ $(function() {
             processData: false
         }).done(function(data) 
         {
-            if(data.constructor === Number)
+            if(!isNaN(data))
             {
-                createMember(data;
+                console.log('Submitted');
+                createMember(data);
+            }
+            else
+            {
+                console.log("NaN");
             }
             console.log(data);
         }).fail(function(jqXHR,status, errorThrown) {

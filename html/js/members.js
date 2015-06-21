@@ -3,7 +3,7 @@ function createMember(photoId)
     var name = document.getElementById("createMemberName").value;
     var lastName1 = document.getElementById("createMemberLastName1").value;
     var lastName2 = document.getElementById("createMemberLastName2").value;
-    var description = document.getElementById("createMemberDescription").value;
+    var description = document.getElementById("createMemmberDescription").value;
 
     if(name.length > 0 && description.length > 0 && lastName2.length > 0)
     {
