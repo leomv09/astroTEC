@@ -7,12 +7,12 @@ $currentTime = DateTime::createFromFormat( 'U', $timestamp );
 
 if($_FILES['userImage']['error'] > 0) 
 {
-	die('Error ' . $_FILES['file']['error']);
+	die(-1);
 }
 
 if(empty($_FILES['userImage']['name'])) 
 {
-	die('No file sent.');
+	die(-1);
 }
 
 $tmp = $_FILES['userImage']['tmp_name'];

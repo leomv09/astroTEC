@@ -28,6 +28,7 @@ function hide()
 	document.getElementById('hidden15').className = "hidden";
 	document.getElementById('hidden18').className = "hidden";
 	document.getElementById('hidden19').className = "hidden";
+	document.getElementById('hidden20').className = "hidden";
 }
 
 function showAdminName(name)
@@ -113,5 +114,25 @@ function changeFaqVisibility()
 	{
 		document.getElementById("hidden16").className = "hidden";
 		document.getElementById("hidden17").className = "active";
+	}
+}
+
+
+function changeMemberVisibility()
+{
+	var select = document.getElementById("optionMemberSelect");
+
+	var selected = select.options[select.selectedIndex];
+
+
+	if(selected.value == 1)
+	{
+		document.getElementById("hidden21").className = "active";
+		document.getElementById("hidden22").className = "hidden";
+	}
+	else
+	{
+		document.getElementById("hidden21").className = "hidden";
+		document.getElementById("hidden22").className = "active";
 	}
 }

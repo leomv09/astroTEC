@@ -3,6 +3,7 @@
 	require( "php/funfacts.php");
 	require( "php/blog.php");
 	require( "php/faqs.php");
+	require( "php/members.php");
 
 function checkSession()
 {
@@ -122,7 +123,7 @@ function checkSession()
 						<li><a href="#ModifyFaq" onclick="show(15, 'Modificar preguntas frecuentes')"><span ></span> Modificar pregunta frecuente </a><hr></li>
 
 						<li><a href="#CreateMember" onclick="show(19, 'Agregar miembro')"><span ></span> Agregar miembro a la organización </a></li>
-						<li><a href="#ModifyFaq" onclick="show(0, 'Modificar miembro')"><span ></span> Modificar miembro de la organización </a><hr></li>
+						<li><a href="#ModifyFaq" onclick="show(20, 'Modificar miembro')"><span ></span> Modificar miembro de la organización </a><hr></li>
 
 						<li><a href="#CreateEquipment" onclick="show(0, 'Agregar equipo')"><span ></span> Agregar nuevo equipo </a></li>
 						<li><a href="#ModifyEquipment" onclick="show(0, 'Modificar equipo')"><span ></span> Modificar equipo </a><hr></li>
@@ -510,6 +511,76 @@ function checkSession()
 				</div>			         
 	          </div>
 	      </div>
+	      <div class="hidden" id="hidden20">
+				<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Miembro </h2>
+				<select class="form-control col-sm-5" id="optionMemberSelect" onchange="changeMemberVisibility()" autocomplete="off">
+					<option value="0" selected disabled> Seleccione una opción... </option>
+					<option value="1"> Modificar </option>
+					<option value="2"> Eliminar </option>
+              	</select>
+	            <div class="hidden" id="hidden21">
+		              <div class="container">
+							<div class="col-md-10">
+							    <div class="form-area"> 
+							    	<form id="frmModifyUpload" method="post" action="" enctype="multipart/form-data">
+					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
+					    				<div class="form-group">
+					    				<label> Seleccione Un miembro:</label>
+								          	<select class="form-control col-sm-2" id="modifyMemberList" onchange="getSelectedMember()"> 
+								          	<option value="-1" selected disabled> Seleccione un miembro... </option>
+									          	<?php
+									          		getMembersOptions(); 
+									          	?>
+								          	</select>
+										</div>
+										<div class="form-group">
+											<label>Nombre:</label>
+											<input class="form-control" type="text" id="modifyMemberName" placeholder="Requerido">
+										</div>
+										<div class="form-group">
+											<label>Apellido 1:</label>
+											<input class="form-control" type="text" id="modifyMemberLastName1" placeholder="Requerido">
+										</div>
+										<div class="form-group">
+											<label>Apellido 2:</label>
+											<input class="form-control" type="text" id="modifyMemberLastName2" placeholder="Opcional">
+										</div>
+										<div class="form-group">
+											<label>Fotografía:</label>
+											<input class="form-control" type="file" id="modifyMemberPhoto" name="userImage" placeholder="Requerido">
+											<input class="form-control" type="hidden" id="memberPhotoId">
+										</div>
+					                    <div class="form-group">
+					                    	<label>Comentario:</label>
+					                    <textarea class="form-control" id="modifyMemberDescription" placeholder="Requerido (Máximo 400 caracteres)" maxlength="400" rows="7"></textarea>                   
+					                    </div>
+							        <button type="button" id="modifyMemberButton" class="btn btn-default" onclick="">Modificar</button>
+							    </form>
+							</div>
+						</div>			         
+		            </div>
+	            </div>
+              <div class="hidden" id="hidden22">
+              	<div class="container">
+					<div class="col-md-10">
+					    <div class="form-area"> 
+		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
+		                    <div class="form-group">
+			              		<label> Seleccione un miembro:</label>
+					          	<select class="form-control col-sm-2" id="deleteMemberList">
+					          	<?php
+					          		getMembersOptions(); 
+					          	?>
+					          	</select>
+					        </div> 	
+				          <button type="button" class="btn btn-default" onclick="deleteMember()">Eliminar</button>
+			            </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+
+
 
     	</div>    
 	</div>

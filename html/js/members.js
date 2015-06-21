@@ -15,7 +15,7 @@ function createMember(photoId)
                 if(xmlhttp.responseText >= 0)
                 {
                     alert("Miembro agregado con éxito!");
-                    //location.reload();
+                    location.reload();
                 }
                 console.log(xmlhttp.responseText);
             }
@@ -36,3 +36,97 @@ function createMember(photoId)
 }
 
 
+function getSelectedMember()
+{
+    var members = document.getElementById("modifyMemberList");
+    var selectedMembers = members.options[members.selectedIndex];
+    var xmlhttp = new XMLHttpRequest();
+    if(selectedMembers.value > 0)
+    {
+        xmlhttp.onreadystatechange = function() 
+        {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+            {
+                if(xmlhttp.responseText != -1)
+                {
+                    var data = xmlhttp.responseText.split(";");
+                    if(data.length == 5)
+                    {
+                        document.getElementById("modifyMemberName").value = data[0];
+                        document.getElementById("modifyMemberLastName1").value = data[1];
+                        document.getElementById("modifyMemberLastName2").value = data[2];
+                        document.getElementById("modifyMemberDescription").value = data[3];
+                        document.getElementById("memberPhotoId").value = data[5];
+                    }
+                    else
+                    {
+                        alert("Error al obtener datos.");
+                    }
+                }
+                console.log(xmlhttp.responseText);
+            }
+        }
+        xmlhttp.open("POST", "php/getMember.php?id="+ selectedMembers.value, true);
+        xmlhttp.send();
+    }     
+}
+
+
+function modifyMember(photoId)
+{
+    var name = document.getElementById("modifyMemberName").value;
+    var lastName1 = document.getElementById("modifyMemberLastName1").value;
+    var lastName2 = document.getElementById("modifyMemberLastName2").value;
+    var description = document.getElementById("modifyMemberDescription").value;
+    var members = document.getElementById("modifyMemberList");
+    var selectedMember = members.options[members.selectedIndex];
+    if(name.length > 0 && lastName1.length > 0 && lastName2.length > 0 && description.length > 0)
+    {
+        var request = "php/modifyMember.php?name=" + name +"&lastName1=" + lastName1 + "&lastName2=" + lastName2 + "&description=" + description+ "&id=" + selectedMember.value;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+            {
+                if(xmlhttp.responseText >= 0)
+                {
+                    if(photoId > 0)
+                    {
+                        deleteImageFromMember();
+                        alert("Datos modificados con éxito!");
+                    }
+                    //location.reload();
+                }
+                console.log(xmlhttp.responseText);
+            }
+        }
+        if(photoId > 0)
+        {
+            request = "php/modifyMember.php?name=" + name +"&lastName1=" + lastName1 + "&lastName2=" + lastName2 + "&description=" + description+ "&id=" + selectedMember.value + "&photoId="+photoId;
+        }
+        xmlhttp.open("POST", request, true);
+        xmlhttp.send();
+    }
+    else
+    {
+        alert("Formato de fecha incorrecto");
+    }
+}
+
+function deleteImageFromMember()
+{
+    var id = document.getElementById("memberPhotoId").value;
+    console.log(id);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText >= 0)
+            {
+                alert("Imagen Eliminada");
+            }
+            console.log(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("POST", "php/deleteImage.php?id=" + id, true);
+    xmlhttp.send();
+}
