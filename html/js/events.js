@@ -158,14 +158,16 @@ function isValidDate(date)
         {
             if(day >= 1 && day <= 31)
             {
-                if(year >= new Date().getFullYear())
+                if(month > 0 && month <= 12)
                 {
-                    return true;
+                    if(year >= new Date().getFullYear())
+                    {
+                        return true;
+                    }
                 }
             }
         }
     }
-
     return false;
 }
 

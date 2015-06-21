@@ -53,7 +53,7 @@ function getFaqsOptions()
 		{
 			while($row = $result->fetch_assoc())
 			{
-				echo "<option value=$row[idDatoCurioso]> $row[faq] </option>";
+				echo "<option value=$row[idFaq]> $row[faq] </option>";
 			}
 		}
 		$result->close();

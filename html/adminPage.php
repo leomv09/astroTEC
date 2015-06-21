@@ -37,7 +37,8 @@ function checkSession()
 	<script type="text/javascript" src="js/admin.js"></script>	
 	<script type="text/javascript" src="js/events.js"></script>
 	<script type="text/javascript" src="js/post.js"></script>		
-	<script type="text/javascript" src="js/funfacts.js"></script>	
+	<script type="text/javascript" src="js/funfacts.js"></script>
+	<script type="text/javascript" src="js/faqs.js"></script>		
 </head>
 
 <body>
@@ -408,16 +409,21 @@ function checkSession()
 							    <div class="form-area"> 
 					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 					    				<div class="form-group">
-					    				<label> Seleccione la publicación:</label>
-								          	<select class="form-control col-sm-2" id="modifyFaqList"> 
+					    				<label> Seleccione la pregunta:</label>
+								          	<select class="form-control col-sm-2" id="modifyFaqList" onchange="getSelectedFaq()"> 
+								          	<option value="-1" selected disabled> Seleccione una pregunta... </option>
 									          	<?php
 									          		getFaqsOptions(); 
 									          	?>
 								          	</select>
 										</div>
+										<div class="form-group">
+											<label>Pregunta:</label>
+											<input class="form-control" type="text" id="modifyFaqTitle" placeholder="Título">
+										</div>
 					                    <div class="form-group">
-					                    	<label>Contenido:</label>
-					                    <textarea class="form-control" id="funFactDescription" placeholder="Descripción" maxlength="800" rows="7"></textarea>                   
+					                    	<label>Respuesta:</label>
+					                    <textarea class="form-control" id="modifyFaqDescription" placeholder="Descripción" maxlength="300" rows="7"></textarea>                   
 					                    </div>
 							        <button type="button" class="btn btn-default" onclick="modFaq()">Modificar</button>
 							    </div>
@@ -430,7 +436,7 @@ function checkSession()
 					    <div class="form-area"> 
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
 		                    <div class="form-group">
-			              		<label> Seleccione la publicación:</label>
+			              		<label> Seleccione la pregunta:</label>
 					          	<select class="form-control col-sm-2" id="deleteFaqList">
 					          	<?php
 					          		getFaqsOptions(); 
@@ -449,12 +455,12 @@ function checkSession()
 				    <div class="form-area"> 
 		                    <h2 style="margin-bottom: 25px; text-align: center;">Crear FAQ</h2>
 		                    <div class="form-group">
-								<label>Título:</label>
-								<input class="form-control" type="text" id="newFaqTitle" placeholder="Título">
+								<label>Pregunta:</label>
+								<input class="form-control" type="text" id="createFaqTitle" placeholder="Título">
 							</div>
 		                    <div class="form-group">
-		                    	<label>Contenido:</label>
-		                    <textarea class="form-control" id="newFaqDescription" placeholder="Descripción" rows="7"></textarea>                   
+		                    	<label>Respuesta:</label>
+		                    <textarea class="form-control" id="createFaqDescription" placeholder="Descripción" maxlength="300" rows="7"></textarea>                   
 		                    </div>
 				        <button type="button" class="btn btn-default" onclick="createFaq()">Crear</button>
 				    </div>
