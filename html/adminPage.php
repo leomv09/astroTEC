@@ -58,7 +58,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown ">
-						<a href="./php/logout.php" role="button" aria-expanded="false">Logout</a>
+						<a href="./php/logout.php" role="button" aria-expanded="false">Log Out</a>
 					</li>
 				</ul>
 			</div>
@@ -659,7 +659,7 @@
 	<script type="text/javascript">
 	(function() {
 		var hash = window.location.hash.substring(1);
-		
+
 		switch (hash) {
 			case "Modify":
 				show(0, 'Modificar portada');
