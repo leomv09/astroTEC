@@ -7,7 +7,10 @@
 		global $conn;
 
 		if ($id) {
-			$sql = "SELECT correo, nombre FROM Usuarios WHERE idUsuario=$id";
+			$sql = "SELECT U.correo, U.nombre, TU.tipo
+							FROM Usuarios AS U
+							INNER JOIN TipoUsuario AS TU ON U.fk_idTipoUsuario = TU.idTipoUsuario
+							WHERE idUsuario = $id";
 			$result = $conn->query($sql);
 			
 			if ($result) {
@@ -17,6 +20,7 @@
 					$_SESSION['USER_ID'] = $id;
 					$_SESSION['USER_EMAIL'] = $user['correo'];
 					$_SESSION['USER_NAME'] = $user['nombre'];
+					$_SESSION['USER_TYPE'] = $user['tipo'];
 					$result->close();
 					session_write_close();
 				}

@@ -1,26 +1,16 @@
-<?php require( "php/functions.php");?>
-<?php require( "php/events.php"); 
+<?php
+	require( "php/functions.php");
+	require( "php/events.php"); 
 	require( "php/funfacts.php");
 	require( "php/blog.php");
 	require( "php/faqs.php");
 	require( "php/members.php");
 	require( "php/equipment.php");
 
-function checkSession()
-{
-	if(isset($_SESSION['USER_NAME']))
-	{
+	function checkSession() {
 		redirect_if_not_admin("index.php");
-		echo " <script type='text/javascript'>
-				showAdminName('$_SESSION[USER_NAME]');
-				</script>
-			";
+		echo "<script type='text/javascript'>showAdminName('$_SESSION[USER_NAME]');</script>";
 	}
-	else
-	{
-		redirect_if_not_admin("index.php");
-	}
-}
 ?>
 
 <!DOCTYPE html>
@@ -50,46 +40,23 @@ function checkSession()
 <body>
  	<nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
-			MENU
-			</button>
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a id="adminName" class="navbar-brand" href="#">
-				Administrator
-			</a>
-		</div>
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
+				MENU
+				</button>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a id="adminName" class="navbar-brand" href="index.php">AstroTEC</a>
+			</div>
 
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
-			<form class="navbar-form navbar-left" method="GET" role="search">
-				<div class="form-group">
-					<input type="text" name="q" class="form-control" placeholder="Search">
-				</div>
-				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-			</form>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown ">
-				<?php
-					if (!isset($_SESSION['USER_ID'])) 
-					{
-						?>
-							<a href="./login.php" role="button" aria-expanded="false">
-								Login</a>
-						<?php	
-							}
-							else
-							{
-						?>
-							<a href="./php/logout.php" role="button" aria-expanded="false">
-								Logout</a>
-						<?php
-							}
-						?>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown ">
+						<a href="./php/logout.php" role="button" aria-expanded="false">Logout</a>
 					</li>
 				</ul>
 			</div>
@@ -105,30 +72,28 @@ function checkSession()
 				<!-- Main Menu -->
 				<div class="side-menu-container">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-
-						<li><a href="#Modify" onclick="show(0, 'Modificar portada')"> Modificar portada </a><hr></li>
+						<li><a href="#Modify" onclick="show(0, 'Modificar portada')"> Modificar portada </a></li>
 
 						<li><a href="#CreateEvents" onclick="show(4, 'Crear evento')"><span ></span> Crear eventos </a></li>
-						<li><a href="#ModifyEvents" onclick="show(1, 'Modificar eventos')"><span> </span> Modificar eventos </a><hr></li>
+						<li><a href="#ModifyEvents" onclick="show(1, 'Modificar eventos')"><span> </span> Modificar eventos </a></li>
 
 						<li><a href="#CreateGallery" onclick="show(9, 'Crear galería')"><span ></span> Crear galería </a></li>
-						<li><a href="#ModifyGallery" onclick="show(10, 'Modificar galerías')"><span ></span> Modificar galería </a><hr></li>
+						<li><a href="#ModifyGallery" onclick="show(10, 'Modificar galerías')"><span ></span> Modificar galería </a></li>
 
 						<li><a href="#CreatePost" onclick="show(14, 'Crear blog')"><span ></span> Crear publicación </a></li>
-						<li><a href="#ModifyPost" onclick="show(11, 'Modificar blogs')"><span ></span> Modificar publicación </a><hr></li>
+						<li><a href="#ModifyPost" onclick="show(11, 'Modificar blogs')"><span ></span> Modificar publicación </a></li>
 
 						<li><a href="#CreateFunFact" onclick="show(8, 'Crear dato curioso')"><span ></span> Crear dato curioso</a></li>
-						<li><a href="#ModifyFunFact" onclick="show(5, 'Modificar datos curiosos')"><span ></span> Modificar datos curiosos</a><hr></li>
+						<li><a href="#ModifyFunFact" onclick="show(5, 'Modificar datos curiosos')"><span ></span> Modificar datos curiosos</a></li>
 
 						<li><a href="#CreateFaq" onclick="show(18, 'Crear pregunta frecuente')"><span ></span> Crear pregunta frecuente </a></li>
-						<li><a href="#ModifyFaq" onclick="show(15, 'Modificar preguntas frecuentes')"><span ></span> Modificar pregunta frecuente </a><hr></li>
+						<li><a href="#ModifyFaq" onclick="show(15, 'Modificar preguntas frecuentes')"><span ></span> Modificar pregunta frecuente </a></li>
 
 						<li><a href="#CreateMember" onclick="show(19, 'Agregar miembro')"><span ></span> Agregar miembro a la organización </a></li>
-						<li><a href="#ModifyFaq" onclick="show(20, 'Modificar miembro')"><span ></span> Modificar miembro de la organización </a><hr></li>
+						<li><a href="#ModifyFaq" onclick="show(20, 'Modificar miembro')"><span ></span> Modificar miembro de la organización </a></li>
 
 						<li><a href="#CreateEquipment" onclick="show(23, 'Agregar equipo')"><span ></span> Agregar nuevo equipo </a></li>
-						<li><a href="#ModifyEquipment" onclick="show(24, 'Modificar equipo')"><span ></span> Modificar equipo </a><hr></li>
+						<li><a href="#ModifyEquipment" onclick="show(24, 'Modificar equipo')"><span ></span> Modificar equipo </a></li>
 					</ul>
 				</div>
 			</nav>
@@ -138,7 +103,6 @@ function checkSession()
  <div class="col-md-10 content">
   	<div class="panel panel-default">
 		<div class="panel-heading" id="panelheading">
-			Panel
 		</div>
 	<div class="hidden" id="hidden1">
 			<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Evento </h2>
