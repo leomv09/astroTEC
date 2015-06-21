@@ -19,8 +19,9 @@ $tmp = $_FILES['userImage']['tmp_name'];
 
 if(is_uploaded_file($tmp))
 {
-	$newPath = 'img/members/'.$timestamp.$_FILES['userImage']['name'];
-    if(!move_uploaded_file($tmp, '../img/members/'.$timestamp.$_FILES['userImage']['name'])) 
+    $trim = preg_replace('/\s+/', '', $_FILES['userImage']['name']);
+	$newPath = 'img/members/'.$timestamp.$trim;
+    if(!move_uploaded_file($tmp, '../img/members/'.$timestamp.$trim)) 
     {
     	echo 'error !';
     }
