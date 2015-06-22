@@ -47,6 +47,8 @@ function getGalleries()
 							<a href='viewgallery.php?galeria=$row[idGaleria]' class='text-center'>
 								<img src='$urlPreview' class='media-object img-thumbnail' width='320' height='180' alt='A album'>
 							</a>
+							<h4>$row[titulo]</h4>
+							$row[descripcion]
 						</div>
 					</div>
 				</div>";
