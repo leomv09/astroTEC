@@ -10,7 +10,8 @@
    		if($result->num_rows > 0)
    		{
    			$row = $result->fetch_assoc();
-   			echo $row["titulo"].";".$row["contenido"];
+        $content = str_replace(";", " ", $row["contenido"]);
+   			echo $row["titulo"].";".$content;
    		}
    		else
    		{
@@ -24,3 +25,5 @@
    }
 
 ?>
+
+

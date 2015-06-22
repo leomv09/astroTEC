@@ -71,3 +71,8 @@ h2, h3, h4
 thead {
 	font-size: 1.5em;
 }
+
+.footer
+{
+  margin-top: 2%;
+}

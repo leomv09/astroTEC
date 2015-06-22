@@ -53,10 +53,8 @@
 		</div>
 	</div>
 
+	<?php include("./php/footer.php"); ?>
 
-	<script type="text/javascript" src="js/vendor/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>

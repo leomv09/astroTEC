@@ -13,7 +13,10 @@ if($result)
 	if($result->num_rows > 0)
 	{
 		$row = $result->fetch_assoc();
-		echo $row["nombre"].";".$row["detalle1"].";".$row["detalle2"].";".$row["fk_idFoto"];
+		$name = str_replace(";", " ", $row["nombre"]);
+		$detail1 = str_replace(";", " ", $row["detalle1"]);
+		$detail2 = str_replace(";", " ", $row["detalle2"]);
+		echo $name.";".$detail1.";".$detail2.";".$row["fk_idFoto"];
 	}
 	else
 	{

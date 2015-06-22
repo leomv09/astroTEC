@@ -13,7 +13,9 @@ if($result)
 	if($result->num_rows > 0)
 	{
 		$row = $result->fetch_assoc();
-		echo $row["titulo"].";".$row["descripcion"].";".$row["fecha"];
+		$title  = str_replace(";", " ", $row["titulo"]);
+		$description  = str_replace(";", " ", $row["descripcion"]);
+		echo $title.";".$description.";".$row["fecha"];
 	}
 	else
 	{

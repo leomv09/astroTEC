@@ -79,7 +79,6 @@ function getSelectedPost()
     var posts =  document.getElementById("modifyPostList");
 	var selectedPost = posts.options[posts.selectedIndex];
     var xmlhttp = new XMLHttpRequest();
-    console.log("id: "+selectedPost.value);
     xmlhttp.onreadystatechange = function() 
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
@@ -94,7 +93,7 @@ function getSelectedPost()
                 }
                 else
                 {
-                    alert("Error al obtener datos.");
+                    alert("Error al obtener datos." + data.length);
                 }
             }
             console.log(xmlhttp.responseText);
@@ -122,4 +121,32 @@ function deletePost()
     }
     xmlhttp.open("POST", "php/deletePost.php?id=" + selectedPost.value, true);
     xmlhttp.send();
+}
+
+function createPost()
+{
+	var title = document.getElementById("newPostTitle").value;
+	var description = document.getElementById("newPostDescription").value;
+
+
+	title=title.trim();
+	description=description.trim();
+
+	if(title.length > 0 && description.length > 0)
+	{
+		var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+            {
+            	if(xmlhttp.responseText >= 0)
+            	{
+            		alert("Datos modificados con éxito!");
+            		location.reload();
+				}
+				console.log(xmlhttp.responseText);
+            }
+        }
+        xmlhttp.open("POST", "php/createPost.php?title=" + title +"&description="+description, true);
+        xmlhttp.send();
+	}
 }

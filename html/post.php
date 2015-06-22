@@ -16,6 +16,10 @@
 		if ($result->num_rows > 0) {
 			$post = $result->fetch_assoc();
 		}
+		else
+		{
+			header("location: blog.php");
+		}
 		
 		$sql = "SELECT C.contenido, C.fecha, CONCAT(U.nombre, ' ', IFNULL(U.apellido1, '')) AS autor
 						FROM Comentarios AS C
@@ -110,10 +114,7 @@
 			?>
 		</div>
 	</div>
-
-	<script type="text/javascript" src="js/vendor/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<?php include("./php/footer.php"); ?>
 	<script type="text/javascript" src="js/post.js"></script>
 </body>
 

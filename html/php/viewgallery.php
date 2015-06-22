@@ -52,7 +52,7 @@ function getPictures()
 		}
 		else
 		{
-
+			header("location: gallery.php");
 		}
 	}
 }
