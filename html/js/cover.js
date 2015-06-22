@@ -7,6 +7,9 @@ function modifyCover()
     var facts =  document.getElementById("modifyCoverFactsList");
     var selectedFact = facts.options[facts.selectedIndex];
 
+    desc1=desc1.trim();
+    desc2=desc2.trim();
+
     if(desc1.length > 0 && desc1.length > 0 && selectedFact.value > 0)
     {
         var xmlhttp = new XMLHttpRequest();
