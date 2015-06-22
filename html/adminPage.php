@@ -424,9 +424,14 @@
 						          	<?php
 						          		loadGalleries(); 
 						          	?>
-					          	</select>
+					          	</select><br><br>
+					          	<label> Imagen:</label>
+					          	<select class="form-control col-sm-2" id="deleteGalleryImageImagesList" onchange="updateGalleryImagePreview()" autocomplete="off">
+					          	<option value="-1" selected disabled>Seleccione una imagen...</option>
+					          	</select> <br> <br>
+					          	<img width="320" height="180" src="//:0" id="deleteGalleryImagePreview">
 					        </div> 	
-				          <button type="button" class="btn btn-default" onclick="deleteGallery()">Eliminar</button>
+				          <button type="button" class="btn btn-default" onclick="deleteGalleryImage()">Eliminar</button>
 			            </div>
 				    </div>
 				</div>

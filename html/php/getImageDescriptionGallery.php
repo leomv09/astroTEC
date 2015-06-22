@@ -14,11 +14,17 @@ WHERE FG.fk_idGaleria = $id;";
 
 $result = $conn->query($sql);
 
+$number = 0;
+
 if($result)
 {
 	if($result->num_rows > 0)
 	{
 		while($row = $result->fetch_assoc()){
+			if ($number >= 1){
+				echo '%%%%%';
+			}
+			$number = 1;
 			echo $row["idFoto"].";".$row["url"].";".$row["titulo"].";".$row["descripcion"];
 		}
 		

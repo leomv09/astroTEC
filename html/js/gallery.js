@@ -137,11 +137,73 @@ function getSelectedGalleryImagesForDelete()
             if(xmlhttp.responseText != -1)
             {
                 var data = xmlhttp.responseText;
-                console.log(data);
+                var currentSelect =  document.getElementById("deleteGalleryImageImagesList");
+                makeEmptySelect(currentSelect);
+
+                var defaultOpt = document.createElement("option");
+                   defaultOpt.value= -1;
+                   defaultOpt.innerHTML = "Seleccione una imagen...";
+                   defaultOpt.setAttribute("selected","selected");
+                   defaultOpt.setAttribute("disabled","disabled");
+
+                   currentSelect.appendChild(defaultOpt);
+
+                var images = data.split("%%%%%");
+                for (var i = 0; i < images.length; i++){
+                    var image = images[i];
+                    var elements = image.split(";");
+                    var idImage = elements[0];
+                    var urlImage = elements[1];
+                    
+                   var opt = document.createElement("option");
+                   opt.value= idImage;
+                   opt.innerHTML = urlImage;
+                   currentSelect.appendChild(opt);
+
+
+                }
+
             }
-            console.log(xmlhttp.responseText);
         }
     }
     xmlhttp.open("POST", "php/getImageDescriptionGallery.php?id="+ selectedGallery.value, true);
     xmlhttp.send();
+}
+
+function deleteGalleryImage() {
+    var images =  document.getElementById("deleteGalleryImageImagesList");
+    var selected = images.options[images.selectedIndex];
+
+    var galleries =  document.getElementById("deleteGalleryImageList");
+    var selected2 = galleries.options[galleries.selectedIndex];
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText >= 0)
+            {
+                alert("Galería eliminada con éxito!");
+                location.reload();
+            }
+            console.log(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("POST", "php/deleteImageFromGallery.php?idFoto=" + selected.value + "&idGaleria=" + selected2.value, true);
+    console.log(selected.value + " " + selected2.value);
+    xmlhttp.send();
+}
+
+function updateGalleryImagePreview(){
+    console.log("Here I am");
+    var images =  document.getElementById("deleteGalleryImageImagesList");
+    var selected = images.options[images.selectedIndex];
+    var preview =  document.getElementById("deleteGalleryImagePreview");
+    preview.setAttribute("src",selected.innerHTML);
+}
+
+function makeEmptySelect(dropdown){
+    while(dropdown.options.length > 0){                
+        dropdown.remove(0);
+    }
 }
