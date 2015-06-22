@@ -180,36 +180,43 @@ $(function() {
         {
             document.getElementById("modifyGalleryButton").className = "btn btn-default m-progress";
             var galleries =  document.getElementById("modifyGalleryList");
-            var selectedGallery = galleries.options[galleries.selectedIndex]; 
-            e.preventDefault();
-            data = new FormData($('#frmUpdateGalleryUpload')[0]);
-            console.log('Submitting');
-            $.ajax({
-                type: 'POST',
-                url: 'php/uploadToExistentGallery.php?id='+selectedGallery.value,
-                data: data,
-                cache: false,
-                contentType: false,
-                processData: false
-            }).done(function(data) 
+            var selectedGallery = galleries.options[galleries.selectedIndex];
+            if(selectedGallery.value > 0)
+            { 
+                e.preventDefault();
+                data = new FormData($('#frmUpdateGalleryUpload')[0]);
+                console.log('Submitting');
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/uploadToExistentGallery.php?id='+selectedGallery.value,
+                    data: data,
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                }).done(function(data) 
+                {
+                    var res = data.indexOf(";");
+                    if(res > 0 || !isNaN(data) )
+                    {
+                        console.log('Submitted');
+                        console.log(data);
+                        modGallery();
+                    }
+                    else
+                    {
+                        console.log("NaN");
+                        console.log(data);
+                    }
+                }).fail(function(jqXHR,status, errorThrown) {
+                    console.log(errorThrown);
+                    console.log(jqXHR.responseText);
+                    console.log(jqXHR.status);
+                });
+            }
+            else
             {
-                var res = data.indexOf(";");
-                if(res > 0 || !isNaN(data) )
-                {
-                    console.log('Submitted');
-                    console.log(data);
-                    modGallery();
-                }
-                else
-                {
-                    console.log("NaN");
-                    console.log(data);
-                }
-            }).fail(function(jqXHR,status, errorThrown) {
-                console.log(errorThrown);
-                console.log(jqXHR.responseText);
-                console.log(jqXHR.status);
-            });
+                modGallery();
+            }
         }
         else
         {
