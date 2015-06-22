@@ -336,6 +336,8 @@
 					<option value="0" selected disabled> Seleccione una opción... </option>
 					<option value="1"> Modificar </option>
 					<option value="2"> Eliminar </option>
+					<option value="3"> Modificar Imagen </option>
+					<option value="4"> Eliminar Imagen </option>
               	</select>
 	            <div class="hidden" id="hidden27">
 		              <div class="container">
