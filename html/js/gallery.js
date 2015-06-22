@@ -115,7 +115,7 @@ function addMoreImages()
 	divContent.appendChild(input);
 }
 
-function addMoreImages()
+function addMoreModifyImages()
 {
 	var divContent = document.getElementById("moreImages2");
 	var input = document.createElement("INPUT");
