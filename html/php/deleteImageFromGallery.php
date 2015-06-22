@@ -4,7 +4,7 @@
 	$idFoto = $_REQUEST["idFoto"];
 
 	$sql = "DELETE FROM FotosXGaleria WHERE fk_idGaleria = $idGaleria AND fk_idFoto = $idFoto";
-	$conn->query($sql);
+	$result = $conn->query($sql);
 
 	if ($result) {
 		echo 1;
