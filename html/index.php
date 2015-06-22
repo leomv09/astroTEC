@@ -1,5 +1,6 @@
 <?php
 	require( "php/functions.php"); 
+	require( "php/cover.php");
 	check_login(); 
 ?>
 <!DOCTYPE html>
@@ -29,11 +30,7 @@
 					<div class="panel-heading">
 						<h1 class="panel-title">Dato Curioso</h1>
 					</div>
-					<div class="panel-body">
-						<p>
-							<?php require( "./php/index-add.php"); ?>
-						</p>
-					</div>
+						<?php loadFact(); ?>
 					<div class="panel-footer rigth-alig">
 						<a href="./funfacts.php">Ver más datos</a>
 					</div>
@@ -44,11 +41,7 @@
 					<div class="panel-heading">
 						<h1 class="panel-title">Equipo Astronómico</h1>
 					</div>
-					<div class="panel-body">
-						<p>
-							Contamos con una gran variedad de equipos para la observación de distintos cuerpos celestes
-						</p>
-					</div>
+						<?php loadEquipment(); ?>						
 					<div class="panel-footer rigth-alig">
 						<a href="equipment.php">Ver equipo</a>
 					</div>
@@ -59,11 +52,7 @@
 					<div class="panel-heading">
 						<h1 class="panel-title">Grupo astroTEC</h1>
 					</div>
-					<div class="panel-body">
-						<p>
-							AstroTEC es un grupo formado por estudiantes y coordinado por el profesor Juan José Pineda Lizano que se dedica a promover el conocimiento en Astronomía tanto entre sus miembros como dentro de la comunidad del TEC como a nivel nacional.
-						</p>
-					</div>
+						<?php loadMembers(); ?>
 					<div class="panel-footer rigth-alig">
 						<a href="./aboutUs.php">Ver más</a>
 					</div>

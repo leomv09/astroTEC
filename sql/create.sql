@@ -430,6 +430,24 @@ CREATE TABLE IF NOT EXISTS `astroDB`.`Equipo` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `astroDB`.`Portadas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `astroDB`.`Portadas` (
+  `idPortada` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATETIME NOT NULL,
+  `descripcionEquipo` VARCHAR(300) NULL DEFAULT NULL,
+  `descripcionMiembros` VARCHAR(300) NULL DEFAULT NULL,
+  `fk_idDatoCurioso` INT NOT NULL,
+  PRIMARY KEY (`idPortada`),
+  INDEX `fk_Portadas_DatosCuriosos1_idx` (`fk_idDatoCurioso` ASC),
+  CONSTRAINT `fk_Portadas_DatosCuriosos1`
+    FOREIGN KEY (`fk_idDatoCurioso`)
+    REFERENCES `astroDB`.`DatosCuriosos` (`idDatoCurioso`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

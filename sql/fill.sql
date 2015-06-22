@@ -112,3 +112,8 @@ INSERT INTO Colaboradores(idColaborador, nombre, apellido1, apellido2, comentari
 INSERT INTO Equipo (nombre, detalle1, detalle2, fk_idFoto) VALUES
 ('Telescopio RM-297FK', 'Marca: Ad Astra Rocket', 'Precio: $1500000', 7),
 ('Brujula 76Bn', 'Marca: Brujulas USA', 'Precio: $170', 8);
+
+INSERT INTO Portadas(idPortada, fecha, descripcionEquipo, descripcionMiembros, fk_idDatoCurioso) VALUES
+(1, NOW(), 'Contamos con una gran variedad de equipos para la observación de distintos cuerpos celestes',  
+	'AstroTEC es un grupo formado por estudiantes y coordinado por el profesor Juan José Pineda Lizano que se dedica a promover el conocimiento en Astronomía tanto entre sus miembros como dentro de la comunidad del TEC como a nivel nacional', 
+1);

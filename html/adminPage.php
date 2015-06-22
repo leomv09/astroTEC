@@ -7,6 +7,7 @@
 	require( "php/members.php");
 	require( "php/equipment.php");
 	require( "php/gallery.php");
+	require( "php/cover.php");
 
 	function checkSession() {
 		redirect_if_not_admin("index.php");
@@ -38,6 +39,10 @@
 	<script type="text/javascript" src="js/members.js"></script>
 	<script type="text/javascript" src="js/equipment.js"></script>
 	<script type="text/javascript" src="js/gallery.js"></script>
+	<script type="text/javascript" src="js/cover.js"></script>
+	<?php
+  		checkSession();
+  	?>
 </head>
 
 <body>
@@ -75,7 +80,7 @@
 				<!-- Main Menu -->
 				<div class="side-menu-container">
 					<ul class="nav navbar-nav">
-						<li><a href="#Modify" onclick="show(0, 'Modificar portada')"> Modificar portada </a></li>
+						<li><a href="#Modify" onclick="show(29, 'Modificar portada')"> Modificar portada </a></li>
 
 						<li><a href="#CreateEvents" onclick="show(4, 'Crear evento')"><span ></span> Crear eventos </a></li>
 						<li><a href="#ModifyEvents" onclick="show(1, 'Modificar eventos')"><span> </span> Modificar eventos </a></li>
@@ -107,6 +112,31 @@
   	<div class="panel panel-default">
 		<div class="panel-heading" id="panelheading">
 		</div>
+
+	<div class="hidden" id="hidden29">
+      	<div class="container">
+			<div class="col-md-10">
+			    <div class="form-area">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
+					<?php
+		          		loadCover();
+		          	?> 
+					<div class="form-group">
+						<label>Dato curioso:</label>
+	    				<select class="form-control col-sm-2" id="modifyCoverFactsList" autocomplete="off">
+	    					<option value="-1" selected disabled>Seleccione un dato curioso...</option>
+				          	<?php
+				          		getFactsOptions();
+				          	?>
+				        </select>
+					</div>
+			        <button type="button" class="btn btn-default" onclick="modifyCover()">Modificar</button>
+			    </div>
+			</div>			         
+      	</div>
+  	</div>
+
+
 	<div class="hidden" id="hidden1">
 			<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Evento </h2>
 			<select class="form-control col-sm-5" id="optionSelect" onchange="changeVisibility()" autocomplete="off">
@@ -750,6 +780,9 @@
 				break;
 			case "ModifyEquipment":
 				show(24, 'Modificar equipo')
+				break;
+			case "Modify":
+				show(29, 'Modificar portada')
 				break;
 		}
 	})();

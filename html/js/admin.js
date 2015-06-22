@@ -31,6 +31,7 @@ function hide()
 	document.getElementById('hidden20').className = "hidden";
 	document.getElementById('hidden23').className = "hidden";
 	document.getElementById('hidden24').className = "hidden";
+	document.getElementById('hidden29').className = "hidden";
 }
 
 function showAdminName(name)
@@ -176,3 +177,4 @@ function changeGalleryVisibility()
 		document.getElementById("hidden28").className = "active";
 	}
 }
+
