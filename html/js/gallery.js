@@ -266,3 +266,30 @@ function makeEmptySelect(dropdown){
         dropdown.remove(0);
     }
 }
+
+function modifyGalleryImage()
+{
+    var title = document.getElementById("modifyGalleryImageTitle").value;
+    var description = document.getElementById("modifyGalleryImageDescription").value;
+    var images =  document.getElementById("modifyGalleryImageImagesList");
+    var selectedImage = images.options[images.selectedIndex];
+
+    title=title.trim();
+    description=description.trim();
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText >= 0)
+            {
+                alert("Datos modificados con éxito!");
+                location.reload();
+            }
+            console.log(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("POST", "php/modifyGalleryImage.php?title=" + title +"&description=" + description+"&id=" + selectedImage.value, true);
+    xmlhttp.send();
+    
+}
