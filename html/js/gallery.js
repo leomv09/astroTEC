@@ -124,3 +124,24 @@ function addMoreModifyImages()
 	input.setAttribute("name", "imgs[]");
 	divContent.appendChild(input);
 }
+
+function getSelectedGalleryImagesForDelete()
+{
+    var galleries =  document.getElementById("deleteGalleryImageList");
+    var selectedGallery = galleries.options[galleries.selectedIndex];
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText != -1)
+            {
+                var data = xmlhttp.responseText;
+                console.log(data);
+            }
+            console.log(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("POST", "php/getImageDescriptionGallery.php?id="+ selectedGallery.value, true);
+    xmlhttp.send();
+}

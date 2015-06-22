@@ -400,14 +400,14 @@
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar Foto</h3>
 		                    <div class="form-group">
 			              		<label> Galería:</label>
-					          	<select class="form-control col-sm-2" id="deleteGalleryList" autocomplete="off">
+					          	<select class="form-control col-sm-2" id="modifyGalleryImageList" onchange="getSelectedGalleryImagesForDelete()" autocomplete="off">
 					          	<option value="-1" selected disabled>Seleccione una galería...</option>
 						          	<?php
 						          		loadGalleries(); 
 						          	?>
 					          	</select>
 					        </div> 	
-				          <button type="button" class="btn btn-default" onclick="deleteGallery()">Eliminar</button>
+				          <button type="button" class="btn btn-default" onclick="deleteGalleryImage()">Eliminar</button>
 			            </div>
 				    </div>
 				</div>
@@ -419,7 +419,7 @@
 		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar Foto</h3>
 		                    <div class="form-group">
 			              		<label> Galería:</label>
-					          	<select class="form-control col-sm-2" id="deleteGalleryList" autocomplete="off">
+					          	<select class="form-control col-sm-2" id="deleteGalleryImageList"  onchange="getSelectedGalleryImagesForDelete()" autocomplete="off">
 					          	<option value="-1" selected disabled>Seleccione una galería...</option>
 						          	<?php
 						          		loadGalleries(); 

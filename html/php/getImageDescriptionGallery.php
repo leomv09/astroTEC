@@ -18,13 +18,16 @@ if($result)
 {
 	if($result->num_rows > 0)
 	{
-		$row = $result->fetch_assoc();
-		echo $row["idFoto"].";".$row["url"].";".$row["titulo"].";".$row["descripcion"];
+		while($row = $result->fetch_assoc()){
+			echo $row["idFoto"].";".$row["url"].";".$row["titulo"].";".$row["descripcion"];
+		}
+		
 	}
 	else
 	{
 		echo -1;
 	}
+	$result->close();
 }
 else
 {
