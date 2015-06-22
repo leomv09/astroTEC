@@ -229,7 +229,7 @@ function deleteGalleryImage() {
         {
             if(xmlhttp.responseText >= 0)
             {
-                alert("Galería eliminada con éxito!");
+                alert("Imagen eliminada con éxito!");
                 location.reload();
             }
             console.log(xmlhttp.responseText);
