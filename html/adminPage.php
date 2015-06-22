@@ -340,7 +340,8 @@
 	            <div class="hidden" id="hidden27">
 		              <div class="container">
 							<div class="col-md-10">
-							    <div class="form-area"> 
+							    <div class="form-area">
+							    	<form action="" method="post" enctype="multipart/form-data">  
 					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 					    				<div class="form-group">
 					    				<label> Publicación:</label>
@@ -366,7 +367,8 @@
 									 		</div>
 									 	<button type="button" onclick="addMoreModifyImages()">+</button>
 								 		</div>
-							        <button type="button" class="btn btn-default" onclick="modGallery()">Modificar</button>
+							        	<button type="button" class="btn btn-default" onclick="">Modificar</button>
+							        </form>
 							    </div>
 							</div>			         
 		              </div>
