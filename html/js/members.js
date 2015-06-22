@@ -105,8 +105,8 @@ function modifyMember(photoId)
                     if(photoId > 0)
                     {
                         deleteImageFromMember();
-                        alert("Datos modificados con éxito!");
                     }
+                    alert("Datos modificados con éxito!");
                     location.reload();
                 }
                 console.log(xmlhttp.responseText);
