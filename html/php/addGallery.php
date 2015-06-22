@@ -20,7 +20,7 @@
 		$cant = count($photosArray);
 		for($i = 0; $i < $cant; $i++)
 		{
-			$sql2 = "INSERT INTO fotosxgaleria(fk_idGaleria, fk_idFoto) VALUES ($galleryId, $photosArray[$i])";
+			$sql2 = "INSERT INTO FotosxGaleria(fk_idGaleria, fk_idFoto) VALUES ($galleryId, $photosArray[$i])";
 			$result2 = $conn->query($sql2);
 			if(!$result2)
 			{
