@@ -397,17 +397,22 @@
               	<div class="container">
 					<div class="col-md-10">
 					    <div class="form-area"> 
-		                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar Foto</h3>
+		                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar Imagen</h3>
 		                    <div class="form-group">
 			              		<label> Galería:</label>
-					          	<select class="form-control col-sm-2" id="modifyGalleryImageList" onchange="getSelectedGalleryImagesForDelete()" autocomplete="off">
+					          	<select class="form-control col-sm-2" id="modifyGalleryImageList"  onchange="getSelectedGalleryImagesForModification()" autocomplete="off">
 					          	<option value="-1" selected disabled>Seleccione una galería...</option>
 						          	<?php
 						          		loadGalleries(); 
 						          	?>
-					          	</select>
+					          	</select><br><br>
+					          	<label> Imagen:</label>
+					          	<select class="form-control col-sm-2" id="modifyGalleryImageImagesList" onchange="updateGalleryImageModificationPreview()" autocomplete="off">
+					          	<option value="-1" selected disabled>Seleccione una imagen...</option>
+					          	</select> <br> <br>
+					          	<img width="320" height="180" src="//:0" id="modifyGalleryImagePreview">
 					        </div> 	
-				          <button type="button" class="btn btn-default" onclick="deleteGalleryImage()">Eliminar</button>
+				          <button type="button" class="btn btn-default" onclick="modifyGalleryImage()">Guardar cambios</button>
 			            </div>
 				    </div>
 				</div>
@@ -416,7 +421,7 @@
               	<div class="container">
 					<div class="col-md-10">
 					    <div class="form-area"> 
-		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar Foto</h3>
+		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar Imagen</h3>
 		                    <div class="form-group">
 			              		<label> Galería:</label>
 					          	<select class="form-control col-sm-2" id="deleteGalleryImageList"  onchange="getSelectedGalleryImagesForDelete()" autocomplete="off">
@@ -426,7 +431,7 @@
 						          	?>
 					          	</select><br><br>
 					          	<label> Imagen:</label>
-					          	<select class="form-control col-sm-2" id="deleteGalleryImageImagesList" onchange="updateGalleryImagePreview()" autocomplete="off">
+					          	<select class="form-control col-sm-2" id="deleteGalleryImageImagesList" onchange="updateGalleryImageDeletePreview()" autocomplete="off">
 					          	<option value="-1" selected disabled>Seleccione una imagen...</option>
 					          	</select> <br> <br>
 					          	<img width="320" height="180" src="//:0" id="deleteGalleryImagePreview">

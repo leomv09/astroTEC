@@ -170,6 +170,52 @@ function getSelectedGalleryImagesForDelete()
     xmlhttp.send();
 }
 
+function getSelectedGalleryImagesForModification()
+{
+    var galleries =  document.getElementById("modifyGalleryImageList");
+    var selectedGallery = galleries.options[galleries.selectedIndex];
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText != -1)
+            {
+                var data = xmlhttp.responseText;
+                var currentSelect =  document.getElementById("modifyGalleryImageImagesList");
+                makeEmptySelect(currentSelect);
+
+                var defaultOpt = document.createElement("option");
+                   defaultOpt.value= -1;
+                   defaultOpt.innerHTML = "Seleccione una imagen...";
+                   defaultOpt.setAttribute("selected","selected");
+                   defaultOpt.setAttribute("disabled","disabled");
+
+                   currentSelect.appendChild(defaultOpt);
+
+                var images = data.split("%%%%%");
+                for (var i = 0; i < images.length; i++){
+                    var image = images[i];
+                    var elements = image.split(";");
+                    var idImage = elements[0];
+                    var urlImage = elements[1];
+                    
+                   var opt = document.createElement("option");
+                   opt.value= idImage;
+                   opt.innerHTML = urlImage;
+                   //opt.setAttribute("data-")
+                   currentSelect.appendChild(opt);
+
+
+                }
+
+            }
+        }
+    }
+    xmlhttp.open("POST", "php/getImageDescriptionGallery.php?id="+ selectedGallery.value, true);
+    xmlhttp.send();
+}
+
 function deleteGalleryImage() {
     var images =  document.getElementById("deleteGalleryImageImagesList");
     var selected = images.options[images.selectedIndex];
@@ -194,11 +240,17 @@ function deleteGalleryImage() {
     xmlhttp.send();
 }
 
-function updateGalleryImagePreview(){
-    console.log("Here I am");
+function updateGalleryImageDeletePreview(){
     var images =  document.getElementById("deleteGalleryImageImagesList");
     var selected = images.options[images.selectedIndex];
     var preview =  document.getElementById("deleteGalleryImagePreview");
+    preview.setAttribute("src",selected.innerHTML);
+}
+
+function updateGalleryImageModificationPreview(){
+    var images =  document.getElementById("modifyGalleryImageImagesList");
+    var selected = images.options[images.selectedIndex];
+    var preview =  document.getElementById("modifyGalleryImagePreview");
     preview.setAttribute("src",selected.innerHTML);
 }
 
