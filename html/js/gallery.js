@@ -114,3 +114,13 @@ function addMoreImages()
 	input.setAttribute("name", "imgs[]");
 	divContent.appendChild(input);
 }
+
+function addMoreImages()
+{
+	var divContent = document.getElementById("moreImages2");
+	var input = document.createElement("INPUT");
+	input.setAttribute("type", "file");
+	input.setAttribute("id", "imageInput" + imageCount + 1);
+	input.setAttribute("name", "imgs[]");
+	divContent.appendChild(input);
+}

@@ -317,7 +317,7 @@
 		                    	<textarea class="form-control" id="galleryDescription" placeholder="Descripción (Máximo 200 caracteres)" maxlength="200" rows="7"></textarea>                   
 		                    </div>
 		                    <div class="form-group">
-			                    <label id="images"> Cargar Archivo </label>
+			                    <label id="images"> Cargar Imágenes </label>
 							 	<div id="moreImages">
 							 		<input id="imageInput1" type="file" name="imgs[]">
 							 	</div>
@@ -359,6 +359,13 @@
 					                    	<label>Descripción:</label>
 					                    <textarea class="form-control" id="modifyGalleryDescription" placeholder="Descripción" rows="7"></textarea>                   
 					                    </div>
+					                    <div class="form-group">
+					                    	<label id="images"> Cargar Imágenes </label>
+									 		<div id="moreImages2">
+									 			<input id="imageInput2" type="file" name="imgs[]">
+									 		</div>
+									 	<button type="button" onclick="addMoreModifyImages()">+</button>
+								 		</div>
 							        <button type="button" class="btn btn-default" onclick="modGallery()">Modificar</button>
 							    </div>
 							</div>			         
