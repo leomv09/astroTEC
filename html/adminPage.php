@@ -11,7 +11,6 @@
 
 	function checkSession() {
 		redirect_if_not_admin("index.php");
-		echo "<script type='text/javascript'>showAdminName('$_SESSION[USER_NAME]');</script>";
 	}
 ?>
 
