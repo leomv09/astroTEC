@@ -199,11 +199,14 @@ function getSelectedGalleryImagesForModification()
                     var elements = image.split(";");
                     var idImage = elements[0];
                     var urlImage = elements[1];
+                    var title = elements[2];
+                    var content = elements[3];
                     
                    var opt = document.createElement("option");
                    opt.value= idImage;
                    opt.innerHTML = urlImage;
-                   //opt.setAttribute("data-")
+                   opt.setAttribute("data-title",title);
+                   opt.setAttribute("data-content",content)
                    currentSelect.appendChild(opt);
 
 
@@ -252,6 +255,10 @@ function updateGalleryImageModificationPreview(){
     var selected = images.options[images.selectedIndex];
     var preview =  document.getElementById("modifyGalleryImagePreview");
     preview.setAttribute("src",selected.innerHTML);
+    var title = selected.getAttribute("data-title");
+    var content = selected.getAttribute("data-content");
+    document.getElementById('modifyGalleryImageTitle').value = title;
+    document.getElementById('modifyGalleryImageDescription').value = content;
 }
 
 function makeEmptySelect(dropdown){

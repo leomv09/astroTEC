@@ -411,6 +411,14 @@
 					          	<option value="-1" selected disabled>Seleccione una imagen...</option>
 					          	</select> <br> <br>
 					          	<img width="320" height="180" src="//:0" id="modifyGalleryImagePreview">
+					          	<div class="form-group">
+								<label>Título:</label>
+								<input class="form-control" type="text" id="modifyGalleryImageTitle" placeholder="Título">
+								</div>
+			                    <div class="form-group">
+			                    <label>Descripción:</label>
+			                    <textarea class="form-control" id="modifyGalleryImageDescription" placeholder="Descripción" rows="7"></textarea>                   
+			                    </div>
 					        </div> 	
 				          <button type="button" class="btn btn-default" onclick="modifyGalleryImage()">Guardar cambios</button>
 			            </div>
