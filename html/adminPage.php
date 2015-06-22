@@ -97,7 +97,7 @@
 						<li><a href="#ModifyFaq" onclick="show(15, 'Modificar preguntas frecuentes')"><span ></span> Modificar pregunta frecuente </a></li>
 
 						<li><a href="#CreateMember" onclick="show(19, 'Agregar miembro')"><span ></span> Agregar miembro a la organización </a></li>
-						<li><a href="#ModifyFaq" onclick="show(20, 'Modificar miembro')"><span ></span> Modificar miembro de la organización </a></li>
+						<li><a href="#ModifyMember" onclick="show(20, 'Modificar miembro')"><span ></span> Modificar miembro de la organización </a></li>
 
 						<li><a href="#CreateEquipment" onclick="show(23, 'Agregar equipo')"><span ></span> Agregar nuevo equipo </a></li>
 						<li><a href="#ModifyEquipment" onclick="show(24, 'Modificar equipo')"><span ></span> Modificar equipo </a></li>
