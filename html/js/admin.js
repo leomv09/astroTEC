@@ -157,3 +157,22 @@ function changeEquipmentVisibility()
 		document.getElementById("hidden26").className = "active";
 	}
 }
+
+function changeGalleryVisibility()
+{
+	var select = document.getElementById("optionGallerySelect");
+
+	var selected = select.options[select.selectedIndex];
+
+
+	if(selected.value == 1)
+	{
+		document.getElementById("hidden27").className = "active";
+		document.getElementById("hidden28").className = "hidden";
+	}
+	else
+	{
+		document.getElementById("hidden27").className = "hidden";
+		document.getElementById("hidden28").className = "active";
+	}
+}

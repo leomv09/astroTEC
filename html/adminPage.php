@@ -26,6 +26,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/buttonAnimation.css">
 	<script type="text/javascript" src="js/vendor/jquery-2.1.4.min.js"></script>	
 	<link rel="stylesheet" type="text/css" href="css/admin.css">
 	<script type="text/javascript" src="js/admin.js"></script>	
@@ -275,6 +276,7 @@
 	        <div class="container">
 				<div class="col-md-10">
 				    <div class="form-area"> 
+				    	<form method="post" id="frmCreateGalleryUpload" enctype="multipart/form-data">
 		                    <h2 style="margin-bottom: 25px; text-align: center;">Crear Galería</h2>
 		                    <div class="form-group">
 								<label>Título:</label>
@@ -282,33 +284,76 @@
 							</div>
 		                    <div class="form-group">
 		                    	<label>Descripción:</label>
-		                    <textarea class="form-control" id="galleryDescription" placeholder="Descripción (Máximo 200 caracteres)" maxlength="200" rows="7"></textarea>                   
+		                    	<textarea class="form-control" id="galleryDescription" placeholder="Descripción (Máximo 200 caracteres)" maxlength="200" rows="7"></textarea>                   
 		                    </div>
-				        <button type="button" class="btn btn-default" onclick="createGallery()">Crear</button>
+		                    <div class="form-group">
+			                    <label id="images"> Cargar Archivo </label>
+							 	<div id="moreImages">
+							 		<input id="imageInput1" type="file" name="imgs[]">
+							 	</div>
+							 	<button type="button" onclick="addMoreImages()">+</button>
+						 	</div>
+						 	<button type="button" id="createGalleryButton" class="btn btn-default" onclick="">Crear</button>
+				        </form>
 				    </div>
 				</div>			         
 	          </div>
 	      </div>
 
 	      <div class="hidden" id="hidden10">
+				<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Galería </h2>
+				<select class="form-control col-sm-5" id="optionGallerySelect" onchange="changeGalleryVisibility()" autocomplete="off">
+					<option value="0" selected disabled> Seleccione una opción... </option>
+					<option value="1"> Modificar </option>
+					<option value="2"> Eliminar </option>
+              	</select>
+	            <div class="hidden" id="hidden27">
+		              <div class="container">
+							<div class="col-md-10">
+							    <div class="form-area"> 
+					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
+					    				<div class="form-group">
+					    				<label> Publicación:</label>
+								          	<select class="form-control col-sm-2" id="modifyGalleryList" onchange="getSelectedGallery()" autocomplete = "off"> 
+								          	<option value="-1" selected disabled>Seleccione una galería...</option>
+								          	<?php
+								          		loadGalleries(); 
+								          	?>
+								          	</select>
+										</div>
+										<div class="form-group">
+											<label>Título:</label>
+											<input class="form-control" type="text" id="modifyGalleryTitle" placeholder="Título">
+										</div>
+					                    <div class="form-group">
+					                    	<label>Descripción:</label>
+					                    <textarea class="form-control" id="modifyGalleryDescription" placeholder="Descripción" rows="7"></textarea>                   
+					                    </div>
+							        <button type="button" class="btn btn-default" onclick="modGallery()">Modificar</button>
+							    </div>
+							</div>			         
+		              </div>
+	            </div>
+              <div class="hidden" id="hidden28">
               	<div class="container">
 					<div class="col-md-10">
 					    <div class="form-area"> 
-		                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar Galería</h3>
+		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar</h3>
 		                    <div class="form-group">
-			              		<label> Galería:</label>
-					          	<select class="form-control col-sm-2" id="modifyGalleryList" autocomplete="off">
+			              		<label> Publicación:</label>
+					          	<select class="form-control col-sm-2" id="deleteGalleryList" autocomplete="off">
 					          	<option value="-1" selected disabled>Seleccione una galería...</option>
-					          	<?php
-					          		loadGalleries();
-					          	?>
+						          	<?php
+						          		loadGalleries(); 
+						          	?>
 					          	</select>
 					        </div> 	
-				          <button style="margin-top:2%;" type="button" class="btn btn-default" onclick="deleteGallery()">Eliminar</button>
+				          <button type="button" class="btn btn-default" onclick="deleteGallery()">Eliminar</button>
 			            </div>
 				    </div>
 				</div>
 			</div>
+		</div>
 			
 			<div class="hidden" id="hidden11">
 				<h2 style="margin-bottom: 25px; text-align: center;"> Modificar Blog </h2>
