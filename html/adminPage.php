@@ -8,6 +8,7 @@
 	require( "php/equipment.php");
 	require( "php/gallery.php");
 	require( "php/cover.php");
+	require( "php/messages.php");
 
 	function checkSession() {
 		redirect_if_not_admin("index.php");
@@ -39,6 +40,7 @@
 	<script type="text/javascript" src="js/equipment.js"></script>
 	<script type="text/javascript" src="js/gallery.js"></script>
 	<script type="text/javascript" src="js/cover.js"></script>
+	<script type="text/javascript" src="js/messages.js"></script>
 	<?php
   		checkSession();
   	?>
@@ -101,6 +103,8 @@
 
 						<li><a href="#CreateEquipment" onclick="show(23, 'Agregar equipo')"><span ></span> Agregar nuevo equipo </a></li>
 						<li><a href="#ModifyEquipment" onclick="show(24, 'Modificar equipo')"><span ></span> Modificar equipo </a></li>
+
+						<li><a href="#Messages" onclick="show(41, 'Ver mensajes')"><span ></span> Ver mensajes </a></li>
 					</ul>
 				</div>
 			</nav>
@@ -345,7 +349,7 @@
 							    	<form id="frmUpdateGalleryUpload" action="" method="post" enctype="multipart/form-data">  
 					                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar</h3>
 					    				<div class="form-group">
-					    				<label> Publicación:</label>
+					    				<label> Galería:</label>
 								          	<select class="form-control col-sm-2" id="modifyGalleryList" onchange="getSelectedGallery()" autocomplete = "off"> 
 								          	<option value="-1" selected disabled>Seleccione una galería...</option>
 								          	<?php
@@ -795,6 +799,38 @@
 			</div>
 		</div>
 
+	<div class="hidden" id="hidden41">
+      	<div class="container">
+			<div class="col-md-10">
+			    <div class="form-area">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Mensajes</h3>
+					<div class="form-group">
+						<label>Mensaje:</label>
+	    				<select class="form-control col-sm-2" id="messagesList" onchange="getSelectedMessage()" autocomplete="off">
+	    					<option value="-1" selected disabled>Seleccione un mensaje...</option>
+				          	<?php
+				          		loadMessages();
+				          	?>
+				        </select>
+					</div>
+					<div class="form-group">
+						<label>Autor:</label>
+							<input class="form-control" type="text" id="authorLabel" readonly>
+					</div>
+					<div class="form-group">
+						<label>Correo:</label>
+						<input class="form-control" type="text" id="emaiLabel" readonly>
+					</div>
+					<div class="form-group">
+						<label>Contenido:</label>
+					    <textarea class="form-control" id="messageContent" rows="7" readonly></textarea>                   
+					</div>
+			        <button type="button" class="btn btn-default" onclick="deleteMessage()">Eliminar</button>
+			    </div>
+			</div>			         
+      	</div>
+  	</div>
+
     	</div>    
 	</div>
 	<script type="text/javascript">
@@ -849,6 +885,9 @@
 				break;
 			case "Modify":
 				show(29, 'Modificar portada')
+				break;
+			case "Messages":
+				show(41, 'Ver mensajes')
 				break;
 		}
 	})();

@@ -8,7 +8,7 @@ function getFunFacts()
 	global $facts, $conn;
 	$sql = "SELECT titulo, contenido 
 	        FROM DatosCuriosos
-					ORDER BY RAND() LIMIT 3";
+					ORDER BY RAND()";
 
 	$result = $conn->query($sql);
 

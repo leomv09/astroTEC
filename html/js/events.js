@@ -71,20 +71,21 @@ function getSelectedEvent()
                     var bits = data[2].split(/\D/);
                     var date = new Date(bits[0], --bits[1], bits[2], bits[3], bits[4]);
 
-                    var day =  (date.getDay() + 1 ).toString();
+                    //var day =  (date.getDay() + 1 ).toString();
+                    var day = bits[2].toString();
                     if (day.length == 1){
                         day = '0' + day;
                     }
-                    var month = (date.getMonth() + 1).toString();
+                    var month = (bits[1] +1 ).toString();
                     if (month.length == 1){
                         month = '0' + month;
                     }
-                    var year = date.getFullYear().toString();
-                    var hours = date.getHours().toString();
+                    var year = bits[0].toString();
+                    var hours = bits[3].toString();
                     if (hours.length == 1){
                         hours = '0' + hours;
                     }
-                    var minutes = date.getMinutes().toString();
+                    var minutes = bits[4].toString();
                     if (minutes.length == 1){
                         minutes = '0' + minutes;
                     }
@@ -186,7 +187,9 @@ function getFormattedDateObject(date){
     if (dateElements[0].length == 1){
         dateElements[0]='0'+dateElements[0];
     }
-    return new Date(dateElements[2]+"-"+dateElements[1]+"-"+dateElements[0]);
+    var today = new Date();
+    console.log(dateElements[2]+"-"+dateElements[1]+"-"+dateElements[0]);
+    return new Date(dateElements[2],dateElements[1] -1,dateElements[0],23,59,59);
 }
 
 function isValidDate(date)
@@ -201,8 +204,11 @@ function isValidDate(date)
             return false;
         }
         else {
-            var today = (new Date());
+            var today = new Date();
             today.setHours(0,0,0,0);
+            console.log(current);
+            console.log(today);
+            console.log(current >= today);
             return current >= today;
         }
     }
