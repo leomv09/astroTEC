@@ -393,6 +393,44 @@
 				    </div>
 				</div>
 			</div>
+			<div class="hidden" id="hidden30">
+              	<div class="container">
+					<div class="col-md-10">
+					    <div class="form-area"> 
+		                    <h3 style="margin-bottom: 25px; text-align: center;">Modificar Foto</h3>
+		                    <div class="form-group">
+			              		<label> Galería:</label>
+					          	<select class="form-control col-sm-2" id="deleteGalleryList" autocomplete="off">
+					          	<option value="-1" selected disabled>Seleccione una galería...</option>
+						          	<?php
+						          		loadGalleries(); 
+						          	?>
+					          	</select>
+					        </div> 	
+				          <button type="button" class="btn btn-default" onclick="deleteGallery()">Eliminar</button>
+			            </div>
+				    </div>
+				</div>
+			</div>
+			<div class="hidden" id="hidden31">
+              	<div class="container">
+					<div class="col-md-10">
+					    <div class="form-area"> 
+		                    <h3 style="margin-bottom: 25px; text-align: center;">Eliminar Foto</h3>
+		                    <div class="form-group">
+			              		<label> Galería:</label>
+					          	<select class="form-control col-sm-2" id="deleteGalleryList" autocomplete="off">
+					          	<option value="-1" selected disabled>Seleccione una galería...</option>
+						          	<?php
+						          		loadGalleries(); 
+						          	?>
+					          	</select>
+					        </div> 	
+				          <button type="button" class="btn btn-default" onclick="deleteGallery()">Eliminar</button>
+			            </div>
+				    </div>
+				</div>
+			</div>
 		</div>
 			
 			<div class="hidden" id="hidden11">

@@ -170,29 +170,29 @@ function changeGalleryVisibility()
 	{
 		document.getElementById("hidden27").className = "active";
 		document.getElementById("hidden28").className = "hidden";
-		//document.getElementById("hidden30").className = "hidden";
-		//document.getElementById("hidden31").className = "hidden";
+		document.getElementById("hidden30").className = "hidden";
+		document.getElementById("hidden31").className = "hidden";
 	}
 	else if (selected.value == 2)
 	{
 		document.getElementById("hidden27").className = "hidden";
 		document.getElementById("hidden28").className = "active";
-		//document.getElementById("hidden30").className = "hidden";
-		//document.getElementById("hidden31").className = "hidden";
+		document.getElementById("hidden30").className = "hidden";
+		document.getElementById("hidden31").className = "hidden";
 	}
 	else if (selected.value == 3)
 	{
 		document.getElementById("hidden27").className = "hidden";
 		document.getElementById("hidden28").className = "hidden";
-		//document.getElementById("hidden30").className = "active";
-		//document.getElementById("hidden31").className = "hidden";
+		document.getElementById("hidden30").className = "active";
+		document.getElementById("hidden31").className = "hidden";
 	} 
 	else
 	{
 		document.getElementById("hidden27").className = "hidden";
 		document.getElementById("hidden28").className = "hidden";
-		//document.getElementById("hidden30").className = "hidden";
-		//document.getElementById("hidden31").className = "active";
+		document.getElementById("hidden30").className = "hidden";
+		document.getElementById("hidden31").className = "active";
 	}
 }
 
