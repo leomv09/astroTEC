@@ -7,11 +7,13 @@
 		global $conn;
 
 		if ($id) {
-			$sql = "SELECT U.correo, U.nombre, TU.tipo
+			$sql = $conn->prepare("SELECT U.correo, U.nombre, TU.tipo
 							FROM Usuarios AS U
 							INNER JOIN TipoUsuario AS TU ON U.fk_idTipoUsuario = TU.idTipoUsuario
-							WHERE idUsuario = $id";
-			$result = $conn->query($sql);
+							WHERE idUsuario = ?");
+			$sql->bind_param("i",$id);
+			$sql->execute();
+			$result = $sql->get_result();
 			
 			if ($result) {
 				if ($result->num_rows > 0) {

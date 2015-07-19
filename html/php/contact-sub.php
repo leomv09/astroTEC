@@ -12,8 +12,14 @@
 	$title = $_POST['ititle'];
 	$message = $_POST['itext'];
 
+	$name = htmlspecialchars($name);
+
 	if (!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $email_address))
 		$error = 'Debe ingresar un email valido';
+
+	$email_address = htmlspecialchars($email_address);
+	$title = htmlspecialchars($title);
+	$message = htmlspecialchars($message);
 	
 	/*
 	

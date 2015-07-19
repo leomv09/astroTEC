@@ -15,10 +15,12 @@
 	$title = $_REQUEST['title'];
 	$content = $_REQUEST['fact'];
 
+	$title = htmlspecialchars($title);
+	$content = htmlspecialchars($content);
 
-
-	$sql = "INSERT INTO datoscuriosos (contenido, titulo, fecha) VALUES ('$content', '$title', localtimestamp())";
-	$result = $conn->query($sql);
+	$sql = $conn->prepare("INSERT INTO datoscuriosos (contenido, titulo, fecha) VALUES (?, ?, localtimestamp())");
+	$sql->bind_param("ss",$content,$title);
+	$result = $sql->execute();
 
 	if($result)
 	{

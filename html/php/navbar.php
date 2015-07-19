@@ -15,6 +15,8 @@
 				</li>
 				<li><a href="./gallery.php">Galería</a>
 				</li>
+				<li><a href="./equipment.php">Equipo</a>
+				</li>
 				<li><a href="./funfacts.php">Datos Curiosos</a>
 				</li>
 				<li><a href="./blog.php">Blog</a>

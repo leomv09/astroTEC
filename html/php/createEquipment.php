@@ -7,9 +7,9 @@ $detail2 = $_REQUEST["detail2"];
 $idFoto = $_REQUEST["idfoto"];						 
 
 				
-$sql = "INSERT INTO equipo (nombre, detalle1, detalle2, fk_idFoto) VALUES ('$Name', '$detail1', '$detail2', $idFoto )";
-$result = $conn->query($sql);
-if($result)
+$sql = $conn->prepare("INSERT INTO equipo (nombre, detalle1, detalle2, fk_idFoto) VALUES (?, ?, ?, ?)");
+$sql->bind_param("sssi",$Name, $detail1, $detail2, $idFoto);
+if($sql->execute())
 {
 	echo $conn->insert_id;
 }

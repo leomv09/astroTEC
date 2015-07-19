@@ -155,9 +155,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `astroDB`.`ArchivosAdjunto` (
   `idArchivo` INT NOT NULL AUTO_INCREMENT,
-  `url` VARCHAR(200) NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  `descripcion` VARCHAR(45) NULL DEFAULT NULL,
+  `url` VARCHAR(2000) NOT NULL,
+  `nombre` VARCHAR(500) NOT NULL,
+  `descripcion` VARCHAR(300) NULL DEFAULT NULL,
   `fk_idTipoArchivo` INT NOT NULL,
   `fk_idEstado` INT NOT NULL,
   PRIMARY KEY (`idArchivo`),
