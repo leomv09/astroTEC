@@ -4,11 +4,10 @@ require_once('db.php');
 global $conn;
 $id = $_REQUEST["id"];
 
-$sql = "DELETE FROM equipo WHERE idEquipo = $id";
+$sql = $conn->prepare("DELETE FROM equipo WHERE idEquipo = ?");
+$sql->bind_param("i",$id);
 
-$result = $conn->query($sql);
-
-if($result)
+if($sql->execute())
 {
 	echo 1;
 }

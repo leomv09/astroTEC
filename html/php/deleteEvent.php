@@ -4,11 +4,10 @@ require_once('db.php');
 global $conn;
 $id = $_REQUEST["id"];
 
-$sql = "UPDATE Eventos SET fk_idEstado = 3 WHERE idEvento = $id";
+$sql = $conn->prepare("UPDATE Eventos SET fk_idEstado = 3 WHERE idEvento = ?");
+$sql->bind_param("i",$id);
 
-$result = $conn->query($sql);
-
-if($result)
+if($sql->execute())
 {
 	echo 1;
 }

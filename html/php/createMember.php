@@ -12,12 +12,16 @@ if(isset($_REQUEST["lastName2"]))
 	$lastName2 = $_REQUEST["lastName2"];
 }
 
+$name = htmlspecialchars($name);
+$lastName1 = htmlspecialchars($lastName1);
+$description = htmlspecialchars($description);
+$lastName2 = htmlspecialchars($lastName2);
 
-$sql = "INSERT INTO Colaboradores(nombre, apellido1, apellido2, comentario, fk_idFoto) VALUES ('$name', '$lastName1', '$lastName2', '$description', $photoId)";
 
-$result = $conn->query($sql);
+$sql = $conn->prepare("INSERT INTO Colaboradores(nombre, apellido1, apellido2, comentario, fk_idFoto) VALUES (?, ?, ?, ?, ?)");
+$sql->bind_param("ssssi",$name,$lastName1,$lastName2,$description,$photoId);
 
-if($result)
+if($sql->execute())
 {
 	echo $conn->insert_id;
 }

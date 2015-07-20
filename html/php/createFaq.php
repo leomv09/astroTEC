@@ -5,13 +5,13 @@ global $conn;
 $title = $_REQUEST["title"];
 $answer = $_REQUEST["description"];
   
+$title = htmlspecialchars($title);
+$answer = htmlspecialchars($answer);
 
+$sql = $conn->prepare("INSERT INTO faqs(faq, respuesta) VALUES (?, ?)");
+$sql->bind_param("ss",$title,$answer);
 
-$sql = "INSERT INTO faqs(faq, respuesta) VALUES ('$title', '$answer')";
-
-$result = $conn->query($sql);
-
-if($result)
+if($sql->execute())
 {
 	echo $conn->insert_id;
 }
